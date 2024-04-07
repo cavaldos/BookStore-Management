@@ -128,7 +128,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="7f" green="7f" red="7f" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="T&#xe0;i kho&#x1ea3;n admin"/>
+            <Property name="text" type="java.lang.String" value="Employees account"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="spTable">
@@ -146,15 +146,21 @@
             <Component class="com.raven.swing.Table" name="table">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="0">
-                    <Column editable="false" title="M&#xe3; NV" type="java.lang.Object"/>
-                    <Column editable="false" title="T&#xea;n nh&#xe2;n vi&#xea;n" type="java.lang.Object"/>
+                  <Table columnCount="5" rowCount="0">
+                    <Column editable="false" title="ID" type="java.lang.Object"/>
+                    <Column editable="false" title="Name" type="java.lang.Object"/>
                     <Column editable="false" title="Email" type="java.lang.Object"/>
-                    <Column editable="false" title="Ng&#xe0;y v&#xe0;o l&#xe0;m" type="java.lang.Object"/>
+                    <Column editable="false" title="Date" type="java.lang.Object"/>
+                    <Column editable="true" title="Action" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -200,7 +206,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="T&#xe0;i kho&#x1ea3;n qu&#x1ea3;n tr&#x1ecb; vi&#xea;n"/>
+        <Property name="text" type="java.lang.String" value="List accout admin"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -208,7 +214,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="T&#xe0;i kho&#x1ea3;n nh&#xe2;n vi&#xea;n"/>
+        <Property name="text" type="java.lang.String" value="List accout employees"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -216,12 +222,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="T&#xe0;i kho&#x1ea3;n kh&#xe1;ch h&#xe0;ng"/>
+        <Property name="text" type="java.lang.String" value="List accout client"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
+        <Property name="text" type="java.lang.String" value="Add"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>

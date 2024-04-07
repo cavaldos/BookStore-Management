@@ -22,10 +22,59 @@ import java.awt.event.MouseEvent;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.DefaultTableModel;
+import com.raven.component.TableActionCellRender;
+import com.raven.component.TableActionCellEditor;
+import com.raven.component.TableActionEvent;
+import com.raven.swing.DialogEdit;
 public class Form_accountAdmin extends javax.swing.JPanel {
 
     public Form_accountAdmin() {
         initComponents();
+         TableActionEvent event = new TableActionEvent() {
+            @Override
+            public void onEdit(int row) { TableModel model = table.getModel();
+    
+    // Lấy dữ liệu từ hàng được chọn với kiểm tra null
+    String id = model.getValueAt(row, 0) != null ? model.getValueAt(row, 0).toString() : "";
+    String userName = model.getValueAt(row, 1) != null ? model.getValueAt(row, 1).toString() : "";
+    String password = model.getValueAt(row, 2) != null ? model.getValueAt(row, 2).toString() : "";
+    String status = model.getValueAt(row, 3) != null ? model.getValueAt(row, 3).toString() : "";
+    String role = model.getValueAt(row, 4) != null ? model.getValueAt(row, 4).toString() : "";
+    String firstName = model.getValueAt(row, 5) != null ? model.getValueAt(row, 5).toString() : "";
+    String lastName = model.getValueAt(row, 6) != null ? model.getValueAt(row, 6).toString() : "";
+
+    // Khởi tạo và hiển thị EditDialog
+    DialogEdit editDialog = new DialogEdit(); // Sửa 'null' thành tham chiếu JFrame nếu cần
+    editDialog.setInitialData(id, userName, password, status, role, firstName, lastName);
+    editDialog.setVisible(true);
+
+    editDialog.getSaveButton().addActionListener(e -> {
+        // Cập nhật dữ liệu vào bảng sử dụng các phương thức getter
+        table.getModel().setValueAt(editDialog.getUserNameFieldText(), row, 1);
+        table.getModel().setValueAt(editDialog.getPasswordFieldText(), row, 2);
+        table.getModel().setValueAt(editDialog.getStatusFieldText(), row, 3);
+        table.getModel().setValueAt(editDialog.getRoleFieldText(), row, 4);
+        table.getModel().setValueAt(editDialog.getFirstNameFieldText(), row, 5);
+        table.getModel().setValueAt(editDialog.getLastNameFieldText(), row, 6);
+
+        // Đóng dialog
+        editDialog.dispose();
+    });
+            }
+
+            @Override
+            public void onDelete(int row) {
+                if (table.isEditing()) {
+                    table.getCellEditor().stopCellEditing();
+                }
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                model.removeRow(row);
+            }
+
+            
+        };
+       table.getColumnModel().getColumn(7).setCellRenderer(new TableActionCellRender());
+       table.getColumnModel().getColumn(7).setCellEditor(new TableActionCellEditor(event));
        
          spTable.setVerticalScrollBar(new ScrollBar());
         spTable.getVerticalScrollBar().setBackground(Color.WHITE);
@@ -73,7 +122,7 @@ public class Form_accountAdmin extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(127, 127, 127));
-        jLabel1.setText("Tài khoản admin");
+        jLabel1.setText("Admin account");
 
         spTable.setBorder(null);
 
@@ -82,11 +131,11 @@ public class Form_accountAdmin extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Mã QTV", "Tên quản trị viên", "Email", "Ngày vào làm", "Action"
+                "ID", "UserName", "Password", "Status", "Role", "Firstname", "Lastname", "Action"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -135,14 +184,14 @@ public class Form_accountAdmin extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        jButton2.setText("Tài khoản quản trị viên");
+        jButton2.setText("List account admin");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Tài khoản nhân viên");
+        jButton1.setText("List account employees");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -151,7 +200,7 @@ public class Form_accountAdmin extends javax.swing.JPanel {
 
         jButton3.setText("Tài khoản khách hàng");
 
-        jButton4.setText("Thêm");
+        jButton4.setText("Add");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);

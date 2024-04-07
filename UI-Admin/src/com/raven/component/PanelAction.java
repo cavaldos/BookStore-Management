@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.raven.component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -10,11 +12,24 @@ package com.raven.component;
  */
 public class PanelAction extends javax.swing.JPanel {
 
-    /**
-     * Creates new form PanelAction
-     */
     public PanelAction() {
         initComponents();
+    }
+
+    public void initEvent(TableActionEvent event, int row) {
+        cmdEdit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                event.onEdit(row);
+            }
+        });
+        cmdDelete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                event.onDelete(row);
+            }
+        });
+      
     }
 
     /**
@@ -26,19 +41,39 @@ public class PanelAction extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cmdEdit = new com.raven.component.ActionButton();
+        cmdDelete = new com.raven.component.ActionButton();
+
+        cmdEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/edit.png"))); // NOI18N
+
+        cmdDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/delete.png"))); // NOI18N
+        cmdDelete.setActionCommand("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cmdEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmdDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmdDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cmdEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.raven.component.ActionButton cmdDelete;
+    private com.raven.component.ActionButton cmdEdit;
     // End of variables declaration//GEN-END:variables
 }

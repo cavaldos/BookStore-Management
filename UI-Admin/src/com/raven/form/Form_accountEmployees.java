@@ -8,12 +8,19 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.table.DefaultTableModel;
+import com.raven.component.TableActionCellRender;
+import com.raven.component.TableActionCellEditor;
+import com.raven.component.TableActionEvent;
 public class Form_accountEmployees extends javax.swing.JPanel {
 
     public Form_accountEmployees() {
         initComponents();
         
         //  add row table
+        
+     
+       table.getColumnModel().getColumn(4).setCellRenderer(new TableActionCellRender());
        
     }
 
@@ -39,7 +46,7 @@ public class Form_accountEmployees extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(127, 127, 127));
-        jLabel1.setText("Tài khoản admin");
+        jLabel1.setText("Employees account");
 
         spTable.setBorder(null);
 
@@ -48,11 +55,11 @@ public class Form_accountEmployees extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Mã NV", "Tên nhân viên", "Email", "Ngày vào làm"
+                "ID", "Name", "Email", "Date", "Action"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -101,23 +108,23 @@ public class Form_accountEmployees extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        jButton2.setText("Tài khoản quản trị viên");
+        jButton2.setText("List accout admin");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Tài khoản nhân viên");
+        jButton1.setText("List accout employees");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Tài khoản khách hàng");
+        jButton3.setText("List accout client");
 
-        jButton4.setText("Thêm");
+        jButton4.setText("Add");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
