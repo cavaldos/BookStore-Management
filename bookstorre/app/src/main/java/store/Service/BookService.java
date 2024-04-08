@@ -47,4 +47,10 @@ public class BookService {
     public List<Author> getAllAuthors() throws SQLException {
         return authorDAO.getAllAuthors();
     }
+
+    // delete author
+    public void deleteAuthor(int authorID) throws SQLException {
+        authorDAO.deleteAuthor(authorID);
+    }
 }
+

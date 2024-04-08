@@ -3,6 +3,9 @@ package store.view;
 
 import store.view.employee.book.TableBook;
 import store.view.employee.author.TableAuthor;
+import store.view.employee.category.TableCategory;
+import store.view.employee.publisher.TablePublisher;
+
 
 /**
  *
@@ -11,6 +14,8 @@ import store.view.employee.author.TableAuthor;
 public class MainUI<ActionEvent> extends javax.swing.JFrame {
     private TableBook tableBookPanel; // Biến cho TableBook
     private TableAuthor tableAuthorPanel; // Biến cho TableAuthor
+    private TableCategory tableCategoryPanel; // Biến cho TableCategory
+    private TablePublisher tablePublisherPanel; // Biến cho TablePublisher
 
     /**
      * Creates new form MainUI
@@ -24,12 +29,28 @@ public class MainUI<ActionEvent> extends javax.swing.JFrame {
         // tableBookPanel.setVisible(true);
         
         
+        // initComponents();
+        // this.setLocationRelativeTo(null);
+        // tableAuthorPanel = new TableAuthor();
+        // this.add(tableAuthorPanel);
+        // tableAuthorPanel.setBounds(0, 0, 1100, 600);
+        // tableAuthorPanel.setVisible(true);
+
+
         initComponents();
-        this.setLocationRelativeTo(null);
-        tableAuthorPanel = new TableAuthor();
-        this.add(tableAuthorPanel);
-        tableAuthorPanel.setBounds(0, 0, 1100, 600);
-        tableAuthorPanel.setVisible(true);
+        tableCategoryPanel = new TableCategory();
+        this.add(tableCategoryPanel);
+        tableCategoryPanel.setBounds(50, 50, 1100, 600);
+        tableCategoryPanel.setVisible(false);
+        tablePublisherPanel = new TablePublisher();
+
+        // initComponents();
+        // this.setLocationRelativeTo(null);
+        // tablePublisherPanel = new TablePublisher();
+        // this.add(tablePublisherPanel);
+        // tablePublisherPanel.setBounds(50, 50, 1100, 600);
+        // tablePublisherPanel.setVisible(true);
+
 
     }
 

@@ -43,39 +43,6 @@ public class AuthorDAO {
         return rowUpdated;
     }
 
-    // disable author
-    public boolean disableAuthor(String authorID) throws SQLException {
-        boolean rowUpdated;
-        try (Connection connection = new DatabaseUtils().connect();
-                PreparedStatement statement = connection.prepareStatement(UPDATE_AUTHOR_SQL)) {
-            statement.setBoolean(2, false);
-            statement.setString(3, authorID);
-
-            rowUpdated = statement.executeUpdate() > 0;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            rowUpdated = false;
-        }
-        return rowUpdated;
-    }
-
-    // enable author
-
-    public boolean enableAuthor(String authorID) throws SQLException {
-        boolean rowUpdated;
-        try (Connection connection = new DatabaseUtils().connect();
-                PreparedStatement statement = connection.prepareStatement(UPDATE_AUTHOR_SQL)) {
-            statement.setBoolean(2, true);
-            statement.setString(3, authorID);
-
-            rowUpdated = statement.executeUpdate() > 0;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            rowUpdated = false;
-        }
-        return rowUpdated;
-    }
-
     // get author by id
     public Author selectAuthor(int authorID) throws SQLException {
         Author author = null;
