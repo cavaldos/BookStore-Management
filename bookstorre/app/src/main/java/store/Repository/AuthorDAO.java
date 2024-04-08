@@ -109,8 +109,8 @@ public class AuthorDAO {
     
     }
 
-    // select all authors
-    public List<Author> selectAllAuthors() throws SQLException {
+    // get all authors
+    public List<Author> getAllAuthors() throws SQLException {
         List<Author> authors = new ArrayList<>();
         try (Connection connection = new DatabaseUtils().connect();
                 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_AUTHORS)) {

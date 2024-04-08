@@ -1,8 +1,8 @@
 
 package store.view;
 
-import javax.swing.*;
-import store.view.employee.*;
+import store.view.employee.book.TableBook;
+import store.view.employee.author.TableAuthor;
 
 /**
  *
@@ -10,18 +10,27 @@ import store.view.employee.*;
  */
 public class MainUI<ActionEvent> extends javax.swing.JFrame {
     private TableBook tableBookPanel; // Biến cho TableBook
+    private TableAuthor tableAuthorPanel; // Biến cho TableAuthor
 
     /**
      * Creates new form MainUI
      */
     public MainUI() {
+        // initComponents();
+        // this.setLocationRelativeTo(null);
+        // tableBookPanel = new TableBook();
+        // this.add(tableBookPanel);
+        // tableBookPanel.setBounds(50, 50, 1100, 600);
+        // tableBookPanel.setVisible(true);
+        
+        
         initComponents();
         this.setLocationRelativeTo(null);
+        tableAuthorPanel = new TableAuthor();
+        this.add(tableAuthorPanel);
+        tableAuthorPanel.setBounds(0, 0, 1100, 600);
+        tableAuthorPanel.setVisible(true);
 
-        tableBookPanel = new TableBook(); // Khởi tạo TableBook nhưng không thêm vào JFrame ngay
-        this.add(tableBookPanel);
-        tableBookPanel.setBounds(50, 50, 1100, 600);
-        tableBookPanel.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")

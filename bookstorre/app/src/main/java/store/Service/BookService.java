@@ -43,4 +43,8 @@ public class BookService {
     public Book selectBook(int bookID) throws SQLException {
         return bookDAO.selectBook(bookID);
     }
+    //get all authors
+    public List<Author> getAllAuthors() throws SQLException {
+        return authorDAO.getAllAuthors();
+    }
 }

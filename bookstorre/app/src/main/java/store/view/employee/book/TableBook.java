@@ -1,5 +1,5 @@
 
-package store.view.employee;
+package store.view.employee.book;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -30,9 +30,7 @@ public class TableBook extends javax.swing.JPanel {
         bookService = new BookService();
         addBookFrame = new AddBookFrame();
 
-
         initComponents();
-
         loadBooksIntoTable();
     }
 
