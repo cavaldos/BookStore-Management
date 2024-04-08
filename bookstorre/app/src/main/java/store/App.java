@@ -22,7 +22,7 @@ import store.view.*;
 public class App {
 
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
-        MainUI mainUI = new MainUI();
+        Main_Employee mainUI = new Main_Employee();
         mainUI.setVisible(true);
 
 
