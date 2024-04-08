@@ -7,8 +7,7 @@ package com.raven.component;
 public interface TableActionEvent {
 
     public void onEdit(int row);
-
     public void onDelete(int row);
-
+    public void onEnable(int row);
   
 }

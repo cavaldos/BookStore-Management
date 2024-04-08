@@ -32,7 +32,8 @@ public class Form_accountAdmin extends javax.swing.JPanel {
         initComponents();
          TableActionEvent event = new TableActionEvent() {
             @Override
-            public void onEdit(int row) { TableModel model = table.getModel();
+            public void onEdit(int row) { 
+                TableModel model = table.getModel();
     
     // Lấy dữ liệu từ hàng được chọn với kiểm tra null
     String id = model.getValueAt(row, 0) != null ? model.getValueAt(row, 0).toString() : "";
@@ -70,7 +71,14 @@ public class Form_accountAdmin extends javax.swing.JPanel {
                 DefaultTableModel model = (DefaultTableModel) table.getModel();
                 model.removeRow(row);
             }
-
+            
+            public void onEnable(int row){
+                  TableModel model = table.getModel();
+                  
+                String currentState = model.getValueAt(row, 7).toString();
+                String newState = "Enabled".equals(currentState) ? "Disabled" : "Enabled";
+                 model.setValueAt(newState, row, 7);
+            }
             
         };
        table.getColumnModel().getColumn(7).setCellRenderer(new TableActionCellRender());
