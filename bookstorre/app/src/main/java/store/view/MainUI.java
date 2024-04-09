@@ -21,12 +21,12 @@ public class MainUI<ActionEvent> extends javax.swing.JFrame {
      * Creates new form MainUI
      */
     public MainUI() {
-        // initComponents();
-        // this.setLocationRelativeTo(null);
-        // tableBookPanel = new TableBook();
-        // this.add(tableBookPanel);
-        // tableBookPanel.setBounds(50, 50, 1100, 600);
-        // tableBookPanel.setVisible(true);
+        initComponents();
+        this.setLocationRelativeTo(null);
+        tableBookPanel = new TableBook();
+        this.add(tableBookPanel);
+        tableBookPanel.setBounds(50, 50, 1100, 600);
+        tableBookPanel.setVisible(true);
         
         
         // initComponents();
@@ -37,12 +37,12 @@ public class MainUI<ActionEvent> extends javax.swing.JFrame {
         // tableAuthorPanel.setVisible(true);
 
 
-        initComponents();
-        tableCategoryPanel = new TableCategory();
-        this.add(tableCategoryPanel);
-        tableCategoryPanel.setBounds(50, 50, 1100, 600);
-        tableCategoryPanel.setVisible(false);
-        tablePublisherPanel = new TablePublisher();
+        // initComponents();
+        // tableCategoryPanel = new TableCategory();
+        // this.add(tableCategoryPanel);
+        // tableCategoryPanel.setBounds(50, 50, 1100, 600);
+        // tableCategoryPanel.setVisible(false);
+        // tablePublisherPanel = new TablePublisher();
 
         // initComponents();
         // this.setLocationRelativeTo(null);
@@ -58,7 +58,7 @@ public class MainUI<ActionEvent> extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,11 +66,13 @@ public class MainUI<ActionEvent> extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1200, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1200, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 800, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 800, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -81,5 +83,5 @@ public class MainUI<ActionEvent> extends javax.swing.JFrame {
 
 }
 
-// Variables declaration - do not modify//GEN-BEGIN:variables
-// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // End of variables declaration//GEN-END:variables
