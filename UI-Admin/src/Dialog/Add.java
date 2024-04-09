@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.raven.swing;
+package Dialog;
 import com.raven.form.Form_accountAdmin;
 import javax.swing.table.DefaultTableModel;
 /**

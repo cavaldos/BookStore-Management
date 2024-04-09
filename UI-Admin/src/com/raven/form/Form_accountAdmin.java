@@ -1,7 +1,8 @@
 package com.raven.form;
 
 
-
+import javax.swing.table.TableRowSorter;
+import javax.swing.RowFilter;
 import com.raven.model.StatusType;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
@@ -9,17 +10,34 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.table.TableModel;
 import javax.swing.table.DefaultTableModel;
-import com.raven.component.TableActionCellRender;
-import com.raven.component.TableActionCellEditor;
-import com.raven.component.TableActionEvent;
-import com.raven.swing.DialogEdit;
-import com.raven.swing.Add;
+import com.raven.event.TableActionCellRender;
+import com.raven.event.TableActionCellEditor;
+import com.raven.event.TableActionEvent;
+import Dialog.DialogEdit;
+import Dialog.Add;
 import javax.swing.JFrame;
 public class Form_accountAdmin extends javax.swing.JPanel {
 
     public Form_accountAdmin() {
         initComponents();
+         searchText1.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+        @Override
+        public void insertUpdate(javax.swing.event.DocumentEvent e) {
+            filterTable();
+        }
+
+        @Override
+        public void removeUpdate(javax.swing.event.DocumentEvent e) {
+            filterTable();
+        }
+
+        @Override
+        public void changedUpdate(javax.swing.event.DocumentEvent e) {
+            filterTable();
+        }
+    });
          TableActionEvent event = new TableActionEvent() {
+             
             @Override
             public void onEdit(int row) { 
                 TableModel model = table.getModel();
@@ -246,4 +264,18 @@ public class Form_accountAdmin extends javax.swing.JPanel {
              DefaultTableModel model = (DefaultTableModel) table.getModel();
     model.insertRow(0, dataRow);
     }
+    private void filterTable() {
+    String searchText = searchText1.getText().trim();
+    DefaultTableModel model = (DefaultTableModel) table.getModel();
+    
+    // Tạo RowFilter từ từ khóa tìm kiếm
+    RowFilter<Object, Object> rowFilter = RowFilter.regexFilter("(?i)" + searchText);
+    
+    // Tạo TableRowSorter từ RowFilter
+    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+    sorter.setRowFilter(rowFilter);
+    
+    // Áp dụng TableRowSorter vào bảng
+    table.setRowSorter(sorter);
+}
 }

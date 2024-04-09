@@ -1,4 +1,4 @@
-package com.raven.swing;
+package Dialog;
 import javax.swing.*;
 import java.awt.GridLayout;
 
