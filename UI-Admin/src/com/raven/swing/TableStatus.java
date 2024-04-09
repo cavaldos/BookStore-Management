@@ -22,8 +22,10 @@ public class TableStatus extends JLabel {
 
     public void setType(StatusType type) {
         this.type = type;
+         if (type != null) {
         setText(type.toString());
         repaint();
+         }
     }
 
     @Override

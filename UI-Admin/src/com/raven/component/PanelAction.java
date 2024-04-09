@@ -5,7 +5,8 @@
 package com.raven.component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import javax.swing.ImageIcon;
+import java.net.URL;
 /**
  *
  * @author DELL
@@ -30,11 +31,28 @@ public class PanelAction extends javax.swing.JPanel {
             }
         });
        cmdEnable.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-             event.onEnable(row);
-            }
-        });
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+       // Gọi phương thức onEnable để cập nhật trạng thái
+    event.onEnable(row);
+
+    ImageIcon currentIcon = (ImageIcon) cmdEnable.getIcon();
+
+ 
+   URL currentURL = getClass().getResource(currentIcon.getDescription());
+URL newURL = getClass().getResource("/com/raven/icon/view.png");
+
+    // So sánh URL của hai hình ảnh để xác định xem chúng có giống nhau không
+    if (currentURL != null && newURL != null && currentURL.equals(newURL)) {
+       
+        cmdEnable.setIcon(new ImageIcon(getClass().getResource("/com/raven/icon/1.png")));
+    } else {
+        // Nếu là biểu tượng disable hoặc một biểu tượng khác, chuyển đổi sang biểu tượng enable
+        cmdEnable.setIcon(new ImageIcon(newURL));
+    }
+    }
+});
+
     }
 
     /**
@@ -53,7 +71,6 @@ public class PanelAction extends javax.swing.JPanel {
         cmdEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/edit.png"))); // NOI18N
 
         cmdDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/delete.png"))); // NOI18N
-        cmdDelete.setActionCommand("");
 
         cmdEnable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/raven/icon/view.png"))); // NOI18N
 

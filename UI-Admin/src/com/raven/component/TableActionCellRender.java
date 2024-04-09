@@ -13,11 +13,25 @@ public class TableActionCellRender extends DefaultTableCellRenderer {
 
     @Override
     public Component getTableCellRendererComponent(JTable jtable, Object o, boolean isSeleted, boolean bln1, int row, int column) {
-        Component com = super.getTableCellRendererComponent(jtable, o, isSeleted, bln1, row, column);
         PanelAction action = new PanelAction();
         
             action.setBackground(Color.WHITE);
        
         return action;
+    }
+    public Component getTableCellRendererDisableComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+         Component rendererComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+        
+        boolean isDisabled = "Disable".equals(value);
+
+        if (isDisabled) {
+            rendererComponent.setForeground(Color.GRAY);
+            rendererComponent.setBackground(Color.LIGHT_GRAY);
+        } else {
+            rendererComponent.setForeground(table.getForeground());
+            rendererComponent.setBackground(table.getBackground());
+        }
+
+        return rendererComponent;
     }
 }

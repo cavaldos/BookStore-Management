@@ -7,25 +7,14 @@ import com.raven.swing.ScrollBar;
 import java.awt.Color;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JTable;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumnModel;
-import javax.swing.DefaultCellEditor;
-import javax.swing.JCheckBox;
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.UIManager;
-import java.awt.event.MouseEvent;
-import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.DefaultTableModel;
 import com.raven.component.TableActionCellRender;
 import com.raven.component.TableActionCellEditor;
 import com.raven.component.TableActionEvent;
 import com.raven.swing.DialogEdit;
+import com.raven.swing.Add;
+import javax.swing.JFrame;
 public class Form_accountAdmin extends javax.swing.JPanel {
 
     public Form_accountAdmin() {
@@ -79,6 +68,9 @@ public class Form_accountAdmin extends javax.swing.JPanel {
                 String newState = "Enabled".equals(currentState) ? "Disabled" : "Enabled";
                  model.setValueAt(newState, row, 7);
             }
+
+        
+            
             
         };
        table.getColumnModel().getColumn(7).setCellRenderer(new TableActionCellRender());
@@ -119,10 +111,7 @@ public class Form_accountAdmin extends javax.swing.JPanel {
         table = new com.raven.swing.Table();
         searchText1 = new com.raven.swing.SearchText();
         jLabel5 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        Add = new javax.swing.JButton();
 
         panel.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
 
@@ -192,26 +181,10 @@ public class Form_accountAdmin extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        jButton2.setText("List account admin");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Add.setText("Add");
+        Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("List account employees");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Tài khoản khách hàng");
-
-        jButton4.setText("Add");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                AddActionPerformed(evt);
             }
         });
 
@@ -229,45 +202,29 @@ public class Form_accountAdmin extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(53, 53, 53)
-                        .addComponent(jButton1)
-                        .addGap(60, 60, 60)
-                        .addComponent(jButton3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Add)
+                .addContainerGap(474, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 29, Short.MAX_VALUE)
                 .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82)
-                .addComponent(jButton4)
+                .addComponent(Add)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(91, 91, 91))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-    
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
+      Add frameText = new Add();
+        frameText.setVisible(true);
+        frameText.pack();
+        frameText.setLocationRelativeTo(null);
+        frameText.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }//GEN-LAST:event_AddActionPerformed
 
     private void searchText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchText1ActionPerformed
         // TODO add your handling code here:
@@ -275,16 +232,18 @@ public class Form_accountAdmin extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton Add;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLayeredPane panel;
     private com.raven.swing.PanelBorder panelBorder1;
     private com.raven.swing.SearchText searchText1;
     private javax.swing.JScrollPane spTable;
-    private com.raven.swing.Table table;
+    private static com.raven.swing.Table table;
     // End of variables declaration//GEN-END:variables
+
+    public static void AddRowToJTable(Object[] dataRow) {
+             DefaultTableModel model = (DefaultTableModel) table.getModel();
+    model.insertRow(0, dataRow);
+    }
 }

@@ -56,7 +56,6 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/com/raven/icon/delete.png"/>
         </Property>
-        <Property name="actionCommand" type="java.lang.String" value=""/>
       </Properties>
     </Component>
     <Component class="com.raven.component.ActionButton" name="cmdEnable">
