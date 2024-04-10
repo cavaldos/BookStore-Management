@@ -38,6 +38,7 @@ public class FormHome extends javax.swing.JPanel {
         card6 = new store.view.component.Card();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(883, 457));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         jLabel1.setText("New Books");
