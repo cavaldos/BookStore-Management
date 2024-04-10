@@ -17,12 +17,14 @@ import java.util.List;
 import store.view.*;
 
 import store.view.admin.MainAdmin;
+import store.view.employee.MainEmployee;
 // import order DAO
+
 
 public class App {
 
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
-        MainAdmin mainUI = new MainAdmin();
+        MainEmployee mainUI = new MainEmployee();
         mainUI.setVisible(true);
 
 

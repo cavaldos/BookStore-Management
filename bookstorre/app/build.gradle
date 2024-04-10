@@ -19,6 +19,9 @@ dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
 
+    testImplementation 'junit:junit:4.12'
+    implementation 'org.jfree:jfreechart:1.5.3'  // Thêm thư viện JFreeChart
+
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     implementation 'mysql:mysql-connector-java:8.0.23' 
     // This dependency is used by the application.

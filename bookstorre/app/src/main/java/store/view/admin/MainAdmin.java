@@ -5,13 +5,23 @@
 package store.view.admin;
 
 import store.view.admin.profile.*;
+import store.view.admin.revenue.*;
+import store.view.admin.user.*;
+
+enum PanelState {
+    USER_MANAGEMENT, REVENUE, CHANGE_PASSWORD, UPDATE_INFO
+}
 
 /**
  *
  * @author bourbon
  */
 public class MainAdmin extends javax.swing.JFrame {
+    private PanelState currentPanel;
+
     private ChangePassword changePasswordPanel;
+    private Revenue Revenue;
+    private ManagerUser managerUserPanel;
 
     /**
      * Creates new form MainAdmin
@@ -19,10 +29,22 @@ public class MainAdmin extends javax.swing.JFrame {
     public MainAdmin() {
         initComponents();
         this.setLocationRelativeTo(null);
+
         changePasswordPanel = new ChangePassword();
         this.add(changePasswordPanel);
         changePasswordPanel.setBounds(260, 80, 1250, 650);
+
+        Revenue = new Revenue();
+        this.add(Revenue);
+        Revenue.setBounds(260, 80, 1250, 650);
+
+        managerUserPanel = new ManagerUser();
+        this.add(managerUserPanel);
+        managerUserPanel.setBounds(260, 80, 1250, 650);
+
+        Revenue.setVisible(true);
         changePasswordPanel.setVisible(true);
+        managerUserPanel.setVisible(true);
 
     }
 
@@ -33,10 +55,12 @@ public class MainAdmin extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        Navbar = new javax.swing.JPanel();
         UserButton = new javax.swing.JButton();
         RevenueButton = new javax.swing.JButton();
         SignOutButton = new javax.swing.JButton();
@@ -44,8 +68,9 @@ public class MainAdmin extends javax.swing.JFrame {
         HeaderPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MainAdmin");
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        Navbar.setBackground(new java.awt.Color(204, 204, 204));
 
         UserButton.setText("User Management");
         UserButton.addActionListener(new java.awt.event.ActionListener() {
@@ -75,39 +100,45 @@ public class MainAdmin extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(UserButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(RevenueButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                    .addComponent(SignOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(UpdateInfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(247, 247, 247)
-                .addComponent(UserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RevenueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SignOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(347, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(195, 195, 195)
-                    .addComponent(UpdateInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(498, Short.MAX_VALUE)))
-        );
+        javax.swing.GroupLayout NavbarLayout = new javax.swing.GroupLayout(Navbar);
+        Navbar.setLayout(NavbarLayout);
+        NavbarLayout.setHorizontalGroup(
+                NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(NavbarLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(UserButton, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(RevenueButton, javax.swing.GroupLayout.Alignment.TRAILING,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                                        .addComponent(SignOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, 225,
+                                                Short.MAX_VALUE))
+                                .addContainerGap())
+                        .addGroup(NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(NavbarLayout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(UpdateInfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 225,
+                                                Short.MAX_VALUE)
+                                        .addContainerGap())));
+        NavbarLayout.setVerticalGroup(
+                NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(NavbarLayout.createSequentialGroup()
+                                .addGap(247, 247, 247)
+                                .addComponent(UserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RevenueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(SignOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(347, Short.MAX_VALUE))
+                        .addGroup(NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(NavbarLayout.createSequentialGroup()
+                                        .addGap(195, 195, 195)
+                                        .addComponent(UpdateInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap(498, Short.MAX_VALUE))));
 
         HeaderPanel.setBackground(new java.awt.Color(153, 153, 153));
         HeaderPanel.setToolTipText("Header");
@@ -115,99 +146,98 @@ public class MainAdmin extends javax.swing.JFrame {
         javax.swing.GroupLayout HeaderPanelLayout = new javax.swing.GroupLayout(HeaderPanel);
         HeaderPanel.setLayout(HeaderPanelLayout);
         HeaderPanelLayout.setHorizontalGroup(
-            HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1251, Short.MAX_VALUE)
-        );
+                HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 1251, Short.MAX_VALUE));
         HeaderPanelLayout.setVerticalGroup(
-            HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 56, Short.MAX_VALUE)
-        );
+                HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 56, Short.MAX_VALUE));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HeaderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(Navbar, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(HeaderPanel, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap()));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(HeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Navbar, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(HeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addContainerGap()));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UpdateInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateInfoButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UpdateInfoButtonActionPerformed
+    private void hideAllPanels() {
+        managerUserPanel.setVisible(false);
+        Revenue.setVisible(false);
+        changePasswordPanel.setVisible(false);
+    }
 
-    private void UserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserButtonActionPerformed
+    private void switchPanel(PanelState newState) {
+        if (currentPanel != newState) {
+            hideAllPanels();
+            currentPanel = newState;
+            switch (newState) {
+                case USER_MANAGEMENT:
+                    managerUserPanel.setVisible(true);
+                    break;
+                case REVENUE:
+                    Revenue.setVisible(true);
+                    break;
+                case CHANGE_PASSWORD:
+                    changePasswordPanel.setVisible(true);
+                    break;
+                // case UPDATE_INFO:
+                // // Suppose UpdateInfoPanel is the variable for your update info panel
+                // updateInfoPanel.setVisible(true);
+                // break;
+            }
+        }
+    }
 
-    private void RevenueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RevenueButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RevenueButtonActionPerformed
+    private void UpdateInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        switchPanel(PanelState.UPDATE_INFO);
 
-    private void SignOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignOutButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SignOutButtonActionPerformed
+    }
+
+    private void UserButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        switchPanel(PanelState.USER_MANAGEMENT);
+
+    }
+
+    private void RevenueButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        switchPanel(PanelState.REVENUE);
+
+    }
+
+    private void SignOutButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("Sign out action performed");
+
+    }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-         * look and feel.
-         * For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        // </editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainAdmin().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel HeaderPanel;
+    private javax.swing.JPanel Navbar;
     private javax.swing.JButton RevenueButton;
     private javax.swing.JButton SignOutButton;
     private javax.swing.JButton UpdateInfoButton;
     private javax.swing.JButton UserButton;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
