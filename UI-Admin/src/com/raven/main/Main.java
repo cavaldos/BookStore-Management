@@ -7,10 +7,11 @@ package com.raven.main;
 
 import com.raven.event.EventMenuSelected;
 import com.raven.form.Form_1;
-import com.raven.form.Form_2;
+import com.raven.form.TestRevenue_statistics;
 import com.raven.form.Form_accountAdmin;
 import java.awt.Color;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 
 /**
  *
@@ -23,7 +24,7 @@ public class Main extends javax.swing.JFrame {
      */
     private Form_accountAdmin account;
     private Form_1 form1;
-    private Form_2 form2;
+  
   
 
     public Main() {
@@ -31,8 +32,6 @@ public class Main extends javax.swing.JFrame {
         setBackground(new Color(0, 0, 0, 0));
         account = new Form_accountAdmin();
         form1 = new Form_1();
-        form2 = new Form_2();
-        
         menu.initMoving(Main.this);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
@@ -42,7 +41,12 @@ public class Main extends javax.swing.JFrame {
                 } else if (index == 1) {
                     setForm(account);
                 } else if (index == 2) {
-                    setForm(form2);
+                    TestRevenue_statistics frameText = new TestRevenue_statistics();
+        frameText.setVisible(true);
+        frameText.pack();
+        frameText.setLocationRelativeTo(null);
+        frameText.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
                 } 
             }
         });

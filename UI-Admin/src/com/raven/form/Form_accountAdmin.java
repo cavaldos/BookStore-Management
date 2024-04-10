@@ -13,8 +13,8 @@ import javax.swing.table.DefaultTableModel;
 import com.raven.event.TableActionCellRender;
 import com.raven.event.TableActionCellEditor;
 import com.raven.event.TableActionEvent;
-import Dialog.DialogEdit;
-import Dialog.Add;
+import com.raven.dialog.DialogEdit;
+import com.raven.dialog.Add;
 import javax.swing.JFrame;
 public class Form_accountAdmin extends javax.swing.JPanel {
 
