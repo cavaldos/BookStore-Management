@@ -27,23 +27,29 @@ public class BookService {
     public List<Book> getAllBooks() throws SQLException {
         return bookDAO.getAllBooks();
     }
+
     // delete book
     public void deleteBook(int bookID) throws SQLException {
         bookDAO.deleteBook(bookID);
     }
-    //insert Book
+
+    // insert Book
     public void insertBook(Book book) throws SQLException {
         bookDAO.insertBook(book);
     }
-    //update Book
+
+    // update Book
     public void updateBook(Book book) throws SQLException {
         bookDAO.updateBook(book);
     }
-    //get Book by ID
+
+    // get Book by ID
     public Book selectBook(int bookID) throws SQLException {
         return bookDAO.selectBook(bookID);
     }
-    //get all authors
+
+    // AUTHOR
+    // get all authors
     public List<Author> getAllAuthors() throws SQLException {
         return authorDAO.getAllAuthors();
     }
@@ -52,5 +58,76 @@ public class BookService {
     public void deleteAuthor(int authorID) throws SQLException {
         authorDAO.deleteAuthor(authorID);
     }
-}
 
+    // insert author
+    public void addAuthor(Author author) throws SQLException {
+        authorDAO.addAuthor(author);
+    }
+
+    // update author
+    public void updateAuthor(Author author) throws SQLException {
+        authorDAO.updateAuthor(author);
+    }
+
+    // get author by ID
+    public Author selectAuthor(int authorID) throws SQLException {
+        return authorDAO.selectAuthor(authorID);
+    }
+
+    // CATEGORY
+
+    // get all categories
+    public List<Category> getAllCategories() throws SQLException, ClassNotFoundException {
+        return categoryDAO.getAllCategories();
+    }
+
+    // delete category
+    public void deleteCategory(int categoryID) throws SQLException {
+        categoryDAO.deleteCategory(categoryID);
+    }
+
+    // insert category
+    public void addCategory(Category category) throws SQLException {
+        categoryDAO.addCategory(category);
+    }
+
+    // update category
+    public void updateCategory(Category category) throws SQLException {
+        categoryDAO.updateCategory(category);
+    }
+
+    // get category by ID
+    public Category selectCategory(int categoryID) throws SQLException {
+        return categoryDAO.selectCategory(categoryID);
+    }
+
+    // PUBLISHER
+
+    // get all publishers
+    public List<Publisher> getAllPublishers() throws SQLException {
+        return publisherDAO.getAllPublishers();
+    }
+
+    // delete publisher
+
+    public void deletePublisher(int publisherID) throws SQLException {
+        publisherDAO.deletePublisher(publisherID);
+    }
+
+    // insert publisher
+    public void addPublisher(Publisher publisher) throws SQLException {
+        publisherDAO.addPublisher(publisher);
+    }
+
+    // update publisher
+
+    public void updatePublisher(Publisher publisher) throws SQLException {
+        publisherDAO.updatePublisher(publisher);
+    }
+
+    // get publisher by ID
+    public Publisher selectPublisher(int publisherID) {
+        return publisherDAO.selectPublisher(publisherID);
+    }
+
+}

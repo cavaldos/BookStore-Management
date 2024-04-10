@@ -8,17 +8,6 @@ import store.Model.Book;
 import store.utils.DatabaseUtils;
 
 public class BookDAO {
-    // Assuming DatabaseUtils is already defined and includes the connect method
-
-    private static final String SELECT_ALL_BOOKS = "SELECT book.bookID, book.title, author.name AS authorName, publisher.name AS publisherName, book.price, category.name AS categoryName, book.status , book.volume\n"
-            + //
-            "FROM book\n" + //
-            "JOIN author ON book.authorID = author.authorID\n" + //
-            "JOIN publisher ON book.publisherID = publisher.publisherID\n" + //
-            "JOIN category ON book.categoryID = category.categoryID;\n" + //
-            ""; //
-
-    private static final String DELETE_BOOK_SQL = "DELETE FROM book WHERE bookID = ?";
 
     // add book
     public void insertBook(Book book) throws SQLException {
@@ -42,6 +31,8 @@ public class BookDAO {
 
     // delete book
     public boolean deleteBook(int bookID) throws SQLException {
+        String DELETE_BOOK_SQL = "DELETE FROM book WHERE bookID = ?";
+
         try (@SuppressWarnings("static-access")
         Connection connection = new DatabaseUtils().connect();
                 PreparedStatement preparedStatement = connection.prepareStatement(DELETE_BOOK_SQL)) {
@@ -57,12 +48,13 @@ public class BookDAO {
     // update book
     public boolean updateBook(Book book) throws SQLException {
         // -- (bookID, title, price, volume, author, category, publisher, status)
-        // CALL UpdateBook(31, 'kyl', 19.99, 5, 'New Author Name', 'New Category ',Name','New Publisher Name');
+        // CALL UpdateBook(31, 'kyl', 19.99, 5, 'New Author Name', 'New Category
+        // ',Name','New Publisher Name');
         String UPDATE_BOOK_SQL = "CALL UpdateBook(?,?,?,?,?,?,?,?)";
         try (@SuppressWarnings("static-access")
         Connection connection = new DatabaseUtils().connect();
                 PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_BOOK_SQL)) {
-                    preparedStatement.setLong(1, book.getBookID());
+            preparedStatement.setLong(1, book.getBookID());
             preparedStatement.setString(2, book.getTitle());
             preparedStatement.setDouble(3, book.getPrice());
             preparedStatement.setLong(4, book.getVolume());
@@ -71,36 +63,6 @@ public class BookDAO {
             preparedStatement.setString(7, book.getPublisher());
             preparedStatement.setBoolean(8, book.getStatus());
 
-            int rowsAffected = preparedStatement.executeUpdate();
-            return rowsAffected > 0;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    // disable book
-    public boolean disableBook(long bookID) throws SQLException {
-        String UPDATE_BOOK_SQL = "CALL UpdateBook(?,?,?,?,?,?,?,?)";
-        try (Connection connection = new DatabaseUtils().connect();
-                PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_BOOK_SQL)) {
-            preparedStatement.setBoolean(6, false);
-            preparedStatement.setLong(7, bookID);
-            int rowsAffected = preparedStatement.executeUpdate();
-            return rowsAffected > 0;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    // enable book
-    public boolean enableBook(long bookID) throws SQLException {
-        String UPDATE_BOOK_SQL = "CALL UpdateBook(?,?,?,?,?,?,?,?)";
-        try (Connection connection = new DatabaseUtils().connect();
-                PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_BOOK_SQL)) {
-            preparedStatement.setBoolean(6, true);
-            preparedStatement.setLong(7, bookID);
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;
         } catch (ClassNotFoundException e) {
@@ -120,7 +82,8 @@ public class BookDAO {
                 "WHERE book.bookID = ?"; //
 
         Book book = null;
-        try (Connection connection = new DatabaseUtils().connect();
+        new DatabaseUtils();
+        try (Connection connection = DatabaseUtils.connect();
                 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_BOOK_BY_ID)) {
             preparedStatement.setLong(1, bookID);
             ResultSet rs = preparedStatement.executeQuery();
@@ -142,8 +105,16 @@ public class BookDAO {
 
     // get all books
     public List<Book> getAllBooks() throws SQLException {
+        String SELECT_ALL_BOOKS = "SELECT book.bookID, book.title, author.name AS authorName, publisher.name AS publisherName, book.price, category.name AS categoryName, book.status , book.volume\n"
+                + //
+                "FROM book\n" + //
+                "JOIN author ON book.authorID = author.authorID\n" + //
+                "JOIN publisher ON book.publisherID = publisher.publisherID\n" + //
+                "JOIN category ON book.categoryID = category.categoryID;\n" + //
+                ""; //
         List<Book> books = new ArrayList<>();
-        try (Connection connection = new DatabaseUtils().connect();
+        new DatabaseUtils();
+        try (Connection connection = DatabaseUtils.connect();
                 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_BOOKS)) {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {

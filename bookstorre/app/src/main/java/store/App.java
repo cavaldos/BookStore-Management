@@ -16,13 +16,13 @@ import java.sql.SQLException;
 import java.util.List;
 import store.view.*;
 
-
+import store.view.admin.MainAdmin;
 // import order DAO
 
 public class App {
 
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
-        MainUI mainUI = new MainUI();
+        MainAdmin mainUI = new MainAdmin();
         mainUI.setVisible(true);
 
 
