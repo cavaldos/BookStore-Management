@@ -6,7 +6,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
-import com.google.protobuf.compiler.PluginProtos.CodeGeneratorResponse.File;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

@@ -11,19 +11,8 @@ import javax.swing.table.TableRowSorter;
 import store.Model.Author;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 
-import com.google.protobuf.compiler.PluginProtos.CodeGeneratorResponse.File;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
-import store.Model.Book;
-import store.Service.BookService;
 
 /**
  *
@@ -41,7 +30,7 @@ public class TableAuthor extends javax.swing.JPanel {
 
     private void loadAuthorsIntoTable() {
         try {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            DefaultTableModel model = (DefaultTableModel) AuthorTable.getModel();
             model.setRowCount(0);
             for (Author author : bookService.getAllAuthors()) {
                 model.addRow(new Object[] { author.getAuthorID(), author.getAuthorName(),
@@ -55,7 +44,7 @@ public class TableAuthor extends javax.swing.JPanel {
 
     private void searchAuthor() {
         try {
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            DefaultTableModel model = (DefaultTableModel) AuthorTable.getModel();
             model.setRowCount(0);
             for (Author author : bookService.getAllAuthors()) {
                 if (author.getAuthorName().contains(InputSearch.getText())) {
@@ -78,11 +67,14 @@ public class TableAuthor extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        AuthorTable = new javax.swing.JTable();
         AddButon = new javax.swing.JButton();
         InputSearch = new javax.swing.JTextField();
         SearchButton = new javax.swing.JButton();
@@ -93,7 +85,7 @@ public class TableAuthor extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(1250, 750));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        AuthorTable.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][] {
                         { null, null, null },
                         { null, null, null },
@@ -111,10 +103,10 @@ public class TableAuthor extends javax.swing.JPanel {
                 return types[columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(AuthorTable);
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>((DefaultTableModel) AuthorTable.getModel());
+        AuthorTable.setRowSorter(sorter);
 
-        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>((DefaultTableModel) jTable1.getModel());
-        jTable1.setRowSorter(sorter);
         AddButon.setText("Add Author");
         AddButon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,8 +166,7 @@ public class TableAuthor extends javax.swing.JPanel {
                                                                         javax.swing.LayoutStyle.ComponentPlacement.RELATED,
                                                                         javax.swing.GroupLayout.DEFAULT_SIZE,
                                                                         Short.MAX_VALUE)
-                                                                .addComponent(RefreshButton)
-                                                                .addGap(32, 32, 32)))))
+                                                                .addComponent(RefreshButton)))))
                                 .addContainerGap(368, Short.MAX_VALUE)));
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +186,7 @@ public class TableAuthor extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369,
                                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(257, Short.MAX_VALUE)));
+                                .addContainerGap(261, Short.MAX_VALUE)));
     }// </editor-fold>//GEN-END:initComponents
 
     private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,9 +198,10 @@ public class TableAuthor extends javax.swing.JPanel {
     }
 
     private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DeleteButtonActionPerformed
-        int selectedRow = jTable1.getSelectedRow(); // Get the currently selected row in the table
+        int selectedRow = AuthorTable.getSelectedRow(); // Get the currently selected row in the table
         if (selectedRow >= 0) { // Ensure that a row is selected
-            int authorID = (int) jTable1.getValueAt(selectedRow, 0); // Retrieve the author's ID from the first column
+            int authorID = (int) AuthorTable.getValueAt(selectedRow, 0); // Retrieve the author's ID from the first
+                                                                         // column
 
             // Show a confirmation dialog to make sure the user wants to delete the selected
             // author
@@ -242,12 +234,12 @@ public class TableAuthor extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButon;
+    private javax.swing.JTable AuthorTable;
     private javax.swing.JButton DeleteButton;
     private javax.swing.JButton EditButton;
     private javax.swing.JTextField InputSearch;
     private javax.swing.JButton RefreshButton;
     private javax.swing.JButton SearchButton;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
