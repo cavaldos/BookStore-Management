@@ -7,7 +7,7 @@ package com.raven.main;
 
 import com.raven.event.EventMenuSelected;
 import com.raven.form.Form_1;
-import com.raven.form.TestRevenue_statistics;
+import com.raven.form.Revenue_statistics;
 import com.raven.form.Form_accountAdmin;
 import java.awt.Color;
 import javax.swing.JComponent;
@@ -41,7 +41,7 @@ public class Main extends javax.swing.JFrame {
                 } else if (index == 1) {
                     setForm(account);
                 } else if (index == 2) {
-                    TestRevenue_statistics frameText = new TestRevenue_statistics();
+                    Revenue_statistics frameText = new Revenue_statistics();
         frameText.setVisible(true);
         frameText.pack();
         frameText.setLocationRelativeTo(null);
