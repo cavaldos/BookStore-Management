@@ -10,12 +10,12 @@ import store.utils.DatabaseUtils;
 public class AuthorDAO {
 
     // add author
-    public void addAuthor(Author author) throws SQLException {
+    public void addAuthor(String author) throws SQLException {
         String INSERT_AUTHOR_SQL = "INSERT INTO author (name, status) VALUES (?,TRUE)";
         new DatabaseUtils();
         try (Connection connection = DatabaseUtils.connect();
                 PreparedStatement preparedStatement = connection.prepareStatement(INSERT_AUTHOR_SQL)) {
-            preparedStatement.setString(1, author.getAuthorName());
+            preparedStatement.setString(1, author);
             preparedStatement.executeUpdate();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

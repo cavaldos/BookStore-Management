@@ -6,8 +6,12 @@ package store.view.employee.category;
 
 import store.Model.Category;
 import store.Service.BookService;
+import store.view.employee.author.EditAuthor;
+
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+
+
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
 
@@ -17,12 +21,16 @@ import java.sql.SQLException;
  */
 public class TableCategory extends javax.swing.JPanel {
     private BookService bookService;
+    private AddCategory addCategory;
+    private EditCategory editCategory;
 
     /**
      * Creates new form TableCategory
      */
     public TableCategory() {
         bookService = new BookService();
+        addCategory = new AddCategory();
+
         initComponents();
         loadCategoryIntoTable();
     }
@@ -211,7 +219,7 @@ public class TableCategory extends javax.swing.JPanel {
     }
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {
-
+        addCategory.setVisible(true);
     }
 
     private void InputSearchActionPerformed(java.awt.event.ActionEvent evt) {
@@ -219,7 +227,15 @@ public class TableCategory extends javax.swing.JPanel {
     }
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {
-
+        int selectedRowIndex = TableCategory.getSelectedRow();
+        if (selectedRowIndex >= 0) {
+            int categoryID = (int) TableCategory.getValueAt(selectedRowIndex, 0);
+            editCategory = new EditCategory(categoryID);
+            editCategory.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select an author to edit.", "No Author Selected",
+                    JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {

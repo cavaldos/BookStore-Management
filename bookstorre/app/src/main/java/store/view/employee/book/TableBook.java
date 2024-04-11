@@ -367,7 +367,7 @@ public class TableBook extends javax.swing.JPanel {
             int selectedBookId = (int) BookTable.getModel().getValueAt(selectedRowIndex, 0);
 
             // Open the EditBookFrame passing the selectedBookId as a parameter
-            EditBookFrame editBookFrame = new EditBookFrame(selectedBookId);
+             editBookFrame = new EditBookFrame(selectedBookId);
             editBookFrame.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Please select a book to edit.", "No Book Selected",

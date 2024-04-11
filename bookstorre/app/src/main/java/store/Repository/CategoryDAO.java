@@ -13,12 +13,12 @@ import store.utils.DatabaseUtils;
 public class CategoryDAO {
 
     // add category
-    public void addCategory(Category category) throws SQLException {
+    public void addCategory(String category) throws SQLException {
         String INSERT_CATEGORY_SQL = "INSERT INTO `category` (name, status) VALUES (?, TRUE)";
         new DatabaseUtils();
         try (Connection connection = DatabaseUtils.connect();
                 PreparedStatement preparedStatement = connection.prepareStatement(INSERT_CATEGORY_SQL)) {
-            preparedStatement.setString(1, category.getCategoryName());
+            preparedStatement.setString(1, category);
             preparedStatement.executeUpdate();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

@@ -21,9 +21,11 @@ import java.sql.SQLException;
 public class TableAuthor extends javax.swing.JPanel {
 
     private BookService bookService;
-
+    private AddAuthor addAuthor;
+    private EditAuthor editAuthor;
     public TableAuthor() {
         bookService = new BookService();
+        addAuthor = new AddAuthor();
         initComponents();
         loadAuthorsIntoTable();
     }
@@ -70,7 +72,7 @@ public class TableAuthor extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -86,21 +88,22 @@ public class TableAuthor extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1250, 750));
 
         AuthorTable.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null }
-                },
-                new String[] {
-                        "Author ID", "Author Name", "Status"
-                }) {
-            Class[] types = new Class[] {
-                    java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Author ID", "Author Name", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types[columnIndex];
+                return types [columnIndex];
             }
         });
         jScrollPane1.setViewportView(AuthorTable);
@@ -122,6 +125,11 @@ public class TableAuthor extends javax.swing.JPanel {
         });
 
         EditButton.setText("Edit");
+        EditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditButtonActionPerformed(evt);
+            }
+        });
 
         DeleteButton.setText("Delete");
         DeleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -140,54 +148,58 @@ public class TableAuthor extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(287, 287, 287)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 595,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(InputSearch,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE, 240,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(AddButon)
-                                                                .addGap(24, 24, 24)
-                                                                .addComponent(DeleteButton)))
-                                                .addGap(44, 44, 44)
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(SearchButton)
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(EditButton)
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                        Short.MAX_VALUE)
-                                                                .addComponent(RefreshButton)))))
-                                .addContainerGap(368, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(287, 287, 287)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InputSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(AddButon)
+                                .addGap(24, 24, 24)
+                                .addComponent(DeleteButton)))
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SearchButton)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(EditButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(RefreshButton)))))
+                .addContainerGap(368, Short.MAX_VALUE))
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(AddButon)
-                                        .addComponent(DeleteButton)
-                                        .addComponent(EditButton)
-                                        .addComponent(RefreshButton))
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(InputSearch, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(SearchButton))
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(261, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddButon)
+                    .addComponent(DeleteButton)
+                    .addComponent(EditButton)
+                    .addComponent(RefreshButton))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InputSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchButton))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(261, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        int selectedRowIndex = AuthorTable.getSelectedRow();
+        if (selectedRowIndex >= 0) {
+            int authorID = (int) AuthorTable.getValueAt(selectedRowIndex, 0);
+            editAuthor = new EditAuthor(authorID);
+            editAuthor.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select an author to edit.", "No Author Selected",
+                    JOptionPane.WARNING_MESSAGE);
+        }
+
+    }
 
     private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {
         loadAuthorsIntoTable();
@@ -226,6 +238,7 @@ public class TableAuthor extends javax.swing.JPanel {
     }
 
     private void AddButonActionPerformed(java.awt.event.ActionEvent evt) {
+        addAuthor.setVisible(true);
 
     }
 

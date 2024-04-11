@@ -19,12 +19,15 @@ import java.sql.SQLException;
  */
 public class TablePublisher extends javax.swing.JPanel {
     private BookService bookService;
+    private AddPublisher addPublisher;
+    private EditPublisher editPublisher;
 
     /**
      * Creates new form TablePublisher
      */
     public TablePublisher() {
         bookService = new BookService();
+        addPublisher = new AddPublisher();
         initComponents();
         loadPublisherIntoTable();
     }
@@ -212,7 +215,7 @@ public class TablePublisher extends javax.swing.JPanel {
     }
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {
-
+        addPublisher.setVisible(true);
     }
 
     private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +251,16 @@ public class TablePublisher extends javax.swing.JPanel {
     }
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        int selectedRow = TablePublisher.getSelectedRow();
+        if (selectedRow >= 0) {
+            int publisherID = (int) TablePublisher.getValueAt(selectedRow, 0);
 
+            editPublisher = new EditPublisher(publisherID);
+            editPublisher.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select an author to edit.", "No Author Selected",
+                    JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

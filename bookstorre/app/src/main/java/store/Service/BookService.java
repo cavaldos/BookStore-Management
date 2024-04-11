@@ -60,7 +60,7 @@ public class BookService {
     }
 
     // insert author
-    public void addAuthor(Author author) throws SQLException {
+    public void addAuthor(String author) throws SQLException {
         authorDAO.addAuthor(author);
     }
 
@@ -87,7 +87,7 @@ public class BookService {
     }
 
     // insert category
-    public void addCategory(Category category) throws SQLException {
+    public void addCategory(String category) throws SQLException {
         categoryDAO.addCategory(category);
     }
 
@@ -115,7 +115,7 @@ public class BookService {
     }
 
     // insert publisher
-    public void addPublisher(Publisher publisher) throws SQLException {
+    public void addPublisher(String publisher) throws SQLException {
         publisherDAO.addPublisher(publisher);
     }
 

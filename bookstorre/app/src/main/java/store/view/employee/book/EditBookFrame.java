@@ -65,270 +65,173 @@ public class EditBookFrame extends javax.swing.JFrame {
         @SuppressWarnings("unchecked")
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
-        // Code">//GEN-BEGIN:initComponents
-        private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-                buttonGroupStatus = new javax.swing.ButtonGroup();
-                IDBook = new javax.swing.JLabel();
-                IDBookField = new javax.swing.JTextField();
-                Author = new javax.swing.JLabel();
-                AuthorField = new javax.swing.JTextField();
-                Publisher = new javax.swing.JLabel();
-                PublisherField = new javax.swing.JTextField();
-                Category = new javax.swing.JLabel();
-                CategoryField = new javax.swing.JTextField();
-                Status = new javax.swing.JLabel();
-                Price = new javax.swing.JLabel();
-                PriceField = new javax.swing.JTextField();
-                Volume = new javax.swing.JLabel();
-                VolumeField = new javax.swing.JTextField();
-                Title = new javax.swing.JLabel();
-                TitleField = new javax.swing.JTextField();
-                EnableStatus = new javax.swing.JRadioButton();
-                DistableStatus = new javax.swing.JRadioButton();
-                UpdateButton = new javax.swing.JButton();
+        buttonGroupStatus = new javax.swing.ButtonGroup();
+        IDBook = new javax.swing.JLabel();
+        IDBookField = new javax.swing.JTextField();
+        Author = new javax.swing.JLabel();
+        AuthorField = new javax.swing.JTextField();
+        Publisher = new javax.swing.JLabel();
+        PublisherField = new javax.swing.JTextField();
+        Category = new javax.swing.JLabel();
+        CategoryField = new javax.swing.JTextField();
+        Status = new javax.swing.JLabel();
+        Price = new javax.swing.JLabel();
+        PriceField = new javax.swing.JTextField();
+        Volume = new javax.swing.JLabel();
+        VolumeField = new javax.swing.JTextField();
+        Title = new javax.swing.JLabel();
+        TitleField = new javax.swing.JTextField();
+        EnableStatus = new javax.swing.JRadioButton();
+        DistableStatus = new javax.swing.JRadioButton();
+        UpdateButton = new javax.swing.JButton();
 
-                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-                IDBook.setText("ID book");
-                IDBook.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        IDBook.setText("ID book");
+        IDBook.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-                IDBookField.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                IDBookFieldActionPerformed(evt);
-                        }
-                });
+        IDBookField.setEditable(false);
+        IDBookField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IDBookFieldActionPerformed(evt);
+            }
+        });
 
-                Author.setText("Author");
-                Author.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Author.setText("Author");
+        Author.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-                Publisher.setText("Publisher");
-                Publisher.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Publisher.setText("Publisher");
+        Publisher.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-                Category.setText("Category");
-                Category.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Category.setText("Category");
+        Category.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-                Status.setText("Status");
-                Status.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Status.setText("Status");
+        Status.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-                Price.setText("Price");
-                Price.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Price.setText("Price");
+        Price.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-                Volume.setText("Volume");
-                Volume.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Volume.setText("Volume");
+        Volume.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-                Title.setText("Title");
-                Title.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Title.setText("Title");
+        Title.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-                buttonGroupStatus.add(EnableStatus);
-                EnableStatus.setText("Enable");
-                EnableStatus.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                EnableStatusActionPerformed(evt);
-                        }
-                });
+        buttonGroupStatus.add(EnableStatus);
+        EnableStatus.setText("Enable");
+        EnableStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EnableStatusActionPerformed(evt);
+            }
+        });
 
-                buttonGroupStatus.add(DistableStatus);
-                DistableStatus.setText("Disnable");
+        buttonGroupStatus.add(DistableStatus);
+        DistableStatus.setText("Disnable");
 
-                UpdateButton.setText("Update");
-                UpdateButton.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                UpdateButtonActionPerformed(evt);
-                        }
-                });
+        UpdateButton.setText("Update");
+        UpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateButtonActionPerformed(evt);
+            }
+        });
 
-                javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-                getContentPane().setLayout(layout);
-                layout.setHorizontalGroup(
-                                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                                .addGap(91, 91, 91)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                .addComponent(Title,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                73,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addGap(82, 82, 82)
-                                                                                                .addComponent(TitleField,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                275,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                .addGroup(layout.createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                .addComponent(Volume,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                73,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addGap(82, 82, 82)
-                                                                                                                .addComponent(VolumeField,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                275,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                .addComponent(Price,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                73,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addGap(82, 82, 82)
-                                                                                                                .addComponent(PriceField,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                275,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                .addGroup(layout
-                                                                                                                .createParallelGroup(
-                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                                                layout
-                                                                                                                                                .createSequentialGroup()
-                                                                                                                                                .addComponent(Publisher,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                73,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                .addGap(82, 82, 82)
-                                                                                                                                                .addComponent(PublisherField,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                275,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addComponent(Author,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                73,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addGap(82, 82, 82)
-                                                                                                                                .addComponent(AuthorField,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                275,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addComponent(IDBook,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                73,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addGap(82, 82, 82)
-                                                                                                                                .addComponent(IDBookField,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                275,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addGroup(layout.createParallelGroup(
-                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                                .addComponent(Category,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                73,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                                .addComponent(Status,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                73,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                                                                .addGap(82, 82, 82)
-                                                                                                                                .addGroup(layout.createParallelGroup(
-                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                                                .addComponent(EnableStatus)
-                                                                                                                                                                .addGap(18, 18, 18)
-                                                                                                                                                                .addComponent(DistableStatus))
-                                                                                                                                                .addComponent(CategoryField,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                275,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                                                                .addGap(23, 162, Short.MAX_VALUE))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
-                                                                .createSequentialGroup()
-                                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                Short.MAX_VALUE)
-                                                                .addComponent(UpdateButton)
-                                                                .addGap(37, 37, 37)));
-                layout.setVerticalGroup(
-                                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                                .addGap(61, 61, 61)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                false)
-                                                                                .addComponent(IDBookField)
-                                                                                .addComponent(IDBook,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                30,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(18, 18, 18)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                false)
-                                                                                .addComponent(TitleField)
-                                                                                .addComponent(Title,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                30,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(18, 18, 18)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                false)
-                                                                                .addComponent(AuthorField)
-                                                                                .addComponent(Author,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                30,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(18, 18, 18)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                false)
-                                                                                .addComponent(Publisher,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(PublisherField,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                30,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(18, 18, 18)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                false)
-                                                                                .addComponent(CategoryField)
-                                                                                .addComponent(Category,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                30,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(18, 18, 18)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(Status,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                30,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(EnableStatus)
-                                                                                .addComponent(DistableStatus))
-                                                                .addGap(27, 27, 27)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                false)
-                                                                                .addComponent(PriceField)
-                                                                                .addComponent(Price,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                30,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(29, 29, 29)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                false)
-                                                                                .addComponent(VolumeField)
-                                                                                .addComponent(Volume,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                30,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                                42,
-                                                                                Short.MAX_VALUE)
-                                                                .addComponent(UpdateButton)
-                                                                .addGap(24, 24, 24)));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(91, 91, 91)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(82, 82, 82)
+                        .addComponent(TitleField, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(Volume, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(82, 82, 82)
+                            .addComponent(VolumeField, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(82, 82, 82)
+                            .addComponent(PriceField, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(Publisher, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(82, 82, 82)
+                                .addComponent(PublisherField, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Author, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(82, 82, 82)
+                                .addComponent(AuthorField, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(IDBook, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(82, 82, 82)
+                                .addComponent(IDBookField, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Category, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Status, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(82, 82, 82)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(EnableStatus)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(DistableStatus))
+                                    .addComponent(CategoryField, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(23, 162, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(UpdateButton)
+                .addGap(37, 37, 37))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(IDBookField)
+                    .addComponent(IDBook, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TitleField)
+                    .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(AuthorField)
+                    .addComponent(Author, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Publisher, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PublisherField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(CategoryField)
+                    .addComponent(Category, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Status, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EnableStatus)
+                    .addComponent(DistableStatus))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PriceField)
+                    .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(VolumeField)
+                    .addComponent(Volume, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(UpdateButton)
+                .addGap(24, 24, 24))
+        );
 
-                pack();
-        }// </editor-fold>//GEN-END:initComponents
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
         private void UpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {
                 try {
@@ -371,25 +274,25 @@ public class EditBookFrame extends javax.swing.JFrame {
          * @param args the command line arguments
          */
 
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        private javax.swing.JLabel Author;
-        private javax.swing.JTextField AuthorField;
-        private javax.swing.JLabel Category;
-        private javax.swing.JTextField CategoryField;
-        private javax.swing.JRadioButton DistableStatus;
-        private javax.swing.JRadioButton EnableStatus;
-        private javax.swing.JLabel IDBook;
-        private javax.swing.JTextField IDBookField;
-        private javax.swing.JLabel Price;
-        private javax.swing.JTextField PriceField;
-        private javax.swing.JLabel Publisher;
-        private javax.swing.JTextField PublisherField;
-        private javax.swing.JLabel Status;
-        private javax.swing.JLabel Title;
-        private javax.swing.JTextField TitleField;
-        private javax.swing.JButton UpdateButton;
-        private javax.swing.JLabel Volume;
-        private javax.swing.JTextField VolumeField;
-        private javax.swing.ButtonGroup buttonGroupStatus;
-        // End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Author;
+    private javax.swing.JTextField AuthorField;
+    private javax.swing.JLabel Category;
+    private javax.swing.JTextField CategoryField;
+    private javax.swing.JRadioButton DistableStatus;
+    private javax.swing.JRadioButton EnableStatus;
+    private javax.swing.JLabel IDBook;
+    private javax.swing.JTextField IDBookField;
+    private javax.swing.JLabel Price;
+    private javax.swing.JTextField PriceField;
+    private javax.swing.JLabel Publisher;
+    private javax.swing.JTextField PublisherField;
+    private javax.swing.JLabel Status;
+    private javax.swing.JLabel Title;
+    private javax.swing.JTextField TitleField;
+    private javax.swing.JButton UpdateButton;
+    private javax.swing.JLabel Volume;
+    private javax.swing.JTextField VolumeField;
+    private javax.swing.ButtonGroup buttonGroupStatus;
+    // End of variables declaration//GEN-END:variables
 }

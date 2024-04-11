@@ -10,12 +10,12 @@ import store.utils.DatabaseUtils;
 public class PublisherDAO {
 
     // add publisher
-    public void addPublisher(Publisher publisher) throws SQLException {
+    public void addPublisher(String publisher) throws SQLException {
         String INSERT_PUBLISHER_SQL = "INSERT INTO publisher (name, status) VALUES (?, TRUE)";
         new DatabaseUtils();
         try (Connection connection = DatabaseUtils.connect();
                 PreparedStatement preparedStatement = connection.prepareStatement(INSERT_PUBLISHER_SQL)) {
-            preparedStatement.setString(1, publisher.getPublisherName());
+            preparedStatement.setString(1, publisher);
             preparedStatement.executeUpdate();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

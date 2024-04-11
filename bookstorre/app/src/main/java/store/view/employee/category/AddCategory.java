@@ -2,25 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package store.view.employee.author;
-import org.checkerframework.checker.units.qual.A;
-
-import  store.Service.*;
+package store.view.employee.category;
+import store.Service.BookService;
 /**
  *
  * @author bourbon
  */
-public class AddAuthor extends javax.swing.JFrame {
+public class AddCategory extends javax.swing.JFrame {
 
     /**
-     * Creates new form AddAuthor
+     * Creates new form AddCategory
      */
-    public AddAuthor() {
-        BookService bookService = new BookService();
+    public AddCategory() {
         initComponents();
-        setLocationRelativeTo(null); 
+        BookService bookService = new BookService();
+        setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-
     }
 
     /**
@@ -39,7 +36,7 @@ public class AddAuthor extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Author Name");
+        jLabel1.setText("Category Name");
 
         OKButton.setText("Ok");
         OKButton.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +63,7 @@ public class AddAuthor extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(40, 40, 40)
                         .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 8, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CancelButton)
@@ -81,7 +78,7 @@ public class AddAuthor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(OKButton)
                     .addComponent(CancelButton))
@@ -94,18 +91,15 @@ public class AddAuthor extends javax.swing.JFrame {
     private void OKButtonActionPerformed(java.awt.event.ActionEvent evt) {
         try {
             BookService bookService = new BookService();
-            bookService.addAuthor(input.getText());
-            AddAuthor.this.dispose();
+            bookService.addCategory(input.getText());
+            this.dispose();
         } catch (Exception e) {
             e.printStackTrace();
-
         }
-        
     }
 
     private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        
-        AddAuthor.this.dispose();
+        this.dispose();
     }
 
     /**
