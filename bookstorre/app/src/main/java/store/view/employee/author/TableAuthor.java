@@ -197,40 +197,37 @@ public class TableAuthor extends javax.swing.JPanel {
         searchAuthor();
     }
 
-    private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DeleteButtonActionPerformed
-        int selectedRow = AuthorTable.getSelectedRow(); // Get the currently selected row in the table
-        if (selectedRow >= 0) { // Ensure that a row is selected
-            int authorID = (int) AuthorTable.getValueAt(selectedRow, 0); // Retrieve the author's ID from the first
-                                                                         // column
+    private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        int selectedRow = AuthorTable.getSelectedRow();
+        if (selectedRow >= 0) {
+            int authorID = (int) AuthorTable.getValueAt(selectedRow, 0);
 
-            // Show a confirmation dialog to make sure the user wants to delete the selected
-            // author
             int confirm = JOptionPane.showConfirmDialog(this,
                     "Are you sure you want to delete this author?", "Confirm Deletion",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
-            if (confirm == JOptionPane.YES_OPTION) { // Check if the user clicked "Yes"
+            if (confirm == JOptionPane.YES_OPTION) {
                 try {
-                    bookService.deleteAuthor(authorID); // Attempt to delete the author using the BookService
+                    bookService.deleteAuthor(authorID);
                     JOptionPane.showMessageDialog(this, "Author has been deleted successfully.",
                             "Deletion Successful", JOptionPane.INFORMATION_MESSAGE);
-                    loadAuthorsIntoTable(); // Reload the authors into the table to reflect the changes
-                } catch (SQLException e) { // Handle any SQL exceptions
+                    loadAuthorsIntoTable();
+                } catch (SQLException e) {
                     e.printStackTrace();
                     JOptionPane.showMessageDialog(this, "Error occurred while deleting the author: " + e.getMessage(),
                             "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         } else {
-            // If no row is selected, inform the user to select a row
+
             JOptionPane.showMessageDialog(this, "Please select an author to delete.", "No Author Selected",
                     JOptionPane.WARNING_MESSAGE);
         }
-    }// GEN-LAST:event_DeleteButtonActionPerformed
+    }
 
-    private void AddButonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AddButonActionPerformed
-        // TODO add your handling code here:
-    }// GEN-LAST:event_AddButonActionPerformed
+    private void AddButonActionPerformed(java.awt.event.ActionEvent evt) {
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButon;

@@ -8,6 +8,8 @@ import store.Model.Category;
 import store.Service.BookService;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import javax.swing.JOptionPane;
+import java.sql.SQLException;
 
 /**
  *
@@ -226,7 +228,31 @@ public class TableCategory extends javax.swing.JPanel {
     }
 
     private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        int selectedRow = TableCategory.getSelectedRow();
+        if (selectedRow >= 0) {
+            int categoryID = (int) TableCategory.getValueAt(selectedRow, 0);
 
+            int confirm = JOptionPane.showConfirmDialog(this,
+                    "Are you sure you want to delete this author?", "Confirm Deletion",
+                    JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+            if (confirm == JOptionPane.YES_OPTION) {
+                try {
+                    bookService.deleteCategory(categoryID);
+                    JOptionPane.showMessageDialog(this, "Author has been deleted successfully.",
+                            "Deletion Successful", JOptionPane.INFORMATION_MESSAGE);
+                    loadCategoryIntoTable();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(this, "Error occurred while deleting the author: " + e.getMessage(),
+                            "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Please select an author to delete.", "No Author Selected",
+                    JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
