@@ -11,7 +11,7 @@ public class Book {
     private String category; // Assuming category is referenced by ID
     private Boolean status;
     private int volume; // Assuming volume is a numeric field
-
+    private Date date; // Assuming date is a date field
     public Book(int bookID, String title, String author,
             String publisher,
             Double price, String category, Boolean status, int volume) {
@@ -45,7 +45,6 @@ public class Book {
         this.publisher = publisher;
         this.price = price;
         this.category = category;
-    
         this.volume = volume;
     }
 

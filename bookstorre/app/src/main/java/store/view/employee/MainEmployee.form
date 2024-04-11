@@ -59,7 +59,7 @@
                       <Component id="CategoryButton" min="-2" pref="211" max="-2" attributes="0"/>
                       <Component id="AuthorButton" max="32767" attributes="0"/>
                       <Component id="PublisherButton" max="32767" attributes="0"/>
-                      <Component id="ViewSheetButton" alignment="1" max="32767" attributes="0"/>
+                      <Component id="ImportSheetButton" alignment="1" max="32767" attributes="0"/>
                       <Component id="CreateOrderButton" alignment="0" max="32767" attributes="0"/>
                       <Component id="ViewOrderButton" alignment="1" max="32767" attributes="0"/>
                   </Group>
@@ -81,11 +81,11 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="CreateSheetButton" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="ViewSheetButton" min="-2" pref="50" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="CreateOrderButton" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="ImportSheetButton" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="ViewOrderButton" min="-2" pref="50" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="CreateOrderButton" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace pref="155" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -132,18 +132,18 @@
         </Component>
         <Component class="javax.swing.JButton" name="CreateSheetButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Create Sheet"/>
+            <Property name="text" type="java.lang.String" value="View Sheet"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CreateSheetButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ViewSheetButton">
+        <Component class="javax.swing.JButton" name="ImportSheetButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="View Sheet"/>
+            <Property name="text" type="java.lang.String" value="Import Sheet"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewSheetButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ImportSheetButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="CreateOrderButton">

@@ -2,9 +2,15 @@
 package store.view.employee;
 
 import store.view.employee.book.TableBook;
+
+import java.time.format.SignStyle;
+
 import store.view.employee.author.TableAuthor;
 import store.view.employee.category.TableCategory;
 import store.view.employee.publisher.TablePublisher;
+import store.view.employee.profile.*;
+import store.view.employee.order.*;
+import store.view.employee.sheet.*;
 
 public class MainEmployee extends javax.swing.JFrame {
 
@@ -12,6 +18,11 @@ public class MainEmployee extends javax.swing.JFrame {
     private TableCategory tableCategoryPanel; // Biến cho TableCategory
     private TableAuthor tableAuthorPanel; // Biến cho TableAuthor
     private TableBook tableBookPanel; // Biến cho TableBook
+    private ProfilePanel profilePanel; // Biến cho Profile
+    private CreateOrder createOrderPanel; // Biến cho CreateOrder
+    private ViewOrder viewOrderPanel; // Biến cho ViewOrder
+    private ImportSheet importSheetPanel; // Biến cho ImportSheet
+    private ViewSheet viewSheetPanel; // Biến cho ViewSheet
 
     public MainEmployee() {
         initComponents();
@@ -33,6 +44,27 @@ public class MainEmployee extends javax.swing.JFrame {
         this.add(tablePublisherPanel);
         tablePublisherPanel.setBounds(260, 80, 1250, 750);
 
+        profilePanel = new ProfilePanel();
+        this.add(profilePanel);
+        profilePanel.setBounds(260, 80, 1250, 750);
+
+        createOrderPanel = new CreateOrder();
+        this.add(createOrderPanel);
+        createOrderPanel.setBounds(260, 80, 1250, 750);
+
+        viewOrderPanel = new ViewOrder();
+        this.add(viewOrderPanel);
+        viewOrderPanel.setBounds(260, 80, 1250, 750);
+
+        importSheetPanel = new ImportSheet();
+        this.add(importSheetPanel);
+        importSheetPanel.setBounds(260, 80, 1250, 750);
+
+        viewSheetPanel = new ViewSheet();
+        this.add(viewSheetPanel);
+        viewSheetPanel.setBounds(260, 80, 1250, 750);
+        hideAllPanels();
+        tableBookPanel.setVisible(true);
     }
 
     /**
@@ -42,7 +74,8 @@ public class MainEmployee extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Navbar = new javax.swing.JPanel();
@@ -51,7 +84,7 @@ public class MainEmployee extends javax.swing.JFrame {
         BookButton = new javax.swing.JButton();
         CategoryButton = new javax.swing.JButton();
         CreateSheetButton = new javax.swing.JButton();
-        ViewSheetButton = new javax.swing.JButton();
+        ImportSheetButton = new javax.swing.JButton();
         CreateOrderButton = new javax.swing.JButton();
         ViewOrderButton = new javax.swing.JButton();
         Header = new javax.swing.JPanel();
@@ -92,17 +125,17 @@ public class MainEmployee extends javax.swing.JFrame {
             }
         });
 
-        CreateSheetButton.setText("Create Sheet");
+        CreateSheetButton.setText("View Sheet");
         CreateSheetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CreateSheetButtonActionPerformed(evt);
             }
         });
 
-        ViewSheetButton.setText("View Sheet");
-        ViewSheetButton.addActionListener(new java.awt.event.ActionListener() {
+        ImportSheetButton.setText("Import Sheet");
+        ImportSheetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewSheetButtonActionPerformed(evt);
+                ImportSheetButtonActionPerformed(evt);
             }
         });
 
@@ -123,58 +156,41 @@ public class MainEmployee extends javax.swing.JFrame {
         javax.swing.GroupLayout NavbarLayout = new javax.swing.GroupLayout(Navbar);
         Navbar.setLayout(NavbarLayout);
         NavbarLayout.setHorizontalGroup(
-                NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(NavbarLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(NavbarLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(BookButton, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(CreateSheetButton, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(CategoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 211,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(AuthorButton, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(PublisherButton, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(ViewSheetButton, javax.swing.GroupLayout.Alignment.TRAILING,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(CreateOrderButton, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(ViewOrderButton, javax.swing.GroupLayout.Alignment.TRAILING,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(23, Short.MAX_VALUE)));
+            NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NavbarLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(BookButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CreateSheetButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CategoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AuthorButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PublisherButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ImportSheetButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CreateOrderButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ViewOrderButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
         NavbarLayout.setVerticalGroup(
-                NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(NavbarLayout.createSequentialGroup()
-                                .addGap(89, 89, 89)
-                                .addComponent(BookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(AuthorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(CategoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(PublisherButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(CreateSheetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ViewSheetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(CreateOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ViewOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(155, Short.MAX_VALUE)));
+            NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NavbarLayout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(BookButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AuthorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CategoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(PublisherButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(CreateSheetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ImportSheetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ViewOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(CreateOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(155, Short.MAX_VALUE))
+        );
 
         Header.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -195,40 +211,40 @@ public class MainEmployee extends javax.swing.JFrame {
         javax.swing.GroupLayout HeaderLayout = new javax.swing.GroupLayout(Header);
         Header.setLayout(HeaderLayout);
         HeaderLayout.setHorizontalGroup(
-                HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderLayout.createSequentialGroup()
-                                .addContainerGap(1051, Short.MAX_VALUE)
-                                .addComponent(ProfileButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(SignOutButton)
-                                .addGap(20, 20, 20)));
+            HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderLayout.createSequentialGroup()
+                .addContainerGap(1051, Short.MAX_VALUE)
+                .addComponent(ProfileButton)
+                .addGap(18, 18, 18)
+                .addComponent(SignOutButton)
+                .addGap(20, 20, 20))
+        );
         HeaderLayout.setVerticalGroup(
-                HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(HeaderLayout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addGroup(HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(ProfileButton)
-                                        .addComponent(SignOutButton))
-                                .addContainerGap(25, Short.MAX_VALUE)));
+            HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeaderLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ProfileButton)
+                    .addComponent(SignOutButton))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(Navbar, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Header, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Navbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Navbar, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Navbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Header, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -238,6 +254,13 @@ public class MainEmployee extends javax.swing.JFrame {
         tableAuthorPanel.setVisible(false);
         tableCategoryPanel.setVisible(false);
         tablePublisherPanel.setVisible(false);
+        profilePanel.setVisible(false);
+        createOrderPanel.setVisible(false);
+        viewOrderPanel.setVisible(false);
+        importSheetPanel.setVisible(false);
+        viewSheetPanel.setVisible(false);
+
+
     }
 
     private void switchPanel(String panelName) {
@@ -254,6 +277,18 @@ public class MainEmployee extends javax.swing.JFrame {
                 break;
             case "Publisher":
                 tablePublisherPanel.setVisible(true);
+                break;
+            case "Profile":
+                profilePanel.setVisible(true);
+                break;
+            case "CreateOrder":
+                createOrderPanel.setVisible(true);
+                break;
+            case "ViewOrder":
+                viewOrderPanel.setVisible(true);
+                break;
+            case "ViewSheet":
+                viewSheetPanel.setVisible(true);
                 break;
             default:
                 break;
@@ -277,71 +312,32 @@ public class MainEmployee extends javax.swing.JFrame {
     }
 
     private void CreateSheetButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("CreateSheetButtonActionPerformed");
+        switchPanel("CreateSheet");
     }
 
-    private void ViewSheetButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("ViewSheetButtonActionPerformed");
+    private void ImportSheetButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        switchPanel("ImportSheet");
     }
 
     private void CreateOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("CreateOrderButtonActionPerformed");
+        switchPanel("CreateOrder");
     }
 
     private void ViewOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("ViewOrderButtonActionPerformed");
+        switchPanel("ViewOrder");
     }
 
     private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("ProfileButtonActionPerformed");
+        switchPanel("Profile");
     }
 
     private void SignOutButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("SignOutButtonActionPerformed");
+        System.out.println("Sign out");
     }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-         * look and feel.
-         * For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        }
-        // </editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainEmployee().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AuthorButton;
@@ -350,11 +346,11 @@ public class MainEmployee extends javax.swing.JFrame {
     private javax.swing.JButton CreateOrderButton;
     private javax.swing.JButton CreateSheetButton;
     private javax.swing.JPanel Header;
+    private javax.swing.JButton ImportSheetButton;
     private javax.swing.JPanel Navbar;
     private javax.swing.JButton ProfileButton;
     private javax.swing.JButton PublisherButton;
     private javax.swing.JButton SignOutButton;
     private javax.swing.JButton ViewOrderButton;
-    private javax.swing.JButton ViewSheetButton;
     // End of variables declaration//GEN-END:variables
 }
