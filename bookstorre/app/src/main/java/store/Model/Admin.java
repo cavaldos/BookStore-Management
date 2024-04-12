@@ -1,19 +1,18 @@
 package store.Model;
 
 public class Admin extends User {
-    private String adminRole;
 
-    public Admin() {
-    }
+    // public Admin() {
+    // }
 
-    // Include Firstname and Lastname in the constructor.
-    public Admin(String userID, String userName, String password, Boolean status, String Firstname, String Lastname) {
-        // Pass all the parameters to the superclass constructor.
-        super(userID, userName, password, status, Firstname, Lastname);
-        this.adminRole = "admin";
-    }
+    // // Include Firstname and Lastname in the constructor.
+    // public Admin(String userID, String userName, String password, Boolean status, String Firstname, String Lastname) {
+    //     // Pass all the parameters to the superclass constructor.
+    //     super(userID, userName, password, status, Firstname, Lastname
 
-    public String getAdminRole() {
-        return adminRole;
-    }
+    // }
+
+    // public String getAdminRole() {
+    //     return "Admin";
+    // }
 }

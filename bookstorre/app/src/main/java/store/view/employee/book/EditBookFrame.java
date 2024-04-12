@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package store.view.employee.book;
 
 import store.Model.Book;
@@ -11,10 +8,6 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author bourbon
- */
 public class EditBookFrame extends javax.swing.JFrame {
 
         private BookService bookService;

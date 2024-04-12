@@ -1,26 +1,41 @@
 package store.Model;
 
 public class User {
-    private String userID;
+    private int userID;
     private String userName;
     private String password;
     private Boolean status;
     private String Firstname;
     private String Lastname;
+    private String Role;
 
     public User() {
     }
-    public User(String userID, String userName, String password, Boolean status, String Firstname, String Lastname) {
+
+    public User(int userID, String userName, String password, Boolean status, String Firstname, String Lastname,
+            String Role) {
         this.userID = userID;
         this.userName = userName;
         this.password = password;
         this.status = status;
         this.Firstname = Firstname;
         this.Lastname = Lastname;
+        this.Role = Role;
+    }
+
+    public User(String userName, String password, Boolean status, String Firstname, String Lastname,
+            String Role) {
+
+        this.userName = userName;
+        this.password = password;
+        this.status = status;
+        this.Firstname = Firstname;
+        this.Lastname = Lastname;
+        this.Role = Role;
     }
 
     // Getters
-    public String getUserID() {
+    public int getUserID() {
         return userID;
     }
 
@@ -36,17 +51,20 @@ public class User {
         return status;
     }
 
-    public String getFirstname() {
+    public String getFirstName() {
         return Firstname;
     }
 
-    public String getLastname() {
+    public String getLastName() {
         return Lastname;
     }
 
+    public String getRole() {
+        return Role;
+    }
     // Setters
 
-    public void setUserID(String userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 
@@ -62,12 +80,29 @@ public class User {
         this.status = status;
     }
 
-    public void setFirstname(String Firstname) {
+    public void setFirstName(String Firstname) {
         this.Firstname = Firstname;
     }
 
-    public void setLastname(String Lastname) {
+    public void setLastName(String Lastname) {
         this.Lastname = Lastname;
     }
 
+    public void setRole(String Role) {
+        this.Role = Role;
+    }
+
+    // toString
+    @Override
+    public String toString() {
+        return "User{" +
+                "userID=" + userID +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", status=" + status +
+                ", Firstname='" + Firstname + '\'' +
+                ", Lastname='" + Lastname + '\'' +
+                ", Role='" + Role + '\'' +
+                '}';
+    }
 }

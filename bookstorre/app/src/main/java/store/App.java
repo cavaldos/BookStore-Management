@@ -9,7 +9,9 @@ import java.awt.*;
 import java.awt.print.Book;
 
 import store.view.*;
+import store.Model.User;
 import store.Service.BookService;
+import store.Service.UserService;
 import store.view.component.*;
 
 import java.sql.SQLException;
@@ -20,14 +22,17 @@ import store.view.admin.MainAdmin;
 import store.view.employee.MainEmployee;
 // import order DAO
 
-
 public class App {
 
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
         MainAdmin mainUI = new MainAdmin();
         mainUI.setVisible(true);
 
-
+        // User khanh;
+        // // select user by id
+        // UserService userService = new UserService();
+        // khanh = userService.selectUser(1);
+        // System.out.println("sadfsadfsdf" + khanh);
 
     }
 

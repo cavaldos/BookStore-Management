@@ -36,9 +36,9 @@ public class MainAdmin extends javax.swing.JFrame {
                 this.add(managerUser);
                 managerUser.setBounds(260, 80, 1250, 650);
 
-                Revenue.setVisible(true);
                 Profile.setVisible(true);
-                managerUser.setVisible(true);
+                Revenue.setVisible(false);
+                managerUser.setVisible(false);
 
         }
 

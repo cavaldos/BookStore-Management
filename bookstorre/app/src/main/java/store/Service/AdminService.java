@@ -13,9 +13,7 @@ public class AdminService {
         this.userDao = new UserDao();
     }
 
-    public boolean selectUser(int userID) throws SQLException {
-        return userDao.selectUser(userID);
-    }
+    
 
 }
     

@@ -16,7 +16,6 @@ public class AddAuthor extends javax.swing.JFrame {
      * Creates new form AddAuthor
      */
     public AddAuthor() {
-        BookService bookService = new BookService();
         initComponents();
         setLocationRelativeTo(null); 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
