@@ -44,37 +44,23 @@ public class AdminDAO {
             connection.close();
         }
     }
-    // enable admin
-    public boolean enableAdmin(String username) throws SQLException {
-        Connection connection = DatabaseUtils.connectToDatabase();
-        String query = "UPDATE admin SET status = 1 WHERE username = ?";
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, username);
-            preparedStatement.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            System.out.println("Error enabling admin: " + e.getMessage());
-            throw e;
-        } finally {
-            connection.close();
-        }
-    }
-    // disable admin
-    public boolean disableAdmin(String username) throws SQLException {
-        Connection connection = DatabaseUtils.connectToDatabase();
-        String query = "UPDATE admin SET status = 0 WHERE username = ?";
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, username);
-            preparedStatement.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            System.out.println("Error disabling admin: " + e.getMessage());
-            throw e;
-        } finally {
-            connection.close();
-        }
-    }
 
+    // delete admin
+    public boolean deleteAdmin(String username) throws SQLException {
+        Connection connection = DatabaseUtils.connectToDatabase();
+        String query = "DELETE FROM admin WHERE username = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, username);
+            preparedStatement.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Error deleting admin: " + e.getMessage());
+            throw e;
+        } finally {
+            connection.close();
+        }
+    }
+    //
+    
 }

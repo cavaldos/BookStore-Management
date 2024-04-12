@@ -24,7 +24,7 @@ import store.view.employee.MainEmployee;
 public class App {
 
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
-        MainEmployee mainUI = new MainEmployee();
+        MainAdmin mainUI = new MainAdmin();
         mainUI.setVisible(true);
 
 
