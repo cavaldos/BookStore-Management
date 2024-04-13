@@ -3,12 +3,11 @@ package store;
 
 import javax.swing.*;
 
-import com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream;
-
 import java.awt.*;
 import java.awt.print.Book;
 
 import store.view.*;
+import store.Model.OrderDetail;
 import store.Model.User;
 import store.Service.BookService;
 import store.Service.UserService;
@@ -21,6 +20,12 @@ import store.view.*;
 import store.view.admin.MainAdmin;
 import store.view.employee.MainEmployee;
 // import order DAO
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import store.Repository.OrderDAO;
+import store.Repository.OrderDetailDAO;
+import store.Service.OrderService;
 
 public class App {
 
@@ -29,13 +34,6 @@ public class App {
         // mainUI.setVisible(true);
         MainEmployee mainUIss = new MainEmployee();
         mainUIss.setVisible(true);
-
-
-        // User khanh;
-        // // select user by id
-        // UserService userService = new UserService();
-        // khanh = userService.selectUser(1);
-        // System.out.println("sadfsadfsdf" + khanh);
 
     }
 

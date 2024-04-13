@@ -6,11 +6,11 @@ public class OrderDetail {
     private int bookID;
     private String title;
     private Double price;
-    private Long quantity;
+    private int quantity;
     
     // Getters
 
-    public OrderDetail(int idOrderDetail, int bookID, int orderID, Long quantity, String title, Double price) {
+    public OrderDetail(int idOrderDetail, int bookID, int orderID, int quantity, String title, Double price) {
         this.idOrderDetail = idOrderDetail;
         this.orderID = orderID;
         this.bookID = bookID;
@@ -18,8 +18,14 @@ public class OrderDetail {
         this.price = price;
         this.quantity = quantity;
     }
+    public OrderDetail(int idOrderDetail, String title, Double price, int quantity) {
+        this.idOrderDetail = idOrderDetail;
+        this.title = title;
+        this.price = price;
+        this.quantity = quantity;
+    }
 
-    public int getIdOrderDetail() {
+    public int getOrderDetailID() {
         return idOrderDetail;
     }
     
@@ -31,7 +37,7 @@ public class OrderDetail {
         return bookID;
     }
 
-    public String getTitle() {
+    public String getBookTitle() {
         return title;
     }
 
@@ -39,7 +45,7 @@ public class OrderDetail {
         return price;
     }
 
-    public Long getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
@@ -65,7 +71,7 @@ public class OrderDetail {
         this.price = price;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

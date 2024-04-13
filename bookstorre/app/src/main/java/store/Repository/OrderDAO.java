@@ -7,84 +7,76 @@ import store.utils.DatabaseUtils;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.lang.String;
 
 public class OrderDAO {
-    private static final String GET_ALL_ORDERS = "SELECT DISTINCT o.orderID, o.date, o.customerID, o.employeeID, o.discount, o.status, o.totalCost\n"
-            + //
-            "FROM orders o  \n" + //
-            "JOIN order_detail od ON o.orderID = od.orderID  \n" + //
-            "JOIN book b ON od.bookID = b.bookID;\n" + //
-            "";
-    private static final String GET_ORDER_DETAIL_BY_ID = "SELECT od.id_order_detail, od.orderID, b.bookID, od.quantity, b.title, b.price "
-            +
-            "FROM order_detail od " +
-            "JOIN book b ON od.bookID = b.bookID WHERE od.orderID = ?;";
-
-    // get all orders
-    public List<Order> getAllOrders() throws SQLException, ClassNotFoundException {
-        try {
-            Connection connection = new DatabaseUtils().connect();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(GET_ALL_ORDERS);
-            List<Order> orders = new ArrayList<>();
+    // Get all orders
+    public List<Order> getAllOrders() throws SQLException {
+        String query = "SELECT od.orderID, od.date, cus.username AS customer, acc.username AS employee, od.totalCost, od.discount, od.status\n"
+                         + //
+                        "FROM orders od\n" +//
+                        "JOIN customer cus ON od.customerID = cus.customerID\n" +//
+                        "JOIN account acc  ON od.employeeID = acc.userID";
+        List<Order> orders = new ArrayList<>();
+        new DatabaseUtils();
+        try (Connection connection = DatabaseUtils.connect();
+             PreparedStatement preparedStatement = connection.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {
                 int orderID = resultSet.getInt("orderID");
                 Date date = resultSet.getDate("date");
-                int customerID = resultSet.getInt("customerID");
-                int employeeID = resultSet.getInt("employeeID");
+                String customer = resultSet.getString("customer");
+                String employee = resultSet.getString("employee");
                 Double totalCost = resultSet.getDouble("totalCost");
                 Double discount = resultSet.getDouble("discount");
                 Boolean status = resultSet.getBoolean("status");
-
-                Order order = new Order(orderID, date, customerID, employeeID, totalCost, discount, status);
+                Order order = new Order(orderID, date, customer, employee, totalCost, discount, status);
                 orders.add(order);
             }
-            return orders;
-        } catch (SQLException e) {
-            System.out.println("Error getting all orders: " + e.getMessage());
-            return null;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
+        return orders;
+
+
     }
-
-    // get order detail by id
-    public List<OrderDetail> getOrderDetailByID(int orderID_Input) throws SQLException, ClassNotFoundException {
-        List<OrderDetail> orderDetails = new ArrayList<>();
-        try (Connection connection = new DatabaseUtils().connect();
-                PreparedStatement preparedStatement = connection.prepareStatement(GET_ORDER_DETAIL_BY_ID)) {
-            preparedStatement.setInt(1, orderID_Input);
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                while (resultSet.next()) {
-                    int idOrderDetail = resultSet.getInt("id_order_detail");
-                    int bookID = resultSet.getInt("bookID");
-                    int orderID = resultSet.getInt("orderID"); // Đảm bảo này phù hợp với kiểu dữ liệu
-                    Long quantity = resultSet.getLong("quantity");
-                    String title = resultSet.getString("title");
-                    Double price = resultSet.getDouble("price");
-
-                    OrderDetail orderDetail = new OrderDetail(idOrderDetail, bookID, orderID, quantity, title, price);
-                    orderDetails.add(orderDetail);
-                }
+    // select order()
+    public Order selectOrder(int orderID) throws SQLException {
+        Order order = null;
+        new DatabaseUtils();
+        try (Connection connection = DatabaseUtils.connect();
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT od.orderID, od.date, cus.username AS customer, acc.username AS employee, od.totalCost, od.discount, od.status\n"
+                     + //
+                     "FROM orders od\n" +//
+                     "JOIN customer cus ON od.customerID = cus.customerID\n" +//
+                     "JOIN account acc  ON od.employeeID = acc.userID\n" +//
+                     "WHERE od.orderID = ?")) {
+            preparedStatement.setInt(1, orderID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                Date date = resultSet.getDate("date");
+                String customer = resultSet.getString("customer");
+                String employee = resultSet.getString("employee");
+                Double totalCost = resultSet.getDouble("totalCost");
+                Double discount = resultSet.getDouble("discount");
+                Boolean status = resultSet.getBoolean("status");
+                order = new Order(orderID, date, customer, employee, totalCost, discount, status);
             }
-        } catch (SQLException e) {
-            System.out.println("Error getting order detail by id: " + e.getMessage());
-            return null;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-
-        return orderDetails;
+        return order;
     }
-
-    // create order
-    public boolean createOrder(Order order) throws SQLException, ClassNotFoundException {
-        String sql = "INSERT INTO orders (orderID, date, customerID, employeeID, discount, status, totalCost) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        try (Connection connection = new DatabaseUtils().connect();
-                PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-
-            // code
-
+    // delete order
+    public boolean deleteOrder(int orderID) throws SQLException {
+        String query = "DELETE FROM orders WHERE orderID = ?";
+        try (Connection connection = DatabaseUtils.connect();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, orderID);
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;
-        } catch (SQLException e) {
-            System.out.println("Error creating order: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
             return false;
         }
     }
