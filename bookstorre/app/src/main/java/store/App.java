@@ -25,8 +25,11 @@ import store.view.employee.MainEmployee;
 public class App {
 
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
-        MainAdmin mainUI = new MainAdmin();
-        mainUI.setVisible(true);
+        // MainAdmin mainUI = new MainAdmin();
+        // mainUI.setVisible(true);
+        MainEmployee mainUIss = new MainEmployee();
+        mainUIss.setVisible(true);
+
 
         // User khanh;
         // // select user by id
