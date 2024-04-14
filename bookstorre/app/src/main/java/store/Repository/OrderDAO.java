@@ -13,15 +13,15 @@ public class OrderDAO {
     // Get all orders
     public List<Order> getAllOrders() throws SQLException {
         String query = "SELECT od.orderID, od.date, cus.username AS customer, acc.username AS employee, od.totalCost, od.discount, od.status\n"
-                         + //
-                        "FROM orders od\n" +//
-                        "JOIN customer cus ON od.customerID = cus.customerID\n" +//
-                        "JOIN account acc  ON od.employeeID = acc.userID";
+                + //
+                "FROM orders od\n" + //
+                "JOIN customer cus ON od.customerID = cus.customerID\n" + //
+                "JOIN account acc  ON od.employeeID = acc.userID";
         List<Order> orders = new ArrayList<>();
         new DatabaseUtils();
         try (Connection connection = DatabaseUtils.connect();
-             PreparedStatement preparedStatement = connection.prepareStatement(query);
-             ResultSet resultSet = preparedStatement.executeQuery()) {
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                ResultSet resultSet = preparedStatement.executeQuery()) {
             while (resultSet.next()) {
                 int orderID = resultSet.getInt("orderID");
                 Date date = resultSet.getDate("date");
@@ -38,19 +38,20 @@ public class OrderDAO {
         }
         return orders;
 
-
     }
+
     // select order()
     public Order selectOrder(int orderID) throws SQLException {
         Order order = null;
         new DatabaseUtils();
         try (Connection connection = DatabaseUtils.connect();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT od.orderID, od.date, cus.username AS customer, acc.username AS employee, od.totalCost, od.discount, od.status\n"
-                     + //
-                     "FROM orders od\n" +//
-                     "JOIN customer cus ON od.customerID = cus.customerID\n" +//
-                     "JOIN account acc  ON od.employeeID = acc.userID\n" +//
-                     "WHERE od.orderID = ?")) {
+                PreparedStatement preparedStatement = connection.prepareStatement(
+                        "SELECT od.orderID, od.date, cus.username AS customer, acc.username AS employee, od.totalCost, od.discount, od.status\n"
+                                + //
+                                "FROM orders od\n" + //
+                                "JOIN customer cus ON od.customerID = cus.customerID\n" + //
+                                "JOIN account acc  ON od.employeeID = acc.userID\n" + //
+                                "WHERE od.orderID = ?")) {
             preparedStatement.setInt(1, orderID);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
@@ -67,12 +68,34 @@ public class OrderDAO {
         }
         return order;
     }
+
     // delete order
     public boolean deleteOrder(int orderID) throws SQLException {
         String query = "DELETE FROM orders WHERE orderID = ?";
         try (Connection connection = DatabaseUtils.connect();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, orderID);
+            int rowsAffected = preparedStatement.executeUpdate();
+            return rowsAffected > 0;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // create order
+    public boolean createOrder(Order order) throws SQLException {
+        // --(customerID, employeeID, totalCost, discount, status)
+        // CALL create_order(1, 1, 100, 10, 1);
+
+        String query = "CALL create_order(?, ?, ?, ?, ?)";
+        try (Connection connection = DatabaseUtils.connect();
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, order.getCustomerID());
+            preparedStatement.setInt(2, order.getEmployeeID());
+            preparedStatement.setDouble(3, order.getTotalCost());
+            preparedStatement.setDouble(4, order.getDiscount());
+            preparedStatement.setBoolean(5, true);
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;
         } catch (ClassNotFoundException e) {

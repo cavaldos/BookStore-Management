@@ -74,6 +74,10 @@ public class Order {
         return status;
     }
 
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
     // public List<OrderDetail> getOrderDetails() {
     // return orderDetails;
     // }
@@ -111,6 +115,12 @@ public class Order {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
+    }
+
+    
 
     // public void setOrderDetails(List<OrderDetail> orderDetails) {
     // this.orderDetails = orderDetails;

@@ -9,9 +9,13 @@ import store.Service.OrderService;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
+
+
 public class ViewOrder extends javax.swing.JPanel {
 
     private OrderService orderService;
+
+
     private OrderDetailView orderDetailView;
     public ViewOrder() {
         this.orderService = new OrderService();

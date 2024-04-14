@@ -7,7 +7,7 @@ public class OrderDetail {
     private String title;
     private Double price;
     private int quantity;
-    
+
     // Getters
 
     public OrderDetail(int idOrderDetail, int bookID, int orderID, int quantity, String title, Double price) {
@@ -18,8 +18,29 @@ public class OrderDetail {
         this.price = price;
         this.quantity = quantity;
     }
-    public OrderDetail(int idOrderDetail, String title, Double price, int quantity) {
+
+    // public OrderDetail(int idOrderDetail, String title, Double price, int quantity) {
+    //     this.idOrderDetail = idOrderDetail;
+    //     this.title = title;
+    //     this.price = price;
+    //     this.quantity = quantity;
+    // }
+
+    public OrderDetail(int idOrderDetail, int bookID, int orderID, int quantity) {
         this.idOrderDetail = idOrderDetail;
+        this.orderID = orderID;
+        this.bookID = bookID;
+        this.quantity = quantity;
+    }
+
+    public OrderDetail(int bookID, int orderID, int quantity) {
+        this.orderID = orderID;
+        this.bookID = bookID;
+        this.quantity = quantity;
+    }
+
+    public OrderDetail(int bookID, String title, double price, int quantity) {
+        this.bookID = bookID;
         this.title = title;
         this.price = price;
         this.quantity = quantity;
@@ -28,7 +49,7 @@ public class OrderDetail {
     public int getOrderDetailID() {
         return idOrderDetail;
     }
-    
+
     public int getOrderID() {
         return orderID;
     }
@@ -93,5 +114,4 @@ public class OrderDetail {
         return price * quantity;
     }
 
-    
 }
