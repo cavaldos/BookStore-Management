@@ -3,7 +3,6 @@ package com.raven.form;
 
 import javax.swing.table.TableRowSorter;
 import javax.swing.RowFilter;
-import com.raven.model.StatusType;
 import com.raven.swing.ScrollBar;
 import java.awt.Color;
 import javax.swing.JPanel;
@@ -16,10 +15,14 @@ import com.raven.event.TableActionEvent;
 import com.raven.dialog.DialogEdit;
 import com.raven.dialog.Add;
 import javax.swing.JFrame;
+import com.raven.data.DatabaseConnection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 public class Form_accountAdmin extends javax.swing.JPanel {
 
     public Form_accountAdmin() {
         initComponents();
+        
          searchText1.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
         @Override
         public void insertUpdate(javax.swing.event.DocumentEvent e) {
@@ -69,7 +72,7 @@ public class Form_accountAdmin extends javax.swing.JPanel {
         editDialog.dispose();
     });
             }
-
+      
             @Override
             public void onDelete(int row) {
                 if (table.isEditing()) {
@@ -100,22 +103,9 @@ public class Form_accountAdmin extends javax.swing.JPanel {
         JPanel p = new JPanel();
         p.setBackground(Color.WHITE);
         spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
-        table.addRow(new Object[]{"Mike Bhand", "mikebhand@gmail.com", "Admin", "25 Apr,2018", StatusType.PENDING});
-        table.addRow(new Object[]{"Andrew Strauss", "andrewstrauss@gmail.com", "Editor", "25 Apr,2018", StatusType.APPROVED});
-        table.addRow(new Object[]{"Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018", StatusType.APPROVED});
-        table.addRow(new Object[]{"Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018", StatusType.REJECT});
-        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018", StatusType.PENDING});
-        table.addRow(new Object[]{"Andrew Strauss", "andrewstrauss@gmail.com", "Editor", "25 Apr,2018", StatusType.APPROVED});
-        table.addRow(new Object[]{"Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018", StatusType.APPROVED});
-        table.addRow(new Object[]{"Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018", StatusType.REJECT});
-        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018", StatusType.PENDING});
-        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018", StatusType.PENDING});
-        table.addRow(new Object[]{"Andrew Strauss", "andrewstrauss@gmail.com", "Editor", "25 Apr,2018", StatusType.APPROVED});
-        table.addRow(new Object[]{"Ross Kopelman", "rosskopelman@gmail.com", "Subscriber", "25 Apr,2018", StatusType.APPROVED});
-        table.addRow(new Object[]{"Mike Hussy", "mikehussy@gmail.com", "Admin", "25 Apr,2018", StatusType.REJECT});
-        table.addRow(new Object[]{"Kevin Pietersen", "kevinpietersen@gmail.com", "Admin", "25 Apr,2018", StatusType.PENDING});
+        setAllAccount();
     
-        //  add row table
+ 
     }
     
     @SuppressWarnings("unchecked")
@@ -146,7 +136,7 @@ public class Form_accountAdmin extends javax.swing.JPanel {
 
             },
             new String [] {
-                "ID", "UserName", "Password", "Status", "Role", "Firstname", "Lastname", "Action"
+                "ID", "UserName", "password", "Status", "Role", "Firstname", "Lastname", "Action"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -158,6 +148,14 @@ public class Form_accountAdmin extends javax.swing.JPanel {
             }
         });
         spTable.setViewportView(table);
+        if (table.getColumnModel().getColumnCount() > 0) {
+            table.getColumnModel().getColumn(1).setResizable(false);
+            table.getColumnModel().getColumn(2).setResizable(false);
+            table.getColumnModel().getColumn(3).setResizable(false);
+            table.getColumnModel().getColumn(4).setResizable(false);
+            table.getColumnModel().getColumn(5).setResizable(false);
+            table.getColumnModel().getColumn(6).setResizable(false);
+        }
 
         searchText1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,7 +172,7 @@ public class Form_accountAdmin extends javax.swing.JPanel {
             .addGroup(panelBorder1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(panelBorder1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBorder1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBorder1Layout.createSequentialGroup()
                         .addComponent(spTable)
                         .addContainerGap())
                     .addGroup(panelBorder1Layout.createSequentialGroup()
@@ -196,7 +194,7 @@ public class Form_accountAdmin extends javax.swing.JPanel {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+                .addContainerGap())
         );
 
         Add.setText("Add");
@@ -212,16 +210,13 @@ public class Form_accountAdmin extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(395, 395, 395)
-                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Add, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelBorder1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,4 +272,27 @@ public class Form_accountAdmin extends javax.swing.JPanel {
     // Áp dụng TableRowSorter vào bảng
     table.setRowSorter(sorter);
 }
+        private void setAllAccount() {
+    String query = "SELECT * FROM account";
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+        
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        while (rs.next()) {
+            // Thêm dữ liệu vào model của bảng
+            model.addRow(new Object[]{
+                rs.getString("userID"),
+                rs.getString("username"),
+                  rs.getString("password"),
+                rs.getString("status"),
+                rs.getString("role"),
+                rs.getString("firstname"),
+                rs.getString("lastname")
+            });
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
 }

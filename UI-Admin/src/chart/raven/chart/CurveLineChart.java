@@ -304,24 +304,53 @@ public class CurveLineChart extends JComponent {
         add(panelLegend, "wrap");
     }
 
-    public void addLegend(String name, Color color1, Color color2) {
-        ModelLegend data = new ModelLegend(name, color1, color2);
-        legends.add(data);
-        LegendItem legend = new LegendItem(data, legends.size() - 1);
-        legend.setForeground(getForeground());
-        legend.addActionListener((ActionEvent e) -> {
-            if (animate > 0) {
-                startChange(legend.getIndex());
-                clearLegendSelected(legend);
-            }
-        });
-        if (legends.size() - 1 == index) {
-            legend.setSelected(true);
+  
+public void addLegend(String name, String oldName, Color color1, Color color2) {
+    ModelLegend data = new ModelLegend(name, color1, color2);
+    int oldIndex = -1;
+  System.out.println(oldName);
+    // Locate oldName in legends
+    for (int i = 0; i < legends.size(); i++) {
+        if (legends.get(i).getName().equals(oldName)) {
+            System.out.println(legends.get(i).getName());
+            oldIndex = i;
+            break;
         }
-        panelLegend.add(legend);
-        panelLegend.repaint();
-        panelLegend.revalidate();
     }
+
+    if (oldIndex != -1) {
+        legends.set(oldIndex, data); // Update the data in the legends list
+        panelLegend.remove(oldIndex); // Remove the old LegendItem from the panel
+    } else {
+      
+        legends.add(data); // If not found, just add new
+    }
+    
+    LegendItem newLegend = new LegendItem(data, oldIndex == -1 ? legends.size() - 1 : oldIndex);
+    setupLegendItem(newLegend); // Prepare the new legend item
+    
+    if (oldIndex != -1) {
+        panelLegend.add(newLegend, oldIndex); // Add new LegendItem at the same position
+    } else {
+          System.out.println("thêm");
+        panelLegend.add(newLegend); // Add at the end if it was a new entry
+    }
+
+    panelLegend.revalidate();
+    panelLegend.repaint();
+}
+
+private void setupLegendItem(LegendItem legend) {
+    legend.setForeground(getForeground());
+    legend.addActionListener((ActionEvent e) -> {
+        if (animate > 0) {
+            startChange(legend.getIndex());
+            clearLegendSelected(legend);
+        }
+    });
+}
+
+
 
     private void clearLegendSelected(LegendItem item) {
         item.setSelected(true);

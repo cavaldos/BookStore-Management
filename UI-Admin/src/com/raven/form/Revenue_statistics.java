@@ -8,6 +8,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import com.raven.data.ModelData;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.concurrent.atomic.AtomicReference;
 import javax.swing.JComboBox;
 
 /**
@@ -15,6 +18,10 @@ import javax.swing.JComboBox;
  * @author RAVEN
  */
 public class Revenue_statistics extends javax.swing.JFrame {
+private String previousBookSelection;
+private String previousCategorySelection;
+private String previousCustomerSelection;
+private String previousEmployeeSelection;
 
     /**
      * Creates new form Test
@@ -24,49 +31,93 @@ public class Revenue_statistics extends javax.swing.JFrame {
         // Clear existing items
         clearComboBoxes();
         // Load new items into each ComboBox
-        loadComboBoxData("SELECT title FROM book", jComboBox1);
-        loadComboBoxData("SELECT name FROM category", jComboBox3);
-        loadComboBoxData("SELECT username FROM customer", jComboBox2);
-        loadComboBoxData("SELECT username FROM account WHERE role = 'employee'", EmployeesBox);
+       
+     
         DateBox.addItem("Month");
          DateBox.addItem("Week");
           DateBox.addItem("Day");
         // Setup chart
         setupChart();
+     
 
         // Any additional setup
         test();
     }
 
     private void clearComboBoxes() {
-        jComboBox1.removeAllItems();
-        jComboBox3.removeAllItems();
-        jComboBox2.removeAllItems();
+        BookBox.removeAllItems();
+        CategoryBox.removeAllItems();
+        CustomerBox.removeAllItems();
         EmployeesBox.removeAllItems();
         DateBox.removeAllItems();
     }
 
-    private void loadComboBoxData(String query, JComboBox<String> comboBox) {
-        try {
-            PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
-            ResultSet rs = pst.executeQuery();
+   private void loadAndInitializeComboBox(String query, JComboBox<String> comboBox, String columnName, Color color1, Color color2) {
+    try {
+        PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+        ResultSet rs = pst.executeQuery();
+        boolean isFirst = true;
+        String firstItem = null;
 
-            while (rs.next()) {
-                String name = rs.getString("name");
-                comboBox.addItem(name);
+        while (rs.next()) {
+            String name = rs.getString(columnName);
+            comboBox.addItem(name);
+            if (isFirst) {
+                firstItem = name;
+                isFirst = false;
             }
-            rs.close();
-            pst.close();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+        
+        if (firstItem != null) {
+            comboBox.setSelectedItem(firstItem);
+            chart.addLegend(firstItem, firstItem, color1, color2); // Gửi giá trị ban đầu lên biểu đồ
+        }
+
+        rs.close();
+        pst.close();
+
+        // Gắn ActionListener sau khi thiết lập lựa chọn đầu tiên
+        addComboBoxListener(comboBox, color1, color2);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 }
 
+private void addComboBoxListener(JComboBox<String> comboBox, Color color1, Color color2) {
+    comboBox.addActionListener(new ActionListener() {
+        private String previousSelection = (String) comboBox.getSelectedItem();
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String currentSelection = (String) comboBox.getSelectedItem();
+            if (!currentSelection.equals(previousSelection)) {
+                chart.addLegend(currentSelection, previousSelection, color1, color2);
+                previousSelection = currentSelection;
+            }
+        }
+    });
+}
+
+
+
+
+
+
+public void initializeComboBoxes() {
+    loadAndInitializeComboBox("SELECT title FROM book", BookBox, "title", Color.decode("#7b4397"), Color.decode("#dc2430"));
+    loadAndInitializeComboBox("SELECT name FROM category", CategoryBox, "name", Color.decode("#7b4397"), Color.decode("#dc2430"));
+    loadAndInitializeComboBox("SELECT username FROM customer", CustomerBox, "username", Color.decode("#7b4397"), Color.decode("#dc2430"));
+    loadAndInitializeComboBox("SELECT username FROM account WHERE role = 'employee'", EmployeesBox, "username", Color.decode("#7b4397"), Color.decode("#dc2430"));
+}
+
+
+
+
     private void setupChart() {
+        
         chart.setTitle("Chart Data");
-        chart.addLegend("Amount", Color.decode("#7b4397"), Color.decode("#dc2430"));
-        chart.addLegend("Cost", Color.decode("#e65c00"), Color.decode("#F9D423"));
-        chart.addLegend("Profit", Color.decode("#0099F7"), Color.decode("#F11712"));
+      
+        initializeComboBoxes();
     }
 
     // Other methods...
@@ -75,7 +126,7 @@ public class Revenue_statistics extends javax.swing.JFrame {
     private void setData() {
         try {
             List<ModelData> lists = new ArrayList<>();
-            DatabaseConnection.getInstance().connectToDatabase();
+         
             String sql = "select DATE_FORMAT(Date,'%M') as `Month`, SUM(TotalAmount) as Amount, SUM(TotalCost) as Cost, SUM(TotalProfit) as Profit from orders group by DATE_FORMAT(Date,'%m%Y') order by Date DESC limit 7";
             PreparedStatement p = DatabaseConnection.getInstance().getConnection().prepareStatement(sql);
             ResultSet r = p.executeQuery();
@@ -122,10 +173,10 @@ public class Revenue_statistics extends javax.swing.JFrame {
 
         panelShadow1 = new chart.raven.panel.PanelShadow();
         chart = new chart.raven.chart.CurveLineChart();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        BookBox = new javax.swing.JComboBox<>();
+        CustomerBox = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        CategoryBox = new javax.swing.JComboBox<>();
         EmployeesBox = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -143,14 +194,14 @@ public class Revenue_statistics extends javax.swing.JFrame {
         chart.setForeground(new java.awt.Color(237, 237, 237));
         chart.setFillColor(true);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        BookBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CustomerBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Customer List");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CategoryBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         EmployeesBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -175,9 +226,9 @@ public class Revenue_statistics extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelShadow1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BookBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CustomerBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CategoryBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EmployeesBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel2)
@@ -197,15 +248,15 @@ public class Revenue_statistics extends javax.swing.JFrame {
                     .addGroup(panelShadow1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BookBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CategoryBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)
                         .addGap(12, 12, 12)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CustomerBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24)
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
@@ -239,12 +290,12 @@ public class Revenue_statistics extends javax.swing.JFrame {
      */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> BookBox;
+    private javax.swing.JComboBox<String> CategoryBox;
+    private javax.swing.JComboBox<String> CustomerBox;
     private javax.swing.JComboBox<String> DateBox;
     private javax.swing.JComboBox<String> EmployeesBox;
     private chart.raven.chart.CurveLineChart chart;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

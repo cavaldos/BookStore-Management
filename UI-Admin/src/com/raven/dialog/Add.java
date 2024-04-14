@@ -142,7 +142,11 @@ public class Add extends javax.swing.JFrame {
     Form_accountAdmin.AddRowToJTable(new Object[]{
         jTextField1.getText(),
         jTextField2.getText(),
-        jTextField3.getText()
+        jTextField3.getText(),
+             jTextField4.getText(),
+        jTextField5.getText(),
+        jTextField6.getText(),
+             jTextField7.getText()
     });
     }//GEN-LAST:event_AddActionPerformed
 
