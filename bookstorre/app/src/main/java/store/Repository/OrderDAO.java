@@ -87,7 +87,9 @@ public class OrderDAO {
     public boolean createOrder(Order order) throws SQLException {
         // --(customerID, employeeID, totalCost, discount, status)
         // CALL create_order(1, 1, 100, 10, 1);
-
+        // if (order.getCustomerID() == null) {
+        //     System.out.println(
+        // }
         String query = "CALL create_order(?, ?, ?, ?, ?)";
         try (Connection connection = DatabaseUtils.connect();
                 PreparedStatement preparedStatement = connection.prepareStatement(query)) {

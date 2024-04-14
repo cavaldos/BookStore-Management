@@ -30,6 +30,11 @@ public class OrderService {
         return orderDAO.selectOrder(orderID);
     }
 
+    // create order
+    public void createOrder(Order order) throws SQLException {
+        orderDAO.createOrder(order);
+    }
+
     // ODER Detail
     // ODER Detail
     // ODER Detail

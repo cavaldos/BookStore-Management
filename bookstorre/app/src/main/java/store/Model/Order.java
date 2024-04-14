@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Order {
-    private int orderID;
+    private Integer orderID;
     private Date date;
     private int customerID;
     private String customer;
@@ -25,6 +25,17 @@ public class Order {
         this.totalCost = totalCost;
         this.discount = discount;
         this.status = status;
+    }
+    
+    public Order() {
+        this.orderID = 0;
+        this.date = new Date();
+        this.customer = "";
+        this.employee = "";
+        this.totalCost = 0.0;
+        this.discount = 0.0;
+        this.status = true;
+
     }
 
     // public Order(int orderID, Date date, int customerID, int employeeID, Double
@@ -58,7 +69,7 @@ public class Order {
         return date;
     }
 
-    public int getCustomerID() {
+    public Integer getCustomerID() {
         return customerID;
     }
 
@@ -100,7 +111,7 @@ public class Order {
         this.date = date;
     }
 
-    public void setCustomerID(int customerID) {
+    public void setCustomerID(Integer customerID) {
         this.customerID = customerID;
     }
 

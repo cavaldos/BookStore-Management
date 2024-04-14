@@ -96,5 +96,24 @@ public class CustomerDAO {
         }
         return customer;
     }
-
+    // get customer by username
+    public Customer getCustomerByUsername(String username) throws SQLException {
+        String sql = "SELECT * FROM customer WHERE username = ?";
+        Customer customer = null;
+        new DatabaseUtils();
+        try (Connection connection = DatabaseUtils.connect();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, username);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                int customerID = rs.getInt("customerID");
+                String firstname = rs.getString("firstname");
+                String lastname = rs.getString("lastname");
+                customer = new Customer(customerID, username, firstname, lastname);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return customer;
+    }
 }

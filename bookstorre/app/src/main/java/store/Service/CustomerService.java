@@ -34,4 +34,8 @@ public class CustomerService {
         return customerDAO.selectCustomer(customerID);
     }
 
+    public Customer getCustomerByUsername(String username) throws SQLException {
+        return customerDAO.getCustomerByUsername(username);
+    }
+
 }
