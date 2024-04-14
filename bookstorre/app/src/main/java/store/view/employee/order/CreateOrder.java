@@ -539,7 +539,7 @@ public class CreateOrder extends javax.swing.JPanel {
         private void SuccesButtonActionPerformed(java.awt.event.ActionEvent evt) {
                 try {
                         if (customer == null) {
-                                newOrder.setCustomerID(null); // Correctly setting null now
+                                newOrder.setCustomerID(0); // Correctly setting null now
                         } else {
                                 newOrder.setCustomerID(customer.getCustomerID());
                         }

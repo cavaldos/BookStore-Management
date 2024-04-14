@@ -87,22 +87,41 @@ public class OrderDAO {
     public boolean createOrder(Order order) throws SQLException {
         // --(customerID, employeeID, totalCost, discount, status)
         // CALL create_order(1, 1, 100, 10, 1);
-        // if (order.getCustomerID() == null) {
-        //     System.out.println(
-        // }
-        String query = "CALL create_order(?, ?, ?, ?, ?)";
-        try (Connection connection = DatabaseUtils.connect();
-                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1, order.getCustomerID());
-            preparedStatement.setInt(2, order.getEmployeeID());
-            preparedStatement.setDouble(3, order.getTotalCost());
-            preparedStatement.setDouble(4, order.getDiscount());
-            preparedStatement.setBoolean(5, true);
-            int rowsAffected = preparedStatement.executeUpdate();
-            return rowsAffected > 0;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return false;
+        if (order.getCustomerID() == 0) {
+            String query = "CALL create_order(null, ?, ?, ?, ?)";
+            try (Connection connection = DatabaseUtils.connect();
+                    PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setInt(1, order.getEmployeeID());
+                preparedStatement.setDouble(2, order.getTotalCost());
+                preparedStatement.setDouble(3, order.getDiscount());
+                preparedStatement.setBoolean(4, true);
+                int rowsAffected = preparedStatement.executeUpdate();
+                return rowsAffected > 0;
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            }
         }
+        else {
+            
+            String query = "CALL create_order(?, ?, ?, ?, ?)";
+            try (Connection connection = DatabaseUtils.connect();
+                    PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setInt(1, order.getCustomerID());
+                preparedStatement.setInt(2, order.getEmployeeID());
+                preparedStatement.setDouble(3, order.getTotalCost());
+                preparedStatement.setDouble(4, order.getDiscount());
+                preparedStatement.setBoolean(5, true);
+                int rowsAffected = preparedStatement.executeUpdate();
+                return rowsAffected > 0;
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+
+
+    
+
     }
 }
