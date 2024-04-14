@@ -91,4 +91,12 @@ public class OrderService {
         }
         orderDetailDAO.editOrderDetailCatche(order);
     }
+
+    // get order detail catche by id
+    public OrderDetail getOrderDetailCatcheByID(int orderDetailID) throws SQLException {
+        if (orderDetailDAO == null) {
+            throw new IllegalStateException("OrderDetailDAO has not been initialized");
+        }
+        return orderDetailDAO.getOrderDetailCatcheByID(orderDetailID);
+    }
 }

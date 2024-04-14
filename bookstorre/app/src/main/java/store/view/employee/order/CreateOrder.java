@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import javax.swing.table.DefaultTableModel;
 
+
 import store.Service.BookService;
 import store.Model.Book;
 import store.Model.OrderDetail;
@@ -20,11 +21,12 @@ public class CreateOrder extends javax.swing.JPanel {
         private OrderService orderService;
         private CustomerService customerService;
         private Customer customer;
-        // private Double totalCost;
+        private EditOderDetail editOderDetail;
         private Order newOrder;
 
         public CreateOrder() {
                 initComponents();
+
                 this.bookService = new BookService();
                 this.orderService = new OrderService();
                 this.customerService = new CustomerService();
@@ -103,6 +105,7 @@ public class CreateOrder extends javax.swing.JPanel {
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
+        // <editor-fold defaultstate="collapsed" desc="Generated
         // Code">//GEN-BEGIN:initComponents
         private void initComponents() {
 
@@ -123,7 +126,7 @@ public class CreateOrder extends javax.swing.JPanel {
                 TotalField = new javax.swing.JTextField();
                 TotalLabel = new javax.swing.JLabel();
                 EditBookButton = new javax.swing.JButton();
-                ViewBookButton = new javax.swing.JButton();
+                RefreshBookButton = new javax.swing.JButton();
                 DeleteBookButton = new javax.swing.JButton();
                 jScrollPane2 = new javax.swing.JScrollPane();
                 TableOrderDetail = new javax.swing.JTable();
@@ -208,10 +211,10 @@ public class CreateOrder extends javax.swing.JPanel {
                         }
                 });
 
-                ViewBookButton.setText("View");
-                ViewBookButton.addActionListener(new java.awt.event.ActionListener() {
+                RefreshBookButton.setText("Refresh");
+                RefreshBookButton.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                ViewBookButtonActionPerformed(evt);
+                                RefreshBookButtonActionPerformed(evt);
                         }
                 });
 
@@ -250,212 +253,228 @@ public class CreateOrder extends javax.swing.JPanel {
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
                 this.setLayout(layout);
-                layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup().addGroup(layout
-                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
-                                                                .createSequentialGroup().addContainerGap()
-                                                                .addComponent(jScrollPane1,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                325,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                Short.MAX_VALUE))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
-                                                                .createSequentialGroup().addGap(27, 27, 27)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                .addComponent(AddBookButton)
-                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                .addComponent(InputSearchBook,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                219,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addPreferredGap(
-                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                                .addComponent(SearchBookButton)))
-                                                                .addGap(69, 69, 69)
+                layout.setHorizontalGroup(
+                                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
                                                                 .addGroup(layout.createParallelGroup(
                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addComponent(jScrollPane2,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                504,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                .addComponent(DeleteBookButton)
-                                                                                                .addGap(31, 31, 31)
-                                                                                                .addComponent(ViewBookButton)
-                                                                                                .addGap(27, 27, 27)
-                                                                                                .addComponent(EditBookButton)))
-                                                                .addGap(51, 51, 51)))
-                                                .addGroup(layout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addComponent(ConfirmButton,
-                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                layout.createSequentialGroup().addGroup(
-                                                                                                layout.createParallelGroup(
-                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                                                .addComponent(TotalLabel,
+                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                layout.createSequentialGroup()
+                                                                                                                .addContainerGap()
+                                                                                                                .addComponent(jScrollPane1,
                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                75,
+                                                                                                                                325,
                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                .addComponent(CancelOrderButton,
+                                                                                                                .addPreferredGap(
+                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                                Short.MAX_VALUE))
+                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                layout.createSequentialGroup()
+                                                                                                                .addGap(27, 27, 27)
+                                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                                                .addComponent(AddBookButton)
+                                                                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                                                                                .addComponent(InputSearchBook,
+                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                219,
+                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                .addPreferredGap(
+                                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                                                                .addComponent(SearchBookButton)))
+                                                                                                                .addGap(69, 69, 69)
+                                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                .addComponent(jScrollPane2,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                504,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                                                                                .addComponent(DeleteBookButton)
+                                                                                                                                                .addGap(35, 35, 35)
+                                                                                                                                                .addComponent(EditBookButton)
+                                                                                                                                                .addGap(59, 59, 59)
+                                                                                                                                                .addComponent(RefreshBookButton)))
+                                                                                                                .addGap(51, 51, 51)))
+                                                                .addGroup(layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(ConfirmButton,
+                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                layout.createSequentialGroup()
+                                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                                                                .addComponent(TotalLabel,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                75,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                .addComponent(CancelOrderButton,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                109,
+                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                .addGap(18, 18, 18)
+                                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                                                                                .addComponent(TotalField,
+                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                101,
+                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                .addPreferredGap(
+                                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                                                                                                                                18,
+                                                                                                                                                                Short.MAX_VALUE))
+                                                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                                                                layout.createSequentialGroup()
+                                                                                                                                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                                                                                                                                .addComponent(SuccesButton,
+                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                                                                111,
+                                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                                false)
+                                                                                                                .addComponent(PhoneLabel1,
+                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                                107,
+                                                                                                                                Short.MAX_VALUE)
+                                                                                                                .addComponent(PhoneLabel,
+                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                109,
+                                                                                                                                77,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                .addComponent(LastNameLabel,
+                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                                Short.MAX_VALUE))
+                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                .addComponent(PhoneField)
+                                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                                                layout.createSequentialGroup()
+                                                                                                                                                .addPreferredGap(
+                                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                                                                Short.MAX_VALUE)
+                                                                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                                                                                                false)
+                                                                                                                                                                .addComponent(LastNameField,
+                                                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                                                                                133,
+                                                                                                                                                                                Short.MAX_VALUE)
+                                                                                                                                                                .addComponent(FirstNameField,
+                                                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING))))))
+                                                                .addGap(35, 35, 35)));
+                layout.setVerticalGroup(
+                                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                                .addGroup(layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                                .addGap(51, 51, 51)
+                                                                                                .addComponent(AddBookButton)
+                                                                                                .addGap(18, 18, 18)
+                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                .addComponent(SearchBookButton)
+                                                                                                                .addComponent(InputSearchBook)))
+                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                layout.createSequentialGroup()
+                                                                                                                .addContainerGap(
+                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                                Short.MAX_VALUE)
+                                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                                                                layout.createParallelGroup(
+                                                                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                                                                .addComponent(DeleteBookButton)
+                                                                                                                                                                .addComponent(EditBookButton))
+                                                                                                                                .addComponent(RefreshBookButton,
+                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING))))
+                                                                .addGroup(layout.createParallelGroup(
+                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                                .addPreferredGap(
+                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                .addComponent(PhoneLabel,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                37,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                .addComponent(PhoneField,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                37,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                .addGap(18, 18, 18)
+                                                                                                .addComponent(ConfirmButton)
+                                                                                                .addGap(30, 30, 30)
+                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                .addComponent(PhoneLabel1,
+                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                37,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                .addComponent(FirstNameField,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                37,
                                                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                                                                                 .addGap(18, 18, 18)
                                                                                                 .addGroup(layout.createParallelGroup(
-                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                                .addGroup(layout.createSequentialGroup()
-                                                                                                                                .addComponent(TotalField,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                101,
-                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                                                                                                18,
-                                                                                                                                                Short.MAX_VALUE))
-                                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                                                layout.createSequentialGroup()
-                                                                                                                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                                                                                                                .addComponent(SuccesButton,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                                                111,
-                                                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                                .addGroup(layout.createSequentialGroup().addGroup(layout
-                                                                                .createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                false)
-                                                                                .addComponent(PhoneLabel1,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                107, Short.MAX_VALUE)
-                                                                                .addComponent(PhoneLabel,
-                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                77,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(LastNameLabel,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE))
-                                                                                .addGroup(layout.createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                .addComponent(PhoneField)
-                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                                layout.createSequentialGroup()
-                                                                                                                                .addPreferredGap(
-                                                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                                Short.MAX_VALUE)
-                                                                                                                                .addGroup(layout.createParallelGroup(
-                                                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                                                                false)
-                                                                                                                                                .addComponent(LastNameField,
-                                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                                                133,
-                                                                                                                                                                Short.MAX_VALUE)
-                                                                                                                                                .addComponent(FirstNameField,
-                                                                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING))))))
-                                                .addGap(35, 35, 35)));
-                layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup().addGroup(layout
-                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup().addGap(51, 51, 51)
-                                                                .addComponent(AddBookButton).addGap(18, 18, 18)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(SearchBookButton)
-                                                                                .addComponent(InputSearchBook)))
-                                                .addGroup(layout.createSequentialGroup()
-                                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                Short.MAX_VALUE)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(DeleteBookButton)
-                                                                                .addComponent(ViewBookButton)
-                                                                                .addComponent(EditBookButton))))
-                                                .addGroup(layout.createParallelGroup(
-                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                .addGroup(layout.createSequentialGroup()
-                                                                                .addPreferredGap(
-                                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                .addGroup(layout.createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                .addComponent(PhoneLabel,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                37,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(PhoneField,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                37,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                .addGap(18, 18, 18)
-                                                                                .addComponent(ConfirmButton)
-                                                                                .addGap(30, 30, 30)
-                                                                                .addGroup(layout.createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                                .addComponent(PhoneLabel1,
-                                                                                                                javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                37,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(FirstNameField,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                37,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                .addGap(18, 18, 18)
-                                                                                .addGroup(layout.createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                .addComponent(LastNameLabel,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                37,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(LastNameField,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                37,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                .addPreferredGap(
-                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                                                69, Short.MAX_VALUE)
-                                                                                .addGroup(layout.createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                .addComponent(TotalLabel,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                37,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(TotalField,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                37,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                .addGap(61, 61, 61)
-                                                                                .addGroup(layout.createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                                .addComponent(SuccesButton,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                39,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                                .addComponent(CancelOrderButton,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                39,
-                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                                .addGap(170, 170, 170))
-                                                                .addGroup(layout.createSequentialGroup()
-                                                                                .addGap(18, 18, 18)
-                                                                                .addGroup(layout.createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                false)
-                                                                                                .addComponent(jScrollPane1,
-                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                478,
+                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                .addComponent(LastNameLabel,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                37,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                .addComponent(LastNameField,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                37,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                .addPreferredGap(
+                                                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                                                                                69,
                                                                                                                 Short.MAX_VALUE)
-                                                                                                .addComponent(jScrollPane2))
-                                                                                .addContainerGap(
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)))));
+                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                .addComponent(TotalLabel,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                37,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                .addComponent(TotalField,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                37,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                .addGap(61, 61, 61)
+                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                .addComponent(SuccesButton,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                39,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                .addComponent(CancelOrderButton,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                                                39,
+                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                .addGap(170, 170, 170))
+                                                                                .addGroup(layout.createSequentialGroup()
+                                                                                                .addGap(18, 18, 18)
+                                                                                                .addGroup(layout.createParallelGroup(
+                                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
+                                                                                                                false)
+                                                                                                                .addComponent(jScrollPane1,
+                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                                478,
+                                                                                                                                Short.MAX_VALUE)
+                                                                                                                .addComponent(jScrollPane2))
+                                                                                                .addContainerGap(
+                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                                                                Short.MAX_VALUE)))));
         }// </editor-fold>//GEN-END:initComponents
 
         private void AddBookButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -491,12 +510,22 @@ public class CreateOrder extends javax.swing.JPanel {
                 }
         }
 
-        private void ViewBookButtonActionPerformed(java.awt.event.ActionEvent evt) {
-
+        private void RefreshBookButtonActionPerformed(java.awt.event.ActionEvent evt) {
+                showTableOrderDetail();
+                
         }
 
         private void EditBookButtonActionPerformed(java.awt.event.ActionEvent evt) {
-                System.out.println("Edit");
+
+                int row = TableOrderDetail.getSelectedRow();
+                if (row == -1) {
+                        JOptionPane.showMessageDialog(this, "Please select an author to edit.", "No Author Selected",
+                                        JOptionPane.WARNING_MESSAGE);
+                } else {
+                        int idBook = (int) TableOrderDetail.getValueAt(row, 0);
+                        editOderDetail = new EditOderDetail(idBook);
+                        editOderDetail.setVisible(true);
+                }
         }
 
         private void ConfirmButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -567,16 +596,14 @@ public class CreateOrder extends javax.swing.JPanel {
         private javax.swing.JTextField PhoneField;
         private javax.swing.JLabel PhoneLabel;
         private javax.swing.JLabel PhoneLabel1;
+        private javax.swing.JButton RefreshBookButton;
         private javax.swing.JButton SearchBookButton;
         private javax.swing.JButton SuccesButton;
         private javax.swing.JTable TableBook;
         private javax.swing.JTable TableOrderDetail;
         private javax.swing.JTextField TotalField;
         private javax.swing.JLabel TotalLabel;
-        private javax.swing.JButton ViewBookButton;
         private javax.swing.JScrollPane jScrollPane1;
         private javax.swing.JScrollPane jScrollPane2;
         // End of variables declaration//GEN-END:variables
 }
-// JOptionPane.showMessageDialog(this,"Tạo đơn hàng thành công","Thành
-// công",JOptionPane.INFORMATION_MESSAGE);

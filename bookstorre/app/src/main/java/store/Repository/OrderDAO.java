@@ -12,11 +12,14 @@ import java.lang.String;
 public class OrderDAO {
     // Get all orders
     public List<Order> getAllOrders() throws SQLException {
-        String query = "SELECT od.orderID, od.date, cus.username AS customer, acc.username AS employee, od.totalCost, od.discount, od.status\n"
-                + //
+        String query = "\n" + //
+                "SELECT od.orderID, od.date, \n" + //
+                "COALESCE(cus.username, '___') AS customer, \n" + //
+                "acc.username AS employee, \n" + //
+                "od.totalCost, od.discount, od.status\n" + //
                 "FROM orders od\n" + //
-                "JOIN customer cus ON od.customerID = cus.customerID\n" + //
-                "JOIN account acc  ON od.employeeID = acc.userID";
+                "LEFT JOIN customer cus ON od.customerID = cus.customerID \n" + //
+                "JOIN account acc ON od.employeeID = acc.userID;\n";
         List<Order> orders = new ArrayList<>();
         new DatabaseUtils();
         try (Connection connection = DatabaseUtils.connect();
@@ -101,9 +104,8 @@ public class OrderDAO {
                 e.printStackTrace();
                 return false;
             }
-        }
-        else {
-            
+        } else {
+
             String query = "CALL create_order(?, ?, ?, ?, ?)";
             try (Connection connection = DatabaseUtils.connect();
                     PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -119,9 +121,6 @@ public class OrderDAO {
                 return false;
             }
         }
-
-
-    
 
     }
 }

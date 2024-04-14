@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.formdev.flatlaf.util.SystemInfo;
+
 import store.Model.OrderDetail;
 import store.utils.DatabaseUtils;
 
@@ -127,15 +129,35 @@ public class OrderDetailDAO {
     }
     // edit order detail catche
     public void editOrderDetailCatche(OrderDetail orderDetail) throws SQLException {
+        
         String query = "UPDATE order_detail_catche SET quantity = ? WHERE bookID = ?";
         new DatabaseUtils();
         try (Connection connection = DatabaseUtils.connect();
                 PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, orderDetail.getQuantity());
-            preparedStatement.setInt(2, orderDetail.getOrderDetailID());
+            preparedStatement.setInt(2, orderDetail.getBookID());
             preparedStatement.executeUpdate();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+    }
+    // get order detail catche by id
+    public OrderDetail getOrderDetailCatcheByID(int orderDetailID) throws SQLException {
+        String query = "SELECT * FROM order_detail_catche WHERE bookID = ?";
+        OrderDetail orderDetail = null;
+        new DatabaseUtils();
+        try (Connection connection = DatabaseUtils.connect();
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, orderDetailID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int bookID = resultSet.getInt("bookID");
+                int quantity = resultSet.getInt("quantity");
+                orderDetail = new OrderDetail(bookID, quantity);
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return orderDetail;
     }
 }

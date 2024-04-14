@@ -194,7 +194,25 @@ public class ViewOrder extends javax.swing.JPanel {
     }
 
     private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {
-
+        int row = TableOrder.getSelectedRow();
+        if (row == -1) {
+            JOptionPane.showMessageDialog(this, "You must select an order", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            // Hiển thị hộp thoại xác nhận
+            int confirm = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this order?",
+                    "Confirm Deletion", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+            if (confirm == JOptionPane.YES_OPTION) {
+                int orderID = (int) TableOrder.getValueAt(row, 0);
+                try {
+                    orderService.deleteOrder(orderID);
+                    showTable(); // Cập nhật lại bảng hiển thị sau khi xóa
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(this, "Error deleting the order.", "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        }
     }
 
     private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {

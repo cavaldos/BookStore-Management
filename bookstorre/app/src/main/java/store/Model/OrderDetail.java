@@ -39,6 +39,11 @@ public class OrderDetail {
         this.quantity = quantity;
     }
 
+    public OrderDetail(int bookID, int quantity) {
+        this.bookID = bookID;
+        this.quantity = quantity;
+    }
+
     public OrderDetail(int bookID, String title, double price, int quantity) {
         this.bookID = bookID;
         this.title = title;
