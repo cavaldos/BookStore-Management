@@ -2,185 +2,279 @@ package com.raven.form;
 
 import chart.raven.chart.ModelChart;
 import com.raven.data.DatabaseConnection;
+import com.raven.data.ModelData;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import com.raven.data.ModelData;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.concurrent.atomic.AtomicReference;
-import javax.swing.JComboBox;
 
-/**
- *
- * @author RAVEN
- */
 public class Revenue_statistics extends javax.swing.JFrame {
-private String previousBookSelection;
-private String previousCategorySelection;
-private String previousCustomerSelection;
-private String previousEmployeeSelection;
-
-    /**
-     * Creates new form Test
-     */
+      List<String> dateTimeList = new ArrayList<>();
+        List<Double> dateBookList = new ArrayList<>();
+    List<Double> dateCategoryList = new ArrayList<>();
+        List<Double> dateCustomerList = new ArrayList<>();
+            List<Double> dateEmployeeList = new ArrayList<>();
+              List<String> weekTimeList = new ArrayList<>();
+        List<Double> weekBookList = new ArrayList<>();
+    List<Double> weekCategoryList = new ArrayList<>();
+        List<Double> weekCustomerList = new ArrayList<>();
+            List<Double> weekEmployeeList = new ArrayList<>();
+              List<String> monthTimeList = new ArrayList<>();
+        List<Double> monthBookList = new ArrayList<>();
+    List<Double> monthCategoryList = new ArrayList<>();
+        List<Double> monthCustomerList = new ArrayList<>();
+            List<Double> monthEmployeeList = new ArrayList<>();
+ 
       public Revenue_statistics() {
         initComponents();
-        // Clear existing items
-        clearComboBoxes();
-        // Load new items into each ComboBox
-       
-     
-        DateBox.addItem("Month");
-         DateBox.addItem("Week");
-          DateBox.addItem("Day");
-        // Setup chart
-        setupChart();
-     
-
-        // Any additional setup
-        test();
-    }
-
-    private void clearComboBoxes() {
-        BookBox.removeAllItems();
-        CategoryBox.removeAllItems();
-        CustomerBox.removeAllItems();
-        EmployeesBox.removeAllItems();
         DateBox.removeAllItems();
-    }
-
-   private void loadAndInitializeComboBox(String query, JComboBox<String> comboBox, String columnName, Color color1, Color color2) {
-    try {
-        PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
-        ResultSet rs = pst.executeQuery();
-        boolean isFirst = true;
-        String firstItem = null;
-
-        while (rs.next()) {
-            String name = rs.getString(columnName);
-            comboBox.addItem(name);
-            if (isFirst) {
-                firstItem = name;
-                isFirst = false;
-            }
-        }
+        DateBox.addItem("Month");
+        DateBox.addItem("Week");
+        DateBox.addItem("Day");
+        DateBox.setSelectedItem("Day");
+        setupChart();
+       setData();
+      DateBox.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
         
-        if (firstItem != null) {
-            comboBox.setSelectedItem(firstItem);
-            chart.addLegend(firstItem, firstItem, color1, color2); // Gửi giá trị ban đầu lên biểu đồ
-        }
+        setData();
+    }
+});
 
-        rs.close();
-        pst.close();
-
-        // Gắn ActionListener sau khi thiết lập lựa chọn đầu tiên
-        addComboBoxListener(comboBox, color1, color2);
+    }
+      
+    private void setupChart() {
+       
+        chart.setTitle("Chart Data");
+        chart.addLegend("Books", Color.decode("#7b4397"), Color.decode("#dc2430"));
+        chart.addLegend("Category", Color.decode("#e65c00"), Color.decode("#F9D423"));
+        chart.addLegend("Customer", Color.decode("#0099F7"), Color.decode("#F11712"));
+         chart.addLegend("Employee", Color.decode("#0099F7"), Color.decode("#F11712"));
+      
+    }
+ private void setData() {
+    try {
+        String time = (String) DateBox.getSelectedItem();      
+        String sql ="";
+        switch (time) {
+            case "Day":
+     fetchDateBookData();
+     fetchDateCategoryData();
+      fetchDateCustomerData();
+     fetchDateEmployeeData();
+       for (int i = dateTimeList.size() - 1; i >= 0; i--) {
+           chart.clear();
+          chart.addData(new ModelChart(dateTimeList.get(i), new double[]{dateBookList.get(i),dateCategoryList.get(i),dateCustomerList.get(i),dateEmployeeList.get(i)})); 
+           chart.addData(new ModelChart("test",new double[]{200,100,50,234}));
+        chart.start();
+            }
+    break;
+case "Week":
+    fetchWeekBookData();
+     fetchWeekCategoryData();
+     fetchWeekCustomerData();
+     fetchWeekEmployeeData();
+     for (int i = dateTimeList.size() - 1; i >= 0; i--) {
+           chart.clear();
+          chart.addData(new ModelChart(weekTimeList.get(i), new double[]{weekBookList.get(i),weekCategoryList.get(i),weekCustomerList.get(i),weekEmployeeList.get(i)})); 
+           chart.addData(new ModelChart("test",new double[]{200,100}));
+        chart.start();
+            }
+    break;
+case "Month":
+    fetchMonthBookData();
+     fetchMonthCategoryData();
+      fetchMonthCustomerData();
+     fetchMonthEmployeeData();
+     for (int i = dateTimeList.size() - 1; i >= 0; i--) {
+           chart.clear();
+          chart.addData(new ModelChart(monthTimeList.get(i), new double[]{monthBookList.get(i),monthCategoryList.get(i),monthCustomerList.get(i),monthEmployeeList.get(i)})); 
+           chart.addData(new ModelChart("test",new double[]{200,100}));
+        chart.start();
+            }
+    break;
+default:
+    throw new IllegalArgumentException("Invalid time period specified");
+} 
     } catch (Exception e) {
         e.printStackTrace();
     }
 }
-
-private void addComboBoxListener(JComboBox<String> comboBox, Color color1, Color color2) {
-    comboBox.addActionListener(new ActionListener() {
-        private String previousSelection = (String) comboBox.getSelectedItem();
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String currentSelection = (String) comboBox.getSelectedItem();
-            if (!currentSelection.equals(previousSelection)) {
-                chart.addLegend(currentSelection, previousSelection, color1, color2);
-                previousSelection = currentSelection;
-            }
-        }
-    });
-}
-
-
-
-
-
-
-public void initializeComboBoxes() {
-    loadAndInitializeComboBox("SELECT title FROM book", BookBox, "title", Color.decode("#7b4397"), Color.decode("#dc2430"));
-    loadAndInitializeComboBox("SELECT name FROM category", CategoryBox, "name", Color.decode("#7b4397"), Color.decode("#dc2430"));
-    loadAndInitializeComboBox("SELECT username FROM customer", CustomerBox, "username", Color.decode("#7b4397"), Color.decode("#dc2430"));
-    loadAndInitializeComboBox("SELECT username FROM account WHERE role = 'employee'", EmployeesBox, "username", Color.decode("#7b4397"), Color.decode("#dc2430"));
-}
-
-
-
-
-    private void setupChart() {
+    private void fetchDateBookData() {
+    String query = "SELECT date AS OrderDate, SUM(totalCost) AS Revenue FROM orders GROUP BY date ORDER BY date";
+    
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
         
-        chart.setTitle("Chart Data");
-      
-        initializeComboBoxes();
-    }
-
-    // Other methods...
-
-
-    private void setData() {
-        try {
-            List<ModelData> lists = new ArrayList<>();
-         
-            String sql = "select DATE_FORMAT(Date,'%M') as `Month`, SUM(TotalAmount) as Amount, SUM(TotalCost) as Cost, SUM(TotalProfit) as Profit from orders group by DATE_FORMAT(Date,'%m%Y') order by Date DESC limit 7";
-            PreparedStatement p = DatabaseConnection.getInstance().getConnection().prepareStatement(sql);
-            ResultSet r = p.executeQuery();
-            while (r.next()) {
-                String month = r.getString("Month");
-                double amount = r.getDouble("Amount");
-                double cost = r.getDouble("Cost");
-                double profit = r.getDouble("Profit");
-                lists.add(new ModelData(month, amount, cost, profit));
-            }
-            r.close();
-            p.close();
-            //  Add Data to chart
-            for (int i = lists.size() - 1; i >= 0; i--) {
-                ModelData d = lists.get(i);
-                chart.addData(new ModelChart(d.getMonth(), new double[]{d.getAmount(), d.getCost(), d.getProfit()}));
-            }
-            //  Start to show data with animation
-            chart.start();
-        } catch (Exception e) {
-            e.printStackTrace();
+        while (rs.next()) {
+            String date = rs.getString("OrderDate");
+            double revenue = rs.getDouble("Revenue");
+            dateTimeList.add(date);
+            dateBookList.add(revenue);
         }
+    } catch (Exception e) {
+        e.printStackTrace();
     }
-
-    private void test() {
-        chart.clear();
-        chart.addData(new ModelChart("January", new double[]{500, 50, 100}));
-        chart.addData(new ModelChart("February", new double[]{600, 300, 150}));
-        chart.addData(new ModelChart("March", new double[]{200, 50, 900}));
-        chart.addData(new ModelChart("April", new double[]{480, 700, 100}));
-        chart.addData(new ModelChart("May", new double[]{350, 540, 500}));
-        chart.addData(new ModelChart("June", new double[]{450, 800, 100}));
-        chart.start();
+}
+ private void fetchWeekBookData() {
+    String query = "SELECT YEAR(o.date) AS Year, WEEK(o.date) AS OrderDate, SUM(o.totalCost) AS Revenue FROM orders o GROUP BY YEAR(o.date), WEEK(o.date)";
+    
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+        
+        while (rs.next()) {
+            String date = rs.getString("OrderDate");
+            double revenue = rs.getDouble("Revenue");
+            weekTimeList.add(date);
+            weekBookList.add(revenue);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
     }
-
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
+}
+ private void fetchMonthBookData() {
+    String query = "SELECT YEAR(o.date) AS Year, MONTH(o.date) AS OrderDate, SUM(o.totalCost) AS Revenue FROM orders o GROUP BY YEAR(o.date), MONTH(o.date)";
+    
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+        
+        while (rs.next()) {
+            String date = rs.getString("OrderDate");
+            double revenue = rs.getDouble("Revenue");
+            monthTimeList.add(date);
+            monthBookList.add(revenue);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+private void fetchDateCategoryData() {
+    String query = "SELECT DATE(orders.date) AS order_date, SUM(order_detail.quantity * book.price) AS Revenue FROM orders INNER JOIN order_detail ON orders.orderID = order_detail.orderID INNER JOIN book ON order_detail.bookID = book.bookID GROUP BY order_date";
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+        
+        while (rs.next()) {
+            double revenue = rs.getDouble("Revenue");
+            dateCategoryList.add(revenue);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+private void fetchWeekCategoryData() {
+    String query = "SELECT YEARWEEK(orders.date) AS year_week, SUM(order_detail.quantity * book.price) AS Revenue FROM orders INNER JOIN order_detail ON orders.orderID = order_detail.orderID INNER JOIN book ON order_detail.bookID = book.bookID GROUP BY year_week";
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+        
+        while (rs.next()) {
+            double revenue = rs.getDouble("Revenue");
+            weekCategoryList.add(revenue);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+private void fetchMonthCategoryData() {
+    String query = "SELECT DATE_FORMAT(orders.date, '%Y-%m') AS month, SUM(order_detail.quantity * book.price) AS Revenue FROM orders INNER JOIN order_detail ON orders.orderID = order_detail.orderID INNER JOIN book ON order_detail.bookID = book.bookID GROUP BY month";
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+        
+        while (rs.next()) {
+            double revenue = rs.getDouble("Revenue");
+            monthCategoryList.add(revenue);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+private void fetchDateCustomerData() {
+    String query = "SELECT DATE(orders.date) AS order_date, SUM(order_detail.quantity * book.price) AS Revenue FROM orders INNER JOIN order_detail ON orders.orderID = order_detail.orderID INNER JOIN book ON order_detail.bookID = book.bookID INNER JOIN customer ON orders.customerID = customer.customerID GROUP BY order_date";
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+        
+        while (rs.next()) {
+            double revenue = rs.getDouble("Revenue");
+            dateCustomerList.add(revenue);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+private void fetchWeekCustomerData() {
+    String query = "SELECT YEARWEEK(orders.date) AS year_week, SUM(order_detail.quantity * book.price) AS Revenue FROM orders INNER JOIN order_detail ON orders.orderID = order_detail.orderID INNER JOIN book ON order_detail.bookID = book.bookID INNER JOIN customer ON orders.customerID = customer.customerID GROUP BY year_week";
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+        
+        while (rs.next()) {
+            double revenue = rs.getDouble("Revenue");
+            weekCustomerList.add(revenue);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+private void fetchMonthCustomerData() {
+    String query = "SELECT DATE_FORMAT(orders.date, '%Y-%m') AS month, SUM(order_detail.quantity * book.price) AS Revenue FROM orders INNER JOIN order_detail ON orders.orderID = order_detail.orderID INNER JOIN book ON order_detail.bookID = book.bookID INNER JOIN customer ON orders.customerID = customer.customerID GROUP BY month";
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+        
+        while (rs.next()) {
+            double revenue = rs.getDouble("Revenue");
+            monthCustomerList.add(revenue);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+private void fetchDateEmployeeData() {
+    String query = "SELECT DATE(orders.date) AS order_date, a.firstname AS employee_firstname, a.lastname AS employee_lastname, SUM(order_detail.quantity * book.price) AS Revenue FROM orders INNER JOIN order_detail ON orders.orderID = order_detail.orderID INNER JOIN book ON order_detail.bookID = book.bookID INNER JOIN account a ON orders.employeeID = a.userID GROUP BY order_date, a.firstname, a.lastname";
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+        
+        while (rs.next()) {
+            double revenue = rs.getDouble("Revenue");
+            dateEmployeeList.add(revenue);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+private void fetchWeekEmployeeData() {
+    String query = "SELECT YEARWEEK(orders.date) AS year_week, a.firstname AS employee_firstname, a.lastname AS employee_lastname, SUM(order_detail.quantity * book.price) AS Revenue FROM orders INNER JOIN order_detail ON orders.orderID = order_detail.orderID INNER JOIN book ON order_detail.bookID = book.bookID INNER JOIN account a ON orders.employeeID = a.userID GROUP BY year_week, a.firstname, a.lastname";
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+        
+        while (rs.next()) {
+            double revenue = rs.getDouble("Revenue");
+            weekEmployeeList.add(revenue);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+private void fetchMonthEmployeeData() {
+    String query = "SELECT DATE_FORMAT(orders.date, '%Y-%m') AS month, a.firstname AS employee_firstname, a.lastname AS employee_lastname, SUM(order_detail.quantity * book.price) AS Revenue FROM orders INNER JOIN order_detail ON orders.orderID = order_detail.orderID INNER JOIN book ON order_detail.bookID = book.bookID INNER JOIN account a ON orders.employeeID = a.userID GROUP BY month, a.firstname, a.lastname";
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+        
+        while (rs.next()) {
+            double revenue = rs.getDouble("Revenue");
+            monthEmployeeList.add(revenue);
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         panelShadow1 = new chart.raven.panel.PanelShadow();
         chart = new chart.raven.chart.CurveLineChart();
-        BookBox = new javax.swing.JComboBox<>();
-        CustomerBox = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        CategoryBox = new javax.swing.JComboBox<>();
-        EmployeesBox = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         DateBox = new javax.swing.JComboBox<>();
 
@@ -194,26 +288,6 @@ public void initializeComboBoxes() {
         chart.setForeground(new java.awt.Color(237, 237, 237));
         chart.setFillColor(true);
 
-        BookBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        CustomerBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Customer List");
-
-        CategoryBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        EmployeesBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Book List");
-
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Caterogy List");
-
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Employees List");
-
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Date");
 
@@ -226,18 +300,13 @@ public void initializeComboBoxes() {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelShadow1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BookBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CustomerBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CategoryBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EmployeesBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(DateBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(chart, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
+                    .addGroup(panelShadow1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(78, 78, 78))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelShadow1Layout.createSequentialGroup()
+                        .addComponent(DateBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(chart, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelShadow1Layout.setVerticalGroup(
@@ -246,24 +315,8 @@ public void initializeComboBoxes() {
                 .addContainerGap()
                 .addGroup(panelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelShadow1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(BookBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(CategoryBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
-                        .addGap(12, 12, 12)
-                        .addComponent(CustomerBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(EmployeesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(jLabel5)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(DateBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(chart, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
@@ -290,16 +343,8 @@ public void initializeComboBoxes() {
      */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> BookBox;
-    private javax.swing.JComboBox<String> CategoryBox;
-    private javax.swing.JComboBox<String> CustomerBox;
     private javax.swing.JComboBox<String> DateBox;
-    private javax.swing.JComboBox<String> EmployeesBox;
     private chart.raven.chart.CurveLineChart chart;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private chart.raven.panel.PanelShadow panelShadow1;
     // End of variables declaration//GEN-END:variables

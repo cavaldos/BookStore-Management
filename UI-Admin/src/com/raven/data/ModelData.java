@@ -6,50 +6,60 @@ package com.raven.data;
  */
 public class ModelData {
 
-    public String getMonth() {
-        return month;
+    
+
+    public String getTime() {
+        return time;
     }
 
-    public void setMonth(String month) {
-        this.month = month;
+    public void setTime(String month) {
+        this.time = month;
     }
 
-    public double getAmount() {
-        return amount;
+    public double getBook() {
+        return book;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setBook(double book) {
+        this.book = book;
     }
 
-    public double getCost() {
-        return cost;
+    public double getCategory() {
+        return category;
     }
 
-    public void setCost(double cost) {
-        this.cost = cost;
+    public void setCategory(double category) {
+        this.category = category;
     }
 
-    public double getProfit() {
-        return profit;
+    public double getCustomer() {
+        return customer;
     }
 
-    public void setProfit(double profit) {
-        this.profit = profit;
+    public void setCustomer(double customer) {
+        this.customer = customer;
+    }
+ public double getEmployee() {
+        return employee;
     }
 
-    public ModelData(String month, double amount, double cost, double profit) {
-        this.month = month;
-        this.amount = amount;
-        this.cost = cost;
-        this.profit = profit;
+    public void setEmployee(double employee) {
+        this.employee = employee;
+    }
+    public ModelData(String time, double book, double category, double customer, double employee) {
+        this.time = time;
+        this.book = book;
+        this.category = category;
+        this.customer = customer;
+          this.employee = employee;
     }
 
     public ModelData() {
     }
 
-    private String month;
-    private double amount;
-    private double cost;
-    private double profit;
+    private String time;
+    private double book;
+    private double category;
+    private double customer;
+    private double employee;
 }
