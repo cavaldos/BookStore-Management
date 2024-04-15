@@ -23,6 +23,7 @@ public class MainEmployee extends javax.swing.JFrame {
     private CreateOrder createOrderPanel; // Biến cho CreateOrder
     private ViewOrder viewOrderPanel; // Biến cho ViewOrder
     private ImportSheet importSheetPanel; // Biến cho ImportSheet
+    
     private ViewSheet viewSheetPanel; // Biến cho ViewSheet
     private CustomerTable customerTablePanel; // Biến cho CustomerTable
 
@@ -69,6 +70,7 @@ public class MainEmployee extends javax.swing.JFrame {
         viewSheetPanel = new ViewSheet();
         this.add(viewSheetPanel);
         viewSheetPanel.setBounds(260, 80, 1250, 750);
+
         hideAllPanels();
         tableBookPanel.setVisible(true);
     }
@@ -90,7 +92,7 @@ public class MainEmployee extends javax.swing.JFrame {
         PublisherButton = new javax.swing.JButton();
         BookButton = new javax.swing.JButton();
         CategoryButton = new javax.swing.JButton();
-        CreateSheetButton = new javax.swing.JButton();
+        ViewSheetButton = new javax.swing.JButton();
         ImportSheetButton = new javax.swing.JButton();
         CreateOrderButton = new javax.swing.JButton();
         ViewOrderButton = new javax.swing.JButton();
@@ -133,10 +135,10 @@ public class MainEmployee extends javax.swing.JFrame {
             }
         });
 
-        CreateSheetButton.setText("View Sheet");
-        CreateSheetButton.addActionListener(new java.awt.event.ActionListener() {
+        ViewSheetButton.setText("View Sheet");
+        ViewSheetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CreateSheetButtonActionPerformed(evt);
+                ViewSheetButtonActionPerformed(evt);
             }
         });
 
@@ -176,7 +178,7 @@ public class MainEmployee extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BookButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CreateSheetButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ViewSheetButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(CategoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AuthorButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PublisherButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -198,7 +200,7 @@ public class MainEmployee extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(PublisherButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(CreateSheetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ViewSheetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ImportSheetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -336,8 +338,8 @@ public class MainEmployee extends javax.swing.JFrame {
         switchPanel("Publisher");
     }
 
-    private void CreateSheetButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        switchPanel("CreateSheet");
+    private void ViewSheetButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        switchPanel("ViewSheet");
     }
 
     private void ImportSheetButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -373,7 +375,6 @@ public class MainEmployee extends javax.swing.JFrame {
     private javax.swing.JButton BookButton;
     private javax.swing.JButton CategoryButton;
     private javax.swing.JButton CreateOrderButton;
-    private javax.swing.JButton CreateSheetButton;
     private javax.swing.JButton CustomerButton;
     private javax.swing.JPanel Header;
     private javax.swing.JButton ImportSheetButton;
@@ -382,5 +383,6 @@ public class MainEmployee extends javax.swing.JFrame {
     private javax.swing.JButton PublisherButton;
     private javax.swing.JButton SignOutButton;
     private javax.swing.JButton ViewOrderButton;
+    private javax.swing.JButton ViewSheetButton;
     // End of variables declaration//GEN-END:variables
 }

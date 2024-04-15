@@ -55,7 +55,7 @@
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="BookButton" max="32767" attributes="0"/>
-                      <Component id="CreateSheetButton" max="32767" attributes="0"/>
+                      <Component id="ViewSheetButton" max="32767" attributes="0"/>
                       <Component id="CategoryButton" min="-2" pref="211" max="-2" attributes="0"/>
                       <Component id="AuthorButton" max="32767" attributes="0"/>
                       <Component id="PublisherButton" max="32767" attributes="0"/>
@@ -80,7 +80,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="PublisherButton" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="CreateSheetButton" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="ViewSheetButton" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="ImportSheetButton" min="-2" pref="50" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -133,12 +133,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CategoryButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="CreateSheetButton">
+        <Component class="javax.swing.JButton" name="ViewSheetButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="View Sheet"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CreateSheetButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewSheetButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ImportSheetButton">

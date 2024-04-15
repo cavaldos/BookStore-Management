@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.formdev.flatlaf.util.SystemInfo;
 
 import store.Model.OrderDetail;
 import store.utils.DatabaseUtils;

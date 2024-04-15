@@ -1,7 +1,6 @@
 package store.Repository;
 
 import store.Model.Order;
-import store.Model.OrderDetail;
 import store.utils.DatabaseUtils;
 
 import java.sql.*;

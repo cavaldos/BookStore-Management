@@ -1,4 +1,6 @@
 
+drop procedure if exists AddBook;
+
 CREATE PROCEDURE AddBook(
     IN bookTitle VARCHAR(255), 
     IN bookPrice DOUBLE, 
@@ -55,10 +57,7 @@ BEGIN
 END;
 
 
---(bookTitle, bookPrice, bookVolume, authorName, categoryName, publisherName)
--- 
-CALL AddBook('Book 199', 10000, 1, 'Author 1', 'Category 1', 'Publisher 1');
-
+---
 
 CREATE PROCEDURE UpdateBook(
     IN p_bookID BIGINT,
@@ -109,3 +108,83 @@ BEGIN
 
     -- Optionally, you could add logic here to return a success message or handle any errors.
 END;
+
+
+
+
+
+
+--(p_bookID, p_bookTitle, p_bookPrice, p_bookVolume, p_authorName, p_categoryName, p_publisherName, p_status)
+--CALL UpdateBook(40, 'kddddfdddyl', 19.995, 6, 'New Author Named', 'New Category Name', 'New Publisher Name', TRUE);
+
+--(bookTitle, bookPrice, bookVolume, authorName, categoryName, publisherName)
+--CALL AddBook('11fdssdsàfdffs', 10000, 1, 'autfshor nsfamde', 'Catesfgorysf name', 'Publidsfshersf name');
+
+
+
+
+
+
+CREATE PROCEDURE `create_order`(
+    IN _customerID BIGINT,
+    IN _employeeID BIGINT,
+    IN _totalCost DOUBLE,
+    IN _discount BIGINT,
+    IN _status BIGINT
+)
+BEGIN
+    -- Start transaction
+    START TRANSACTION;
+
+    -- Step 1: Insert the new order into the orders table and capture the new orderID
+    INSERT INTO orders (`date`, `customerID`, `employeeID`, `totalCost`, `discount`, `status`)
+    VALUES (CURDATE(), _customerID, _employeeID, _totalCost, _discount, _status);
+
+    -- Capture the orderID of the newly inserted order
+    SET @newOrderID = LAST_INSERT_ID();
+
+    -- Step 2: Transfer all entries from order_detail_catche to order_detail
+    INSERT INTO order_detail (`orderID`, `bookID`, `quantity`)
+    SELECT @newOrderID, `bookID`, `quantity`
+    FROM order_detail_catche;
+
+
+
+    -- Check for any error occurred during the transaction
+    IF ROW_COUNT() = 0 THEN
+        -- If no rows were affected, an error might have occurred, rollback the transaction
+        ROLLBACK;
+        SELECT 'Error occurred, transaction rolled back.' AS Message;
+    ELSE
+        -- If all operations were successful, commit the transaction
+        COMMIT;
+        SELECT 'Transaction successful, data committed.' AS Message;
+    END IF;
+
+    DELETE FROM order_detail_catche;
+END;
+
+CREATE TRIGGER `order_detail_catche_before_insert`
+BEFORE INSERT ON `order_detail_catche`
+FOR EACH ROW
+BEGIN
+    DECLARE existing_count INT;
+    SELECT COUNT(*) INTO existing_count
+    FROM `order_detail_catche`
+    WHERE `bookID` = NEW.`bookID`;
+
+    IF existing_count > 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Cannot insert duplicate bookID';
+    END IF;
+END;
+
+
+
+CREATE TRIGGER SetBookDate
+BEFORE INSERT ON book
+FOR EACH ROW
+BEGIN
+    SET NEW.date = IFNULL(NEW.date, CURDATE());
+END;
+
