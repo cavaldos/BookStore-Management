@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package store.view.admin.profile;
 
 import java.sql.Connection;
@@ -13,23 +10,30 @@ import javax.swing.JOptionPane;
 
 import store.Model.User;
 import store.Service.UserService;
+import store.utils.UserSession;
 
 public class Profile extends javax.swing.JPanel {
 
         private UserService userService;
         private UpdateProfile updateProfile;
         private User currentUser;
+        private UserSession userSession;
+        private int userID;
 
         public Profile() {
                 initComponents();
                 userService = new UserService();
-                updateProfile = new UpdateProfile();
+                userSession = UserSession.getInstance();
+                this.userID = userSession.getUserID();
+                updateProfile = new UpdateProfile(this.userID);
                 loadUserProfile();
+
+
         }
 
         private void loadUserProfile() {
                 try {
-                        currentUser = userService.selectUser(1);
+                        currentUser = userService.selectUser(userID);
                         IDField.setText(String.valueOf(currentUser.getUserID()));
                         FirstNameField.setText(currentUser.getFirstName());
                         LastNameField.setText(currentUser.getLastName());

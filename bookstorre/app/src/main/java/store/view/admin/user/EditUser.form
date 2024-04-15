@@ -31,25 +31,25 @@
               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ID" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                          <Component id="Password" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="ID" max="32767" attributes="0"/>
+                          <Component id="Password" pref="93" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="73" pref="73" max="-2" attributes="0"/>
+                      <EmptySpace min="58" pref="58" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="PasswordField" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
                           <Component id="IDField" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="LastName" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                          <Component id="UserName" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                          <Component id="Status" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                          <Component id="Role" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                          <Component id="FirstName" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="UserName" pref="93" max="32767" attributes="0"/>
+                          <Component id="LastName" alignment="0" max="32767" attributes="0"/>
+                          <Component id="FirstName" alignment="0" max="32767" attributes="0"/>
+                          <Component id="Status" max="32767" attributes="0"/>
+                          <Component id="Role" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                      <EmptySpace min="58" pref="58" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="FirstNameField" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
                           <Component id="RoleField" alignment="0" min="-2" pref="236" max="-2" attributes="0"/>
@@ -166,6 +166,9 @@
     <Component class="javax.swing.JTextField" name="PasswordField">
     </Component>
     <Component class="javax.swing.JTextField" name="UserNameField">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="Role">
       <Properties>

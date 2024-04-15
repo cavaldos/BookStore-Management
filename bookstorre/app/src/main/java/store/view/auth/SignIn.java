@@ -124,7 +124,6 @@ public class SignIn extends javax.swing.JPanel {
     private void SigninButtonActionPerformed(java.awt.event.ActionEvent evt) {
         UserSession userSession = UserSession.getInstance();
         try {
-
             if (userSession.authenticateUser(username.getText(), PasswordField.getText(),
                     jComboBox1.getSelectedItem().toString())) {
                 this.run.run();

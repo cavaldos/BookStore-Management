@@ -25,8 +25,8 @@ public class UserSession {
     }
 
     public Boolean authenticateUser(String username, String password, String role) throws SQLException {
+        authService = new AuthService();
         UserService userservice = new UserService();
-
         if (authService.authenticateUser(username, password, role)) {
             User user = userservice.getUser(username);
             this.userID = user.getUserID();
