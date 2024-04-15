@@ -10,6 +10,7 @@ import store.Run;
 
 public class SignIn extends javax.swing.JPanel {
     private Run run;
+
     public SignIn() {
         initComponents();
         run = Run.getInstance();
@@ -123,6 +124,10 @@ public class SignIn extends javax.swing.JPanel {
     private void SigninButtonActionPerformed(java.awt.event.ActionEvent evt) {
         UserSession userSession = UserSession.getInstance();
         try {
+
+            if (username.getText()=="root") {
+
+            }
             if (userSession.authenticateUser(username.getText(), PasswordField.getText(),
                     jComboBox1.getSelectedItem().toString())) {
                 this.run.run();
