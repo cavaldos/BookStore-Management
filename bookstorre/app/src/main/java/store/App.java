@@ -3,14 +3,25 @@ package store;
 
 import java.sql.SQLException;
 
-import store.view.MainUI;
+import com.toedter.calendar.JCalendar;
 
+import store.view.MainUI;
+import store.view.NewJFrame;
+import store.view.admin.MainAdmin;
+import store.view.employee.MainEmployee;
+import store.view.component.CalendarComponent;
 public class App {
 
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
-        Run run = Run.getInstance();
-        run.run();
-        startAutoLogout(120000); // 60000ms = 1 phút
+        // Run run = Run.getInstance();
+        // run.run();
+        // startAutoLogout(120000); // 60000ms = 1 phút
+        
+        MainEmployee MainEmployee = new MainEmployee();
+        MainEmployee.setVisible(true);
+        // NewJFrame newJFrame = new NewJFrame();
+        // newJFrame.setVisible(true);
+
 
     }
 

@@ -125,9 +125,6 @@ public class SignIn extends javax.swing.JPanel {
         UserSession userSession = UserSession.getInstance();
         try {
 
-            if (username.getText()=="root") {
-
-            }
             if (userSession.authenticateUser(username.getText(), PasswordField.getText(),
                     jComboBox1.getSelectedItem().toString())) {
                 this.run.run();
