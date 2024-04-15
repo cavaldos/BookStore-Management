@@ -6,7 +6,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 
@@ -16,10 +15,6 @@ import java.util.List;
 import store.Model.Book;
 import store.Service.BookService;
 
-/**
- *
- * @author bourbon
- */
 public class TableBook extends javax.swing.JPanel {
     private BookService bookService;
     private AddBookFrame addBookFrame;
@@ -67,7 +62,7 @@ public class TableBook extends javax.swing.JPanel {
             model.setRowCount(0); // Xóa dữ liệu bảng hiện có
 
             // Chuẩn bị regex pattern: Thêm ".*" trước và sau từ khóa để tìm kiếm ký tự bất
-            // kỳ
+        
             String pattern = ".*" + searchText.toLowerCase() + ".*";
 
             // Lọc và thêm dữ liệu sách phù hợp với từ khóa tìm kiếm vào bảng
@@ -107,7 +102,8 @@ public class TableBook extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -124,125 +120,131 @@ public class TableBook extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1250, 750));
 
         BookTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Book ID", "Title", "Author", "Publisher", "Price", "Category", "Status", "Volume"
+                new Object[][] {
+                        { null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null }
+                },
+                new String[] {
+                        "Book ID", "Title", "Author", "Publisher", "Price", "Category", "Status", "Volume"
+                }) {
+            Class[] types = new Class[] {
+                    java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                    java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types[columnIndex];
             }
-        )
-        {Class[] types = new Class[] {
-            java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,
-            java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-        };
-        public Class getColumnClass(int columnIndex) {
-            return types[columnIndex];
-        }}
-    );
-    BookTable.setToolTipText("");
-    jScrollPane1.setViewportView(BookTable);
+        });
+        BookTable.setToolTipText("");
+        jScrollPane1.setViewportView(BookTable);
 
-    TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>((DefaultTableModel) BookTable.getModel());
-    BookTable.setRowSorter(sorter);
-    AddButton.setText("Add Book");
-    AddButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-    AddButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            AddButtonActionPerformed(evt);
-        }
-    });
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>((DefaultTableModel) BookTable.getModel());
+        BookTable.setRowSorter(sorter);
+        AddButton.setText("Add Book");
+        AddButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddButtonActionPerformed(evt);
+            }
+        });
 
-    RefreshButton.setText("Refresh");
-    RefreshButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            RefreshButtonActionPerformed(evt);
-        }
-    });
+        RefreshButton.setText("Refresh");
+        RefreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RefreshButtonActionPerformed(evt);
+            }
+        });
 
-    DeleteButton.setText("Delete book");
-    DeleteButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            DeleteButtonActionPerformed(evt);
-        }
-    });
+        DeleteButton.setText("Delete book");
+        DeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteButtonActionPerformed(evt);
+            }
+        });
 
-    EditButton.setText("Edit book");
-    EditButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            EditButtonActionPerformed(evt);
-        }
-    });
+        EditButton.setText("Edit book");
+        EditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditButtonActionPerformed(evt);
+            }
+        });
 
-    InputSearch.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            InputSearchActionPerformed(evt);
-        }
-    });
+        InputSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InputSearchActionPerformed(evt);
+            }
+        });
 
-    SearchButton.setText("Search");
-    SearchButton.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            SearchButtonActionPerformed(evt);
-        }
-    });
+        SearchButton.setText("Search");
+        SearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchButtonActionPerformed(evt);
+            }
+        });
 
-    ImportSheet.setText("Import Sheet");
-    ImportSheet.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            ImportSheetActionPerformed(evt);
-        }
-    });
+        ImportSheet.setText("Import Sheet");
+        ImportSheet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ImportSheetActionPerformed(evt);
+            }
+        });
 
-    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-    this.setLayout(layout);
-    layout.setHorizontalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(layout.createSequentialGroup()
-            .addGap(282, 282, 282)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(AddButton)
-                .addComponent(DeleteButton)
-                .addComponent(InputSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(EditButton)
-                .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(232, 232, 232)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(RefreshButton)
-                .addComponent(ImportSheet))
-            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addContainerGap(107, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1037, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(98, 98, 98))
-    );
-    layout.setVerticalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addContainerGap(30, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(AddButton)
-                .addComponent(EditButton)
-                .addComponent(RefreshButton))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(DeleteButton)
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(InputSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(SearchButton)))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(39, 39, 39)
-                    .addComponent(ImportSheet)))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(113, 113, 113))
-    );
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(282, 282, 282)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(AddButton)
+                                        .addComponent(DeleteButton)
+                                        .addComponent(InputSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 258,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(EditButton)
+                                        .addComponent(SearchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(232, 232, 232)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(RefreshButton)
+                                        .addComponent(ImportSheet))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(107, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1037,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(98, 98, 98)));
+        layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap(30, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(AddButton)
+                                        .addComponent(EditButton)
+                                        .addComponent(RefreshButton))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(DeleteButton)
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout
+                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(InputSearch,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(SearchButton)))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(39, 39, 39)
+                                                .addComponent(ImportSheet)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 487,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(113, 113, 113)));
     }// </editor-fold>//GEN-END:initComponents
 
     private void importBooksFromCSV(java.io.File selectedFile) throws SQLException {
@@ -258,7 +260,6 @@ public class TableBook extends javax.swing.JPanel {
                     return;
                 }
 
-                
                 double price = Double.parseDouble(values[1].trim());
 
                 // Create a new Book object with the extracted data
@@ -271,7 +272,7 @@ public class TableBook extends javax.swing.JPanel {
                         true, // Assuming status is true for all new books
                         Integer.parseInt(values[2].trim()));
 
-                        System.out.println(newBook);
+                System.out.println(newBook);
                 // Insert the new book into the database using bookService
                 bookService.insertBook(newBook);
             }
@@ -368,13 +369,14 @@ public class TableBook extends javax.swing.JPanel {
             int selectedBookId = (int) BookTable.getModel().getValueAt(selectedRowIndex, 0);
 
             // Open the EditBookFrame passing the selectedBookId as a parameter
-             editBookFrame = new EditBookFrame(selectedBookId);
+            editBookFrame = new EditBookFrame(selectedBookId);
             editBookFrame.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Please select a book to edit.", "No Book Selected",
                     JOptionPane.WARNING_MESSAGE);
         }
     }
+
     private void InputSearchActionPerformed(java.awt.event.ActionEvent evt) {
 
     }

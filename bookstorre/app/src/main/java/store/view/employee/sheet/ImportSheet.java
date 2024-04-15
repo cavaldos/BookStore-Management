@@ -13,13 +13,17 @@ import java.util.List;
 import store.Model.Book;
 import store.Service.BookService;
 import store.Service.EmployeeService;
+import store.utils.UserSession;
 
 public class ImportSheet extends javax.swing.JPanel {
     private BookService bookService;
     private EmployeeService employeeService;
+    private UserSession userSession;
 
     public ImportSheet() {
         initComponents();
+        this.userSession = UserSession.getInstance();
+
         bookService = new BookService();
         employeeService = new EmployeeService();
         loadtableImportedBooks();
@@ -43,7 +47,8 @@ public class ImportSheet extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         ImportSheetButton = new javax.swing.JButton();
@@ -64,29 +69,29 @@ public class ImportSheet extends javax.swing.JPanel {
         });
 
         TableImportBook.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Book ID", "Title ", "Author", "Publisher", "Category", "Quantity", "Price", "Status"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
+                new Object[][] {
+                        { null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null },
+                        { null, null, null, null, null, null, null, null }
+                },
+                new String[] {
+                        "Book ID", "Title ", "Author", "Publisher", "Category", "Quantity", "Price", "Status"
+                }) {
+            Class[] types = new Class[] {
+                    java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,
+                    java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
             };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+            boolean[] canEdit = new boolean[] {
+                    false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+                return types[columnIndex];
             }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         jScrollPane1.setViewportView(TableImportBook);
@@ -118,42 +123,44 @@ public class ImportSheet extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1042, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(128, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(ImportSheetButton)
-                        .addGap(26, 26, 26)
-                        .addComponent(DeleteButton)
-                        .addGap(36, 36, 36)
-                        .addComponent(RefreshButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(AddSheetButton)
-                        .addGap(245, 245, 245))))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(80, 80, 80)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1042,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(128, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(105, 105, 105)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 241,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(ImportSheetButton)
+                                                .addGap(26, 26, 26)
+                                                .addComponent(DeleteButton)
+                                                .addGap(36, 36, 36)
+                                                .addComponent(RefreshButton)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(AddSheetButton)
+                                                .addGap(245, 245, 245)))));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ImportSheetButton)
-                    .addComponent(RefreshButton)
-                    .addComponent(DeleteButton)
-                    .addComponent(AddSheetButton))
-                .addGap(44, 44, 44)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(131, 131, 131))
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(104, 104, 104)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(ImportSheetButton)
+                                        .addComponent(RefreshButton)
+                                        .addComponent(DeleteButton)
+                                        .addComponent(AddSheetButton))
+                                .addGap(44, 44, 44)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 404,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(131, 131, 131)));
     }// </editor-fold>//GEN-END:initComponents
 
     private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RefreshButtonActionPerformed
@@ -161,7 +168,8 @@ public class ImportSheet extends javax.swing.JPanel {
     }// GEN-LAST:event_RefreshButtonActionPerformed
 
     private void AddSheetButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AddSheetButtonActionPerformed
-        // TODO add your handling code here:
+        employeeService.createSheet(userSession.getUserID());
+        loadtableImportedBooks();
     }// GEN-LAST:event_AddSheetButtonActionPerformed
 
     private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DeleteButtonActionPerformed
@@ -185,9 +193,7 @@ public class ImportSheet extends javax.swing.JPanel {
                             "Format Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-
                 double price = Double.parseDouble(values[1].trim());
-
                 // Create a new Book object with the extracted data
                 Book newBook = new Book(
                         values[0].trim(),
@@ -197,10 +203,10 @@ public class ImportSheet extends javax.swing.JPanel {
                         values[4].trim(),
                         true, // Assuming status is true for all new books
                         Integer.parseInt(values[2].trim()));
-
                 System.out.println(newBook);
                 // Insert the new book into the database using bookService
                 employeeService.importBookSheet(newBook);
+                loadtableImportedBooks();
             }
             JOptionPane.showMessageDialog(this, "Books imported successfully!", "Success",
                     JOptionPane.INFORMATION_MESSAGE);
@@ -222,6 +228,7 @@ public class ImportSheet extends javax.swing.JPanel {
         int result = fileChooser.showOpenDialog(this);
         if (result == JFileChooser.APPROVE_OPTION) {
             java.io.File selectedFile = fileChooser.getSelectedFile();
+            loadtableImportedBooks();
             try {
                 importBooksFromCSV(selectedFile);
             } catch (SQLException e) {

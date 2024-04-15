@@ -15,10 +15,12 @@ public class App {
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
         Run run = Run.getInstance();
         run.run();
-        startAutoLogout(120000); // 60000ms = 1 phút
+        startAutoLogout(3660000); // 60000ms = 1 phút
         
         // MainEmployee MainEmployee = new MainEmployee();
         // MainEmployee.setVisible(true);
+
+
         // NewJFrame newJFrame = new NewJFrame();
         // newJFrame.setVisible(true);
 

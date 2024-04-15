@@ -5,7 +5,6 @@ import java.sql.SQLException;
 
 import javax.swing.table.DefaultTableModel;
 
-
 import store.Service.BookService;
 import store.Model.Book;
 import store.Model.OrderDetail;
@@ -13,7 +12,7 @@ import store.Model.Order;
 import store.Model.Customer;
 import store.Service.OrderService;
 import store.Service.CustomerService;
-
+import store.utils.UserSession;
 import javax.swing.JOptionPane;
 
 public class CreateOrder extends javax.swing.JPanel {
@@ -23,9 +22,11 @@ public class CreateOrder extends javax.swing.JPanel {
         private Customer customer;
         private EditOderDetail editOderDetail;
         private Order newOrder;
+        private UserSession userSession;
 
         public CreateOrder() {
                 initComponents();
+                this.userSession = UserSession.getInstance();
 
                 this.bookService = new BookService();
                 this.orderService = new OrderService();
@@ -512,7 +513,7 @@ public class CreateOrder extends javax.swing.JPanel {
 
         private void RefreshBookButtonActionPerformed(java.awt.event.ActionEvent evt) {
                 showTableOrderDetail();
-                
+
         }
 
         private void EditBookButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -572,10 +573,10 @@ public class CreateOrder extends javax.swing.JPanel {
                         } else {
                                 newOrder.setCustomerID(customer.getCustomerID());
                         }
-                        newOrder.setEmployeeID(1);
+                        newOrder.setEmployeeID(userSession.getUserID());
                         newOrder.setStatus(true);
-                        orderService.createOrder(newOrder); // Attempt to create the order in your database
-                        showTableOrderDetail(); // Refresh the UI to show the new order details
+                        orderService.createOrder(newOrder); // ActionEvent
+                        showTableOrderDetail(); // Refresh
                 } catch (SQLException e) {
                         e.printStackTrace();
                         JOptionPane.showMessageDialog(this, "Failed to process the order.", "Database Error",
