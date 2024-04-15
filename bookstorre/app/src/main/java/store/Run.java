@@ -1,24 +1,76 @@
-
 package store;
-
-import java.sql.SQLException;
-
 
 import store.view.admin.MainAdmin;
 import store.view.employee.MainEmployee;
 import store.view.MainUI;
+import store.utils.UserSession;
 
 public class Run {
+    private static Run instance = null;
 
-    public static void main(String args[]) throws SQLException, ClassNotFoundException {
-        // MainAdmin mainUI = new MainAdmin();
-        // mainUI.setVisible(true);
-        // MainEmployee mainUIss = new MainEmployee();
-        // mainUIss.setVisible(true);
+    private MainUI mainUI;
+    private MainAdmin mainAdmin;
+    private MainEmployee mainEmployee;
+    private UserSession userSession;
 
-        MainUI mainUI = new MainUI();
-        mainUI.setVisible(true);
+    private Run() {
+        this.userSession = UserSession.getInstance();
     }
 
-}
+    public static Run getInstance() {
+        if (instance == null) {
+            instance = new Run();
+        }
+        return instance;
+    }
 
+    public void initializeUI() {
+        disposeWindows(); // Giải phóng tài nguyên của các cửa sổ hiện tại
+        this.mainUI = new MainUI(); // Luôn tạo mới MainUI khi khởi tạo lại giao diện người dùng
+        this.mainUI.setVisible(true);
+    }
+
+    public void initializeAdmin() {
+        disposeWindows(); // Giải phóng tài nguyên của các cửa sổ hiện tại
+        this.mainAdmin = new MainAdmin(); // Luôn tạo mới MainAdmin khi người dùng là admin
+        this.mainAdmin.setVisible(true);
+    }
+
+    public void initializeEmployee() {
+        disposeWindows(); // Giải phóng tài nguyên của các cửa sổ hiện tại
+        this.mainEmployee = new MainEmployee(); // Luôn tạo mới MainEmployee khi người dùng là nhân viên
+        this.mainEmployee.setVisible(true);
+    }
+
+    private void disposeWindows() {
+        if (mainUI != null) {
+            mainUI.dispose();
+            mainUI = null;
+        }
+        if (mainAdmin != null) {
+            mainAdmin.dispose();
+            mainAdmin = null;
+        }
+        if (mainEmployee != null) {
+            mainEmployee.dispose();
+            mainEmployee = null;
+        }
+    }
+
+    public void logout() {
+        this.userSession.logout();
+        initializeUI(); // Khởi tạo lại giao diện đăng nhập
+    }
+
+    public void run() {
+        if (this.userSession.checkLogin()) {
+            if (this.userSession.getRole().equals("admin")) {
+                initializeAdmin();
+            } else {
+                initializeEmployee();
+            }
+        } else {
+            initializeUI();
+        }
+    }
+}

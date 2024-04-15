@@ -32,4 +32,7 @@ public class UserService {
         userDao.updateUser(user);
     }
 
+    public User getUser(String username) throws SQLException {
+        return userDao.selectUserbyname(username);
+    }
 }

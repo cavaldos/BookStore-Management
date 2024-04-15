@@ -14,7 +14,6 @@ public class MainUI extends javax.swing.JFrame {
         this.add(signIn);
         signIn.setBounds(0, -50, 740, 550);
         signIn.setVisible(true);
-
     }
 
     @SuppressWarnings("unchecked")

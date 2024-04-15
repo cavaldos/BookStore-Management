@@ -3,42 +3,76 @@ package store.utils;
 import java.sql.SQLException;
 import java.util.List;
 import store.Service.AuthService;
+import store.Model.User;
 
+import store.Service.UserService;
 
 public class UserSession {
     private static UserSession instance;
     private Integer userID;
     private String username;
-    private String firstname;
-    private String lastname;
-    private String userRole; 
-    private String password;
+    private String role;
+    private AuthService authService;
 
+    private UserSession() {
 
-    
-    private UserSession(String username, String userRole) {
-        this.username = username;
-        this.userRole = userRole;
     }
 
-    public static UserSession getInstance(String username, String userRole) {
+    private UserSession(Integer userID, String username, String role) {
+        this.userID = userID;
+        this.username = username;
+        this.role = role;
+    }
+
+    public Boolean authenticateUser(String username, String password, String role) throws SQLException {
+        UserService userservice = new UserService();
+        authService = new AuthService();
+        if (authService.authenticateUser(username, password, role)) {
+            User user = userservice.getUser(username);
+            this.userID = user.getUserID();
+            this.username = user.getUserName();
+            this.role = user.getRole();
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean checkLogin() {
+        return this.userID != null;
+        
+    }
+    public void logout() {
+        this.userID = null;
+        this.username = null;
+        this.role = null;
+    }
+
+    public static UserSession getInstance() {
         if (instance == null) {
-            instance = new UserSession(username, userRole);
+            instance = new UserSession();
         }
         return instance;
     }
+
+    
 
     public String getUsername() {
         return username;
     }
 
-    public String getUserRole() {
-        return userRole;
+    public String getRole() {
+        return role;
     }
 
-    public void cleanUserSession() {
-        username = ""; // hoặc null
-        userRole = ""; // hoặc null
-        instance = null;
+    public Integer getUserID() {
+        return userID;
+    }
+
+    @Override
+    public String toString() {
+        return "UserSession{" +
+                "username='" + username + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
