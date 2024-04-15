@@ -2,12 +2,10 @@
 package store.view.employee.order;
 
 import javax.swing.*;
-import java.awt.*;
 
 import store.Model.Order;
 import store.Service.OrderService;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 
 
 
@@ -108,8 +106,7 @@ public class ViewOrder extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(TableOrder);
         // sorter
-        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>((DefaultTableModel) TableOrder.getModel());
-        TableOrder.setRowSorter(sorter);
+    
         ViewButton.setText("View");
         ViewButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

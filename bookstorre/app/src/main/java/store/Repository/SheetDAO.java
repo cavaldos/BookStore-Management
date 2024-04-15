@@ -8,12 +8,12 @@ import java.lang.String;
 
 import store.Model.Sheet;
 import store.Model.Book;
-import store.Model.Book;
+import store.Model.SheetDetail;
 
 public class SheetDAO {
 
     // create sheet
-    public void createSheet(Sheet sheet) throws SQLException {
+    public void createSheet(int employeeID) throws SQLException {
         // value (employee ID)
         // call CreateSheet(1);
 
@@ -21,7 +21,7 @@ public class SheetDAO {
         new DatabaseUtils();
         try (Connection connection = DatabaseUtils.connect();
                 PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
-            preparedStatement.setInt(1, sheet.getEmployeeID());
+            preparedStatement.setInt(1, employeeID);
             preparedStatement.executeUpdate();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -51,13 +51,14 @@ public class SheetDAO {
 
     // get all book importing
     public List<Book> getAllBookImporting() throws SQLException {
-        String query = "select b.bookID, b.title, a.name as authorName, p.name as publisherName, c.name as categoryName, b.price, imb.quantity as volume,b.status\n" + //
-                        "from book b\n" + //
-                        "join author a on b.authorID = a.authorID\n" + //
-                        "join category c on b.categoryID = c.categoryID\n" + //
-                        "join publisher p on b.publisherID = p.publisherID\n" + //
-                        "JOIN imported_books imb  on b.bookID = imb.bookID\n" + //
-                        "where imb.sheetID is null;";
+        String query = "select b.bookID, b.title, a.name as authorName, p.name as publisherName, c.name as categoryName, b.price, imb.quantity as volume,b.status\n"
+                + //
+                "from book b\n" + //
+                "join author a on b.authorID = a.authorID\n" + //
+                "join category c on b.categoryID = c.categoryID\n" + //
+                "join publisher p on b.publisherID = p.publisherID\n" + //
+                "JOIN imported_books imb  on b.bookID = imb.bookID\n" + //
+                "where imb.sheetID is null;";
         List<Book> books = new ArrayList<>();
         new DatabaseUtils();
         try (Connection connection = DatabaseUtils.connect();
@@ -82,7 +83,7 @@ public class SheetDAO {
         return books;
     }
 
-    //delete sheet
+    // delete sheet
     public void deleteSheetImporting() throws SQLException {
         String sql = "delete from imported_books where sheetID is null;";
         new DatabaseUtils();
@@ -119,4 +120,35 @@ public class SheetDAO {
         return sheets;
     }
 
+
+    // get getSheetDetail by sheetID
+    public List<SheetDetail> getSheetDetailBySheetID(int sheetID) throws SQLException {
+        String query = "select  b.title, b.price, imb.quantity, a.username as employee, s.date\n" + //
+                "from  book b \n" + //
+                "join imported_books imb on b.bookID = imb.bookID\n" + //
+                "join sheet s on s.sheetID = imb.sheetID\n" + //
+                "JOIN account a on a.userID = s.employeeID\n" + //
+                "where s.sheetID = ?;\n" + //
+                "";
+        List<SheetDetail> sheetDetails = new ArrayList<>();
+        new DatabaseUtils();
+        try (Connection connection = DatabaseUtils.connect();
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, sheetID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String title = resultSet.getString("title");
+                double price = resultSet.getDouble("price");
+                int quantity = resultSet.getInt("quantity");
+                String employee = resultSet.getString("employee");
+                String date = resultSet.getString("date");
+                SheetDetail sheetDetail = new SheetDetail(title, price, quantity, employee, date);
+                sheetDetails.add(sheetDetail);
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return sheetDetails;
+    }
 }

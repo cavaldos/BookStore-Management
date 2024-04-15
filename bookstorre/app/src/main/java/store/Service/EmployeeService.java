@@ -1,6 +1,7 @@
 package store.Service;
 
 import store.Model.Sheet;
+import store.Model.SheetDetail;
 import store.Model.Book;
 
 import store.Repository.SheetDAO;
@@ -14,9 +15,9 @@ public class EmployeeService {
     }
 
     // create sheet
-    public void createSheet(Sheet sheet) {
+    public void createSheet(int employeeID) {
         try {
-            sheetDAO.createSheet(sheet);
+            sheetDAO.createSheet(employeeID);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -54,6 +55,16 @@ public class EmployeeService {
     public List<Sheet> getAllSheet() {
         try {
             return sheetDAO.getAllSheet();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // get sheet detail by id 
+    public List<SheetDetail> getSheetDetailBySheetID(int sheetID) {
+        try {
+            return sheetDAO.getSheetDetailBySheetID(sheetID);
         } catch (Exception e) {
             e.printStackTrace();
         }

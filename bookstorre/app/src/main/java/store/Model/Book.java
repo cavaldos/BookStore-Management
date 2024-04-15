@@ -1,6 +1,5 @@
 package store.Model;
 
-import java.util.Date;
 
 public class Book {
     private int bookID; // Assuming bookID is a numeric identifier
@@ -11,7 +10,6 @@ public class Book {
     private String category; // Assuming category is referenced by ID
     private Boolean status;
     private int volume; // Assuming volume is a numeric field
-    private Date date; // Assuming date is a date field
     public Book(int bookID, String title, String author,
             String publisher,
             Double price, String category, Boolean status, int volume) {
