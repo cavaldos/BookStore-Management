@@ -1,6 +1,5 @@
 package store.Service;
 
-
 import java.sql.SQLException;
 import java.util.List;
 import store.Model.User;
@@ -28,12 +27,9 @@ public class UserService {
     public void addUser(User user) throws SQLException {
         userDao.addUser(user);
     }
-    
+
     public void updateUser(User user) throws SQLException {
         userDao.updateUser(user);
     }
-    
-    
 
-    
 }

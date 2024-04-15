@@ -5,6 +5,8 @@ import store.view.employee.book.TableBook;
 
 import java.time.format.SignStyle;
 
+import javax.swing.JButton;
+
 import store.view.employee.author.TableAuthor;
 import store.view.employee.category.TableCategory;
 import store.view.employee.publisher.TablePublisher;
@@ -23,9 +25,9 @@ public class MainEmployee extends javax.swing.JFrame {
     private CreateOrder createOrderPanel; // Biến cho CreateOrder
     private ViewOrder viewOrderPanel; // Biến cho ViewOrder
     private ImportSheet importSheetPanel; // Biến cho ImportSheet
-    
     private ViewSheet viewSheetPanel; // Biến cho ViewSheet
     private CustomerTable customerTablePanel; // Biến cho CustomerTable
+
 
     public MainEmployee() {
         initComponents();
@@ -74,6 +76,7 @@ public class MainEmployee extends javax.swing.JFrame {
         hideAllPanels();
         tableBookPanel.setVisible(true);
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -339,10 +342,12 @@ public class MainEmployee extends javax.swing.JFrame {
     }
 
     private void ViewSheetButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        
         switchPanel("ViewSheet");
     }
 
     private void ImportSheetButtonActionPerformed(java.awt.event.ActionEvent evt) {
+
         switchPanel("ImportSheet");
     }
 

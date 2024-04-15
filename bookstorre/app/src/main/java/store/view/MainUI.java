@@ -1,59 +1,26 @@
 
 package store.view;
 
-import store.view.employee.book.TableBook;
-import store.view.employee.author.TableAuthor;
-import store.view.employee.category.TableCategory;
-import store.view.employee.publisher.TablePublisher;
+import store.view.auth.SignIn;
 
+public class MainUI extends javax.swing.JFrame {
+    private SignIn signIn;
 
-
-/**
- *
- * @author bourbon
- */
-public class MainUI<ActionEvent> extends javax.swing.JFrame {
-    private TableBook tableBookPanel; // Biến cho TableBook
-    private TableAuthor tableAuthorPanel; // Biến cho TableAuthor
-    private TableCategory tableCategoryPanel; // Biến cho TableCategory
-    private TablePublisher tablePublisherPanel; // Biến cho TablePublisher
-
-
-    /**
-     * Creates new form MainUI
-     */
     public MainUI() {
         initComponents();
         this.setLocationRelativeTo(null);
-        tableBookPanel = new TableBook();
-        this.add(tableBookPanel);
-        tableBookPanel.setBounds(50, 50, 1100, 600);
-        tableBookPanel.setVisible(true);
-
-        // initComponents();
-        // this.setLocationRelativeTo(null);
-        // tableAuthorPanel = new TableAuthor();
-        // this.add(tableAuthorPanel);
-        // tableAuthorPanel.setBounds(0, 0, 1100, 600);
-        // tableAuthorPanel.setVisible(true);
-
-        // initComponents();
-        // tableCategoryPanel = new TableCategory();
-        // this.add(tableCategoryPanel);
-        // tableCategoryPanel.setBounds(50, 50, 1100, 600);
-        // tableCategoryPanel.setVisible(false);
-        // tablePublisherPanel = new TablePublisher();
-
-        // initComponents();
-        // this.setLocationRelativeTo(null);
-        // tablePublisherPanel = new TablePublisher();
-        // this.add(tablePublisherPanel);
-        // tablePublisherPanel.setBounds(50, 50, 1100, 600);
-        // tablePublisherPanel.setVisible(true);
+        this.setTitle("Store Management System");
+        signIn = new SignIn();
+        this.add(signIn);
+        signIn.setBounds(0, -50, 740, 550);
+        signIn.setVisible(true);
 
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
@@ -67,10 +34,10 @@ public class MainUI<ActionEvent> extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1200, Short.MAX_VALUE));
+                        .addGap(0, 749, Short.MAX_VALUE));
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 800, Short.MAX_VALUE));
+                        .addGap(0, 485, Short.MAX_VALUE));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,7 +46,6 @@ public class MainUI<ActionEvent> extends javax.swing.JFrame {
      * @param args the command line arguments
      */
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // End of variables declaration//GEN-END:variables
 }
-
-// Variables declaration - do not modify//GEN-BEGIN:variables
-// End of variables declaration//GEN-END:variables
