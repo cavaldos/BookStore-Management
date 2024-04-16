@@ -2,7 +2,7 @@ package com.raven.form;
 
 import chart.raven.chart.ModelChart;
 import com.raven.data.DatabaseConnection;
-import com.raven.data.ModelData;
+import com.raven.data.ModelCategoryData;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,6 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Revenue_statistics extends javax.swing.JFrame {
+    List<ModelCategoryData> ListCateDate = new ArrayList<>();
+      List<ModelCategoryData> ListCateWeek = new ArrayList<>();
+        List<ModelCategoryData> ListCateMonth = new ArrayList<>();
       List<String> dateTimeList = new ArrayList<>();
         List<Double> dateBookList = new ArrayList<>();
     List<Double> dateCategoryList = new ArrayList<>();
@@ -35,6 +38,7 @@ public class Revenue_statistics extends javax.swing.JFrame {
         DateBox.addItem("Week");
         DateBox.addItem("Day");
         DateBox.setSelectedItem("Day");
+        fetchComboBoxCateData();
         setupChart();
        setData();
       DateBox.addActionListener(new ActionListener() {
@@ -44,6 +48,14 @@ public class Revenue_statistics extends javax.swing.JFrame {
         setData();
     }
 });
+          CateBox.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        setData();
+    }
+});
+
 
     }
       
@@ -67,10 +79,14 @@ public class Revenue_statistics extends javax.swing.JFrame {
       fetchDateCustomerData();
      fetchDateEmployeeData();
        for (int i = dateTimeList.size() - 1; i >= 0; i--) {
+           String NameCate = (String) CateBox.getSelectedItem();
+         ModelCategoryData categoryData = ListCateDate.get(i);
+          if (categoryData.getNameCate().equals(NameCate)){ 
            chart.clear();
-          chart.addData(new ModelChart(dateTimeList.get(i), new double[]{dateBookList.get(i),dateCategoryList.get(i),dateCustomerList.get(i),dateEmployeeList.get(i)})); 
+          chart.addData(new ModelChart(dateTimeList.get(i), new double[]{dateBookList.get(i),categoryData.getRevenueCate(),dateCustomerList.get(i),dateEmployeeList.get(i)})); 
            chart.addData(new ModelChart("test",new double[]{200,100,50,234}));
         chart.start();
+         }
             }
     break;
 case "Week":
@@ -79,10 +95,14 @@ case "Week":
      fetchWeekCustomerData();
      fetchWeekEmployeeData();
      for (int i = dateTimeList.size() - 1; i >= 0; i--) {
+         String NameCate = (String) CateBox.getSelectedItem();
+         ModelCategoryData categoryData = ListCateWeek.get(i);
+          if (categoryData.getNameCate().equals(NameCate)){ 
            chart.clear();
-          chart.addData(new ModelChart(weekTimeList.get(i), new double[]{weekBookList.get(i),weekCategoryList.get(i),weekCustomerList.get(i),weekEmployeeList.get(i)})); 
+          chart.addData(new ModelChart(weekTimeList.get(i), new double[]{weekBookList.get(i),categoryData.getRevenueCate(),weekCustomerList.get(i),weekEmployeeList.get(i)})); 
            chart.addData(new ModelChart("test",new double[]{200,100}));
         chart.start();
+          }
             }
     break;
 case "Month":
@@ -91,10 +111,14 @@ case "Month":
       fetchMonthCustomerData();
      fetchMonthEmployeeData();
      for (int i = dateTimeList.size() - 1; i >= 0; i--) {
+          String NameCate = (String) CateBox.getSelectedItem();
+         ModelCategoryData categoryData = ListCateMonth.get(i);
+          if (categoryData.getNameCate().equals(NameCate)){ 
            chart.clear();
-          chart.addData(new ModelChart(monthTimeList.get(i), new double[]{monthBookList.get(i),monthCategoryList.get(i),monthCustomerList.get(i),monthEmployeeList.get(i)})); 
+          chart.addData(new ModelChart(monthTimeList.get(i), new double[]{monthBookList.get(i),categoryData.getRevenueCate(),monthCustomerList.get(i),monthEmployeeList.get(i)})); 
            chart.addData(new ModelChart("test",new double[]{200,100}));
         chart.start();
+          }
             }
     break;
 default:
@@ -104,6 +128,25 @@ default:
         e.printStackTrace();
     }
 }
+ private void fetchComboBoxCateData() {
+    String query = "SELECT name AS NameCate FROM category";
+    try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
+         ResultSet rs = pst.executeQuery()) {
+         CateBox.removeAllItems();
+        boolean isFirst = true; // More descriptive variable name
+        while (rs.next()) {
+            String categoryName = rs.getString("NameCate"); // Store in a variable to avoid multiple calls
+            CateBox.addItem(categoryName); 
+            if (isFirst) {
+                CateBox.setSelectedItem(categoryName); // Use the stored variable
+                isFirst = false;        
+            }
+        }
+    } catch (Exception e) { // Catch more specific exception
+        e.printStackTrace(); // Consider logging this error or handling it differently
+    }
+}
+
     private void fetchDateBookData() {
     String query = "SELECT date AS OrderDate, SUM(totalCost) AS Revenue FROM orders GROUP BY date ORDER BY date";
     
@@ -153,39 +196,34 @@ default:
     }
 }
 private void fetchDateCategoryData() {
-    String query = "SELECT DATE(orders.date) AS order_date, SUM(order_detail.quantity * book.price) AS Revenue FROM orders INNER JOIN order_detail ON orders.orderID = order_detail.orderID INNER JOIN book ON order_detail.bookID = book.bookID GROUP BY order_date";
+    String query = "SELECT c.name AS CategoryName, DATE(o.date) AS OrderDate, SUM(d.quantity * b.price) AS TotalRevenue FROM orders o JOIN order_detail d ON o.orderID = d.orderID JOIN book b ON d.bookID = b.bookID JOIN category c ON b.categoryID = c.categoryID GROUP BY c.name, DATE(o.date) ORDER BY OrderDate";
     try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
          ResultSet rs = pst.executeQuery()) {
-        
         while (rs.next()) {
-            double revenue = rs.getDouble("Revenue");
-            dateCategoryList.add(revenue);
+           ListCateDate.add(new ModelCategoryData(rs.getString("CategoryName"),rs.getDouble("TotalRevenue")));
         }
     } catch (Exception e) {
         e.printStackTrace();
     }
 }
 private void fetchWeekCategoryData() {
-    String query = "SELECT YEARWEEK(orders.date) AS year_week, SUM(order_detail.quantity * book.price) AS Revenue FROM orders INNER JOIN order_detail ON orders.orderID = order_detail.orderID INNER JOIN book ON order_detail.bookID = book.bookID GROUP BY year_week";
+    String query = "SELECT c.name AS CategoryName, YEAR(o.date) AS Year, WEEK(o.date) AS Week, SUM(d.quantity * b.price) AS TotalRevenue FROM orders o JOIN order_detail d ON o.orderID = d.orderID JOIN book b ON d.bookID = b.bookID JOIN category c ON b.categoryID = c.categoryID GROUP BY c.name, YEAR(o.date), WEEK(o.date) ORDER BY Year, Week";
     try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
          ResultSet rs = pst.executeQuery()) {
-        
         while (rs.next()) {
-            double revenue = rs.getDouble("Revenue");
-            weekCategoryList.add(revenue);
+           ListCateWeek.add(new ModelCategoryData(rs.getString("CategoryName"),rs.getDouble("TotalRevenue")));
+       
         }
     } catch (Exception e) {
         e.printStackTrace();
     }
 }
 private void fetchMonthCategoryData() {
-    String query = "SELECT DATE_FORMAT(orders.date, '%Y-%m') AS month, SUM(order_detail.quantity * book.price) AS Revenue FROM orders INNER JOIN order_detail ON orders.orderID = order_detail.orderID INNER JOIN book ON order_detail.bookID = book.bookID GROUP BY month";
+    String query = "SELECT c.name AS CategoryName, YEAR(o.date) AS Year, MONTH(o.date) AS Month, SUM(d.quantity * b.price) AS TotalRevenue FROM orders o JOIN order_detail d ON o.orderID = d.orderID JOIN book b ON d.bookID = b.bookID JOIN category c ON b.categoryID = c.categoryID GROUP BY c.name, YEAR(o.date), MONTH(o.date) ORDER BY Year, Month";
     try (PreparedStatement pst = DatabaseConnection.getInstance().getConnection().prepareStatement(query);
          ResultSet rs = pst.executeQuery()) {
-        
         while (rs.next()) {
-            double revenue = rs.getDouble("Revenue");
-            monthCategoryList.add(revenue);
+           ListCateMonth.add(new ModelCategoryData(rs.getString("CategoryName"),rs.getDouble("TotalRevenue")));
         }
     } catch (Exception e) {
         e.printStackTrace();
@@ -276,6 +314,8 @@ private void fetchMonthEmployeeData() {
         panelShadow1 = new chart.raven.panel.PanelShadow();
         chart = new chart.raven.chart.CurveLineChart();
         jLabel5 = new javax.swing.JLabel();
+        CateBox = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
         DateBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -291,6 +331,11 @@ private void fetchMonthEmployeeData() {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Date");
 
+        CateBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Category");
+
         DateBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout panelShadow1Layout = new javax.swing.GroupLayout(panelShadow1);
@@ -301,12 +346,16 @@ private void fetchMonthEmployeeData() {
                 .addContainerGap()
                 .addGroup(panelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelShadow1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(78, 78, 78))
+                        .addGroup(panelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(84, 84, 84))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelShadow1Layout.createSequentialGroup()
-                        .addComponent(DateBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addComponent(chart, javax.swing.GroupLayout.DEFAULT_SIZE, 593, Short.MAX_VALUE)
+                        .addGroup(panelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(DateBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CateBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(chart, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
                 .addContainerGap())
         );
         panelShadow1Layout.setVerticalGroup(
@@ -316,8 +365,12 @@ private void fetchMonthEmployeeData() {
                 .addGroup(panelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelShadow1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(DateBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(CateBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(chart, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE))
                 .addContainerGap())
@@ -343,9 +396,11 @@ private void fetchMonthEmployeeData() {
      */
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CateBox;
     private javax.swing.JComboBox<String> DateBox;
     private chart.raven.chart.CurveLineChart chart;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private chart.raven.panel.PanelShadow panelShadow1;
     // End of variables declaration//GEN-END:variables
 }
