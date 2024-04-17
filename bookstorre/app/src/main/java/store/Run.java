@@ -1,7 +1,7 @@
 package store;
 
 import store.view.admin.MainAdmin;
-import store.view.employee.MainEmployee;
+import store.view.employee.Main_Employee;
 import store.view.MainUI;
 import store.utils.UserSession;
 
@@ -10,7 +10,7 @@ public class Run {
 
     private MainUI mainUI;
     private MainAdmin mainAdmin;
-    private MainEmployee mainEmployee;
+    private Main_Employee mainEmployee;
     private UserSession userSession;
 
     private Run() {
@@ -38,7 +38,7 @@ public class Run {
 
     public void initializeEmployee() {
         disposeWindows(); // Giải phóng tài nguyên của các cửa sổ hiện tại
-        this.mainEmployee = new MainEmployee(); // Luôn tạo mới MainEmployee khi người dùng là nhân viên
+        this.mainEmployee = new Main_Employee(); // Luôn tạo mới MainEmployee khi người dùng là nhân viên
         this.mainEmployee.setVisible(true);
     }
 

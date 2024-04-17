@@ -13,9 +13,9 @@ public class DatabaseUtils {
     private static String password;
 
     public DatabaseUtils() {
-        this.url = "jdbc:mysql://localhost:3307/bookstore";
+        this.url = "jdbc:mysql://localhost:3306/book_store";
         this.user = "root";
-        this.password = "123456";
+        this.password = "ThanhLuc2911?";
     }
 
     public DatabaseUtils(String url, String user, String password) {
@@ -57,8 +57,6 @@ public class DatabaseUtils {
             e.printStackTrace();
         }
     }
-
-    
 
 }
 

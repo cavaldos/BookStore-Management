@@ -18,7 +18,7 @@ public class CustomerTable extends javax.swing.JPanel {
     private CustomerService customerService;
     private AddCustomer addCustomer;
     private EditCustomer editCustomer;
-    
+
     public CustomerTable() {
         initComponents();
         customerService = new CustomerService();
@@ -31,7 +31,8 @@ public class CustomerTable extends javax.swing.JPanel {
             DefaultTableModel model = (DefaultTableModel) CustomerTable.getModel();
             model.setRowCount(0);
             for (Customer customer : customers) {
-                model.addRow(new Object[] {customer.getCustomerID(), customer.getUserName(), customer.getFirstName(), customer.getLastName()});
+                model.addRow(new Object[] { customer.getCustomerID(), customer.getUserName(), customer.getFirstName(),
+                        customer.getLastName() });
             }
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
@@ -44,8 +45,10 @@ public class CustomerTable extends javax.swing.JPanel {
             DefaultTableModel model = (DefaultTableModel) CustomerTable.getModel();
             model.setRowCount(0);
             for (Customer customer : customers) {
-                if (customer.getUserName().contains(input) || customer.getFirstName().contains(input) || customer.getLastName().contains(input)) {
-                    model.addRow(new Object[] {customer.getCustomerID(), customer.getUserName(), customer.getFirstName(), customer.getLastName()});
+                if (customer.getUserName().contains(input) || customer.getFirstName().contains(input)
+                        || customer.getLastName().contains(input)) {
+                    model.addRow(new Object[] { customer.getCustomerID(), customer.getUserName(),
+                            customer.getFirstName(), customer.getLastName() });
                 }
             }
         } catch (SQLException e) {
@@ -54,6 +57,7 @@ public class CustomerTable extends javax.swing.JPanel {
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -93,9 +97,7 @@ public class CustomerTable extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(CustomerTable);
-        // sort 
-        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>((DefaultTableModel) CustomerTable.getModel());
-        CustomerTable.setRowSorter(sorter);
+
         EditButton.setText("Edit");
         EditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,8 +138,9 @@ public class CustomerTable extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(254, 254, 254)
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 918, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -151,14 +154,13 @@ public class CustomerTable extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(DeleteButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(RefreshButton))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(319, Short.MAX_VALUE))
+                                .addComponent(RefreshButton)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddButton)
                     .addComponent(EditButton)
@@ -169,12 +171,12 @@ public class CustomerTable extends javax.swing.JPanel {
                     .addComponent(SearchButton)
                     .addComponent(Input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(139, 139, 139))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
+    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_EditButtonActionPerformed
         int row = CustomerTable.getSelectedRow();
         if (row == -1) {
             JOptionPane.showMessageDialog(null, "Please select a customer");
@@ -183,26 +185,25 @@ public class CustomerTable extends javax.swing.JPanel {
             editCustomer = new EditCustomer(customerID);
             editCustomer.setVisible(true);
         }
-    }//GEN-LAST:event_EditButtonActionPerformed
+    }// GEN-LAST:event_EditButtonActionPerformed
 
-    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_AddButtonActionPerformed
         addCustomer = new AddCustomer();
         addCustomer.setVisible(true);
-    }//GEN-LAST:event_AddButtonActionPerformed
+    }// GEN-LAST:event_AddButtonActionPerformed
 
-    private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButtonActionPerformed
+    private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_DeleteButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DeleteButtonActionPerformed
+    }// GEN-LAST:event_DeleteButtonActionPerformed
 
-    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
+    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_SearchButtonActionPerformed
         String input = Input.getText();
         searchCustomer(input);
-    }//GEN-LAST:event_SearchButtonActionPerformed
+    }// GEN-LAST:event_SearchButtonActionPerformed
 
-    private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshButtonActionPerformed
+    private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RefreshButtonActionPerformed
         showCustomer();
-    }//GEN-LAST:event_RefreshButtonActionPerformed
-
+    }// GEN-LAST:event_RefreshButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;

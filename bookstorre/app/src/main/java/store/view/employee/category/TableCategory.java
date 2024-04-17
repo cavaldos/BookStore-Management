@@ -4,6 +4,7 @@
  */
 package store.view.employee.category;
 
+import java.awt.Color;
 import store.Model.Category;
 import store.Service.BookService;
 import store.view.employee.author.EditAuthor;
@@ -14,6 +15,9 @@ import javax.swing.table.TableRowSorter;
 
 import javax.swing.JOptionPane;
 import java.sql.SQLException;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import store.view.employee.ui.swing.ScrollBar;
 
 /**
  *
@@ -32,6 +36,12 @@ public class TableCategory extends javax.swing.JPanel {
         addCategory = new AddCategory();
 
         initComponents();
+        spTable.setVerticalScrollBar(new ScrollBar());
+        spTable.getVerticalScrollBar().setBackground(Color.WHITE);
+        spTable.getViewport().setBackground(Color.WHITE);
+        JPanel p = new JPanel();
+        p.setBackground(Color.WHITE);
+        spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         loadCategoryIntoTable();
     }
 
@@ -82,10 +92,10 @@ public class TableCategory extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        spTable = new javax.swing.JScrollPane();
         TableCategory = new javax.swing.JTable();
         SearchButton = new javax.swing.JButton();
         AddButton = new javax.swing.JButton();
@@ -97,26 +107,27 @@ public class TableCategory extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1250, 750));
 
         TableCategory.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null }
-                },
-                new String[] {
-                        "Category ID", "Name", "Status"
-                }) {
-            Class[] types = new Class[] {
-                    java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Category ID", "Name", "Status"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
-                return types[columnIndex];
+                return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(TableCategory);
+        spTable.setViewportView(TableCategory);
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(
-                (DefaultTableModel) TableCategory.getModel());
+            (DefaultTableModel) TableCategory.getModel());
         TableCategory.setRowSorter(sorter);
 
         SearchButton.setText("Search");
@@ -163,55 +174,43 @@ public class TableCategory extends javax.swing.JPanel {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(326, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 614,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                false)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout
-                                                                .createSequentialGroup()
-                                                                .addComponent(InputSearch,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE, 227,
-                                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                        Short.MAX_VALUE)
-                                                                .addComponent(SearchButton))
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING,
-                                                                layout.createSequentialGroup()
-                                                                        .addComponent(AddButton)
-                                                                        .addGap(32, 32, 32)
-                                                                        .addComponent(EditButton)
-                                                                        .addGap(115, 115, 115)
-                                                                        .addComponent(DeleteButton)))
-                                                .addGap(139, 139, 139)
-                                                .addComponent(RefreshButton)))
-                                .addGap(310, 310, 310)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(AddButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(EditButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DeleteButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(RefreshButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(InputSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(SearchButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 918, Short.MAX_VALUE))
+                .addContainerGap())
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(AddButton)
-                                        .addComponent(DeleteButton)
-                                        .addComponent(EditButton)
-                                        .addComponent(RefreshButton))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(SearchButton)
-                                        .addComponent(InputSearch, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(28, 28, 28)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(188, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(303, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddButton)
+                    .addComponent(EditButton)
+                    .addComponent(DeleteButton)
+                    .addComponent(RefreshButton))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InputSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SearchButton))
+                .addGap(33, 33, 33)
+                .addComponent(spTable, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_RefreshButtonActionPerformed
@@ -279,6 +278,6 @@ public class TableCategory extends javax.swing.JPanel {
     private javax.swing.JButton RefreshButton;
     private javax.swing.JButton SearchButton;
     private javax.swing.JTable TableCategory;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane spTable;
     // End of variables declaration//GEN-END:variables
 }

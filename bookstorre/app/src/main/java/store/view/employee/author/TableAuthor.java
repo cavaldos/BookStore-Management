@@ -1,11 +1,13 @@
 
 package store.view.employee.author;
 
+import java.awt.Color;
 import store.Service.BookService;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 import store.Model.Author;
+import store.view.employee.ui.swing.ScrollBar;
 
 import javax.swing.*;
 
@@ -24,6 +26,12 @@ public class TableAuthor extends javax.swing.JPanel {
         bookService = new BookService();
         addAuthor = new AddAuthor();
         initComponents();
+        spTable.setVerticalScrollBar(new ScrollBar());
+        spTable.getVerticalScrollBar().setBackground(Color.WHITE);
+        spTable.getViewport().setBackground(Color.WHITE);
+        JPanel p = new JPanel();
+        p.setBackground(Color.WHITE);
+        spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
         loadAuthorsIntoTable();
     }
 
@@ -72,7 +80,7 @@ public class TableAuthor extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        spTable = new javax.swing.JScrollPane();
         AuthorTable = new javax.swing.JTable();
         AddButon = new javax.swing.JButton();
         InputSearch = new javax.swing.JTextField();
@@ -81,7 +89,6 @@ public class TableAuthor extends javax.swing.JPanel {
         DeleteButton = new javax.swing.JButton();
         RefreshButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 204));
         setPreferredSize(new java.awt.Dimension(1250, 750));
 
         AuthorTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -103,7 +110,7 @@ public class TableAuthor extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(AuthorTable);
+        spTable.setViewportView(AuthorTable);
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>((DefaultTableModel) AuthorTable.getModel());
         AuthorTable.setRowSorter(sorter);
 
@@ -147,24 +154,27 @@ public class TableAuthor extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(287, 287, 287)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(spTable)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InputSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(InputSearch)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(AddButon)
-                                .addGap(24, 24, 24)
-                                .addComponent(DeleteButton)))
-                        .addGap(44, 44, 44)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(DeleteButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(EditButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SearchButton)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(EditButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(RefreshButton)))))
-                .addContainerGap(368, Short.MAX_VALUE))
+                                .addGap(0, 585, Short.MAX_VALUE)
+                                .addComponent(RefreshButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(SearchButton)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,8 +190,8 @@ public class TableAuthor extends javax.swing.JPanel {
                     .addComponent(InputSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SearchButton))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(261, Short.MAX_VALUE))
+                .addComponent(spTable, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -247,6 +257,6 @@ public class TableAuthor extends javax.swing.JPanel {
     private javax.swing.JTextField InputSearch;
     private javax.swing.JButton RefreshButton;
     private javax.swing.JButton SearchButton;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane spTable;
     // End of variables declaration//GEN-END:variables
 }
