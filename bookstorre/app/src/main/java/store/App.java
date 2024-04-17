@@ -1,31 +1,21 @@
 
 package store;
 
-import javax.swing.*;
-
-import com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream;
-
-import java.awt.*;
-import java.awt.print.Book;
-
-import store.view.*;
-import store.Service.BookService;
-import store.view.component.*;
-
 import java.sql.SQLException;
-import java.util.List;
-import store.view.*;
 
+import com.toedter.calendar.JCalendar;
 
-// import order DAO
+import store.view.MainUI;
+import store.view.NewJFrame;
+import store.view.admin.MainAdmin;
+import store.view.employee.Main_Employee;
+import store.view.component.CalendarComponent;
 
 public class App {
 
     public static void main(String args[]) throws SQLException, ClassNotFoundException {
-        Main_Employee mainUI = new Main_Employee();
+        MainUI mainUI = new MainUI();
         mainUI.setVisible(true);
-
-
 
     }
 

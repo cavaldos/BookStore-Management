@@ -1,7 +1,5 @@
 package store.Model;
 
-import java.util.Date;
-
 public class Book {
     private int bookID; // Assuming bookID is a numeric identifier
     private String title;
@@ -24,8 +22,14 @@ public class Book {
         this.status = status;
         this.volume = volume;
     }
-    
-    public Book( String title, String author,
+
+    public Book(String title, String author, double price) {
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
+    public Book(String title, String author,
             String publisher,
             Double price, String category, Boolean status, int volume) {
         this.title = title;
@@ -36,7 +40,7 @@ public class Book {
         this.status = status;
         this.volume = volume;
     }
-    
+
     public Book(String title, String author,
             String publisher,
             Double price, String category, int volume) {
@@ -45,7 +49,6 @@ public class Book {
         this.publisher = publisher;
         this.price = price;
         this.category = category;
-    
         this.volume = volume;
     }
 

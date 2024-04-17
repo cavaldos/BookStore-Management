@@ -58,21 +58,6 @@ public class DatabaseUtils {
         }
     }
 
-    public PreparableStatement prepareStatement(String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'prepareStatement'");
-    }
-
-    public static Connection connectToDatabase() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'connectToDatabase'");
-    }
-
-    public static void closeConnection(Connection connection) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'closeConnection'");
-    }
-
 }
 
 /*

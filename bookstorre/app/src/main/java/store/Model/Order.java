@@ -1,43 +1,66 @@
 package store.Model;
 
 import java.util.Date;
-import java.util.List;
+
 
 public class Order {
-    private int orderID;
+    private Integer orderID;
     private Date date;
     private int customerID;
+    private String customer;
     private int employeeID;
+    private String employee;
     private Double totalCost;
     private Double discount;
     private Boolean status;
-    private List<OrderDetail> orderDetails;
+    // private List<OrderDetail> orderDetails;
 
     public Order(
-            int orderID, Date date, int customerID, int employeeID, Double totalCost, Double discount,
+            int orderID, Date date, String customer, String employee, Double totalCost, Double discount,
             Boolean status) {
         this.orderID = orderID;
         this.date = date;
-        this.customerID = customerID;
-        this.employeeID = employeeID;
+        this.customer = customer;
+        this.employee = employee;
         this.totalCost = totalCost;
         this.discount = discount;
         this.status = status;
+    }
+    
+    public Order() {
+        this.orderID = 0;
+        this.date = new Date();
+        this.customer = "";
+        this.employee = "";
+        this.totalCost = 0.0;
+        this.discount = 0.0;
+        this.status = true;
+
     }
 
-    public Order(int orderID, Date date, int customerID, int employeeID, Double totalCost, Double discount,
-            Boolean status, List<OrderDetail> orderDetails) {
-        this.orderID = orderID;
-        this.date = date;
-        this.customerID = customerID;
-        this.employeeID = employeeID;
-        this.totalCost = totalCost;
-        this.discount = discount;
-        this.status = status;
-        this.orderDetails = orderDetails;
-    }
+    // public Order(int orderID, Date date, int customerID, int employeeID, Double
+    // totalCost, Double discount,
+    // Boolean status, List<OrderDetail> orderDetails) {
+    // this.orderID = orderID;
+    // this.date = date;
+    // this.customerID = customerID;
+    // this.employeeID = employeeID;
+    // this.totalCost = totalCost;
+    // this.discount = discount;
+    // this.status = status;
+    // this.orderDetails = orderDetails;
+    // }
 
     // Getters
+
+    public String getCustomer() {
+        return customer;
+    }
+
+    public String getEmployee() {
+        return employee;
+    }
+
     public int getOrderID() {
         return orderID;
     }
@@ -46,7 +69,7 @@ public class Order {
         return date;
     }
 
-    public int getCustomerID() {
+    public Integer getCustomerID() {
         return customerID;
     }
 
@@ -62,11 +85,23 @@ public class Order {
         return status;
     }
 
-    public List<OrderDetail> getOrderDetails() {
-        return orderDetails;
+    public int getEmployeeID() {
+        return employeeID;
     }
 
+    // public List<OrderDetail> getOrderDetails() {
+    // return orderDetails;
+    // }
+
     // Setters
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
+    public void setEmployee(String employee) {
+        this.employee = employee;
+    }
 
     public void setOrderID(int orderID) {
         this.orderID = orderID;
@@ -76,7 +111,7 @@ public class Order {
         this.date = date;
     }
 
-    public void setCustomerID(int customerID) {
+    public void setCustomerID(Integer customerID) {
         this.customerID = customerID;
     }
 
@@ -92,9 +127,15 @@ public class Order {
         this.status = status;
     }
 
-    public void setOrderDetails(List<OrderDetail> orderDetails) {
-        this.orderDetails = orderDetails;
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
     }
+
+    
+
+    // public void setOrderDetails(List<OrderDetail> orderDetails) {
+    // this.orderDetails = orderDetails;
+    // }
 
     @Override
     public String toString() {
@@ -106,7 +147,7 @@ public class Order {
                 ", totalCost=" + totalCost +
                 ", discount=" + discount +
                 ", status='" + status + '\'' +
-                ", orderDetails=" + orderDetails +
+
                 "} \n";
     }
 
