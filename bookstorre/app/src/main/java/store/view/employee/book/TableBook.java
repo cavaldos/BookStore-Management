@@ -10,6 +10,7 @@ import java.io.FileReader;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 import store.Model.Book;
 import store.Service.BookService;
@@ -116,7 +117,7 @@ public class TableBook extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         BookTable = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(242, 242, 242));
         setPreferredSize(new java.awt.Dimension(900, 540)); // Giảm kích thước thành 900x540
 
         AddButton.setText("Add Book");

@@ -58,6 +58,7 @@ public class Run {
     }
 
     public void logout() {
+        disposeWindows();
         this.userSession.logout();
         initializeUI(); // Khởi tạo lại giao diện đăng nhập
     }

@@ -3,24 +3,27 @@ package store.view.employee;
 import java.awt.Color;
 import javax.swing.JComponent;
 import store.view.employee.ui.event.EventMenuSelected;
+import store.utils.UserSession;
 import store.view.employee.author.TableAuthor;
 import store.view.employee.book.TableBook;
 import store.view.employee.category.TableCategory;
 import store.view.employee.publisher.TablePublisher;
-import store.view.employee.profile.*;
+// import store.view.employee.profile.*;
 import store.view.employee.order.*;
 import store.view.employee.sheet.*;
 import store.view.employee.customer.*;
 import store.view.employee.ui.form.*;
+// import store.utils.UserSession;
 
 public class Main_Employee extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main_Employee
-     */
+    // private UserSession userSession;
+
     public Main_Employee() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
+        this.setLocationRelativeTo(null);
+        // this.userSession = UserSession.getInstance();
         menu.initMoving(Main_Employee.this);
         menu.addEventMenuSelected(new EventMenuSelected() {
             @Override
@@ -125,45 +128,50 @@ public class Main_Employee extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-         * look and feel.
-         * For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main_Employee.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main_Employee.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main_Employee.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main_Employee.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
-        }
-        // </editor-fold>
+    // public static void main(String args[]) {
+    // /* Set the Nimbus look and feel */
+    // // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
+    // // (optional) ">
+    // /*
+    // * If Nimbus (introduced in Java SE 6) is not available, stay with the default
+    // * look and feel.
+    // * For details see
+    // * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+    // */
+    // try {
+    // for (javax.swing.UIManager.LookAndFeelInfo info :
+    // javax.swing.UIManager.getInstalledLookAndFeels()) {
+    // if ("Nimbus".equals(info.getName())) {
+    // javax.swing.UIManager.setLookAndFeel(info.getClassName());
+    // break;
+    // }
+    // }
+    // } catch (ClassNotFoundException ex) {
+    // java.util.logging.Logger.getLogger(Main_Employee.class.getName()).log(java.util.logging.Level.SEVERE,
+    // null,
+    // ex);
+    // } catch (InstantiationException ex) {
+    // java.util.logging.Logger.getLogger(Main_Employee.class.getName()).log(java.util.logging.Level.SEVERE,
+    // null,
+    // ex);
+    // } catch (IllegalAccessException ex) {
+    // java.util.logging.Logger.getLogger(Main_Employee.class.getName()).log(java.util.logging.Level.SEVERE,
+    // null,
+    // ex);
+    // } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+    // java.util.logging.Logger.getLogger(Main_Employee.class.getName()).log(java.util.logging.Level.SEVERE,
+    // null,
+    // ex);
+    // }
+    // // </editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Main_Employee().setVisible(true);
-            }
-        });
-    }
+    // /* Create and display the form */
+    // // java.awt.EventQueue.invokeLater(new Runnable() {
+    // // public void run() {
+    // // new Main_Employee().setVisible(true);
+    // // }
+    // // });
+    // }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private store.view.employee.ui.form.FormHome formHome1;
