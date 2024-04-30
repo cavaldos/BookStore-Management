@@ -68,7 +68,7 @@ public class MainAdmin extends javax.swing.JFrame {
 
         Navbar.setBackground(new java.awt.Color(204, 204, 204));
 
-        gradientX1.setColorEnd(new java.awt.Color(153, 0, 153));
+        gradientX1.setColorEnd(new java.awt.Color(26, 45, 58));
 
         UpdateInfoButton.setText("Update Info");
         UpdateInfoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -136,24 +136,27 @@ public class MainAdmin extends javax.swing.JFrame {
             .addComponent(gradientX1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        HeaderPanel.setBackground(new java.awt.Color(204, 204, 255));
+        HeaderPanel.setBackground(new java.awt.Color(42, 42, 52));
         HeaderPanel.setToolTipText("Header");
 
+        TitleUser.setForeground(new java.awt.Color(204, 204, 204));
         TitleUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TitleUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout HeaderPanelLayout = new javax.swing.GroupLayout(HeaderPanel);
         HeaderPanel.setLayout(HeaderPanelLayout);
         HeaderPanelLayout.setHorizontalGroup(
             HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderPanelLayout.createSequentialGroup()
-                .addContainerGap(984, Short.MAX_VALUE)
+                .addContainerGap(715, Short.MAX_VALUE)
                 .addComponent(TitleUser, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101))
+                .addGap(364, 364, 364))
         );
         HeaderPanelLayout.setVerticalGroup(
             HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TitleUser, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderPanelLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(TitleUser, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,7 +166,7 @@ public class MainAdmin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Navbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HeaderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(HeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -173,7 +176,7 @@ public class MainAdmin extends javax.swing.JFrame {
                     .addComponent(Navbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(HeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(472, 629, Short.MAX_VALUE)))
+                        .addGap(498, 629, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 

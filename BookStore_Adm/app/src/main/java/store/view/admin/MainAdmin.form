@@ -27,7 +27,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="Navbar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="HeaderPanel" max="32767" attributes="0"/>
+              <Component id="HeaderPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -39,7 +39,7 @@
                   <Component id="Navbar" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="HeaderPanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="472" pref="629" max="32767" attributes="0"/>
+                      <EmptySpace min="498" pref="629" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -71,7 +71,7 @@
         <Container class="store.view.admin.gradient.gradientX" name="gradientX1">
           <Properties>
             <Property name="colorEnd" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="99" green="0" red="99" type="rgb"/>
+              <Color blue="3a" green="2d" red="1a" type="rgb"/>
             </Property>
           </Properties>
 
@@ -146,7 +146,7 @@
     <Container class="javax.swing.JPanel" name="HeaderPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="cc" red="cc" type="rgb"/>
+          <Color blue="34" green="2a" red="2a" type="rgb"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Header"/>
       </Properties>
@@ -155,27 +155,29 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="984" max="32767" attributes="0"/>
+                  <EmptySpace pref="715" max="32767" attributes="0"/>
                   <Component id="TitleUser" min="-2" pref="166" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="364" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="TitleUser" alignment="0" pref="115" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Component id="TitleUser" pref="91" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="TitleUser">
           <Properties>
-            <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                <LineBorder/>
-              </Border>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
           </Properties>
         </Component>
       </SubComponents>

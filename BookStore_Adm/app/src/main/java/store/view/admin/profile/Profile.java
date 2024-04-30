@@ -75,7 +75,7 @@ public class Profile extends javax.swing.JPanel {
         Role = new javax.swing.JLabel();
         RefreshButton = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         IDField.setEditable(false);
 
@@ -98,33 +98,34 @@ public class Profile extends javax.swing.JPanel {
             }
         });
 
+        ID.setBackground(new java.awt.Color(26, 45, 58));
+        ID.setForeground(new java.awt.Color(26, 45, 58));
         ID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ID.setText("ID");
-        ID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        FirstName.setForeground(new java.awt.Color(26, 45, 58));
         FirstName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         FirstName.setText("First Name");
-        FirstName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        LastName.setForeground(new java.awt.Color(26, 45, 58));
         LastName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         LastName.setText("LastName");
-        LastName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        UserName.setForeground(new java.awt.Color(26, 45, 58));
         UserName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         UserName.setText("User Name");
-        UserName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        Password.setForeground(new java.awt.Color(26, 45, 58));
         Password.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Password.setText("Password");
-        Password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        Status.setForeground(new java.awt.Color(26, 45, 58));
         Status.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Status.setText("Status");
-        Status.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        Role.setForeground(new java.awt.Color(26, 45, 58));
         Role.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Role.setText("Role");
-        Role.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         RefreshButton.setText("Refresh");
         RefreshButton.addActionListener(new java.awt.event.ActionListener() {
