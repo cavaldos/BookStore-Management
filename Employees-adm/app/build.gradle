@@ -29,9 +29,8 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:32.1.1-jre'
     implementation 'com.formdev:flatlaf:1.6'
-implementation group: 'com.miglayout', name: 'miglayout-swing', version: '5.0'
-implementation group: 'com.kenai.nbpwr', name: 'org-jdesktop-animation-timing', version: '1.0-201002281504'
-
+    
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
