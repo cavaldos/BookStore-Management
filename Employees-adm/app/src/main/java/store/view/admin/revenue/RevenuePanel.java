@@ -430,4 +430,6 @@ public class RevenuePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private store.view.admin.chart.panel.PanelShadow panelShadow2;
     // End of variables declaration//GEN-END:variables
-}
+    }
+
+    
