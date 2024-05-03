@@ -206,9 +206,6 @@
     <Component class="javax.swing.JTextField" name="PasswordField">
     </Component>
     <Component class="javax.swing.JTextField" name="RoleField">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="ID">
       <Properties>
