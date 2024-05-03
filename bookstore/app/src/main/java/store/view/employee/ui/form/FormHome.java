@@ -113,88 +113,77 @@ public class FormHome extends javax.swing.JPanel {
          */
         @SuppressWarnings("unchecked")
         // <editor-fold defaultstate="collapsed" desc="Generated
-        // Code">//GEN-BEGIN:initComponents
-        private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-                jLabel1 = new javax.swing.JLabel();
-                jLayeredPane1 = new javax.swing.JLayeredPane();
-                card1 = new store.view.employee.ui.component.Card();
-                card2 = new store.view.employee.ui.component.Card();
-                card3 = new store.view.employee.ui.component.Card();
-                jLabel2 = new javax.swing.JLabel();
-                jLayeredPane2 = new javax.swing.JLayeredPane();
-                card4 = new store.view.employee.ui.component.Card();
-                card5 = new store.view.employee.ui.component.Card();
-                card6 = new store.view.employee.ui.component.Card();
+        jLabel1 = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        card1 = new store.view.employee.ui.component.Card();
+        card2 = new store.view.employee.ui.component.Card();
+        card3 = new store.view.employee.ui.component.Card();
+        jLabel2 = new javax.swing.JLabel();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
+        card4 = new store.view.employee.ui.component.Card();
+        card5 = new store.view.employee.ui.component.Card();
+        card6 = new store.view.employee.ui.component.Card();
 
-                setBackground(new java.awt.Color(255, 255, 255));
-                setPreferredSize(new java.awt.Dimension(883, 457));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(883, 457));
 
-                jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-                jLabel1.setText("New Books");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel1.setText("New Books");
 
-                jLayeredPane1.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
-                jLayeredPane1.add(card1);
-                jLayeredPane1.add(card2);
-                jLayeredPane1.add(card3);
+        jLayeredPane1.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
+        jLayeredPane1.add(card1);
+        jLayeredPane1.add(card2);
+        jLayeredPane1.add(card3);
 
-                jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-                jLabel2.setText("Hot Books");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        jLabel2.setText("Hot Books");
 
-                jLayeredPane2.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
-                jLayeredPane2.add(card4);
-                jLayeredPane2.add(card5);
-                jLayeredPane2.add(card6);
+        jLayeredPane2.setLayout(new java.awt.GridLayout(1, 0, 10, 0));
+        jLayeredPane2.add(card4);
+        jLayeredPane2.add(card5);
+        jLayeredPane2.add(card6);
 
-                javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-                this.setLayout(layout);
-                layout.setHorizontalGroup(
-                                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                                .addGap(26, 26, 26)
-                                                                .addGroup(layout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                false)
-                                                                                .addComponent(jLabel2)
-                                                                                .addComponent(jLabel1)
-                                                                                .addComponent(jLayeredPane1,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                875,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(jLayeredPane2))
-                                                                .addContainerGap(25, Short.MAX_VALUE)));
-                layout.setVerticalGroup(
-                                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                                .addGap(17, 17, 17)
-                                                                .addComponent(jLabel1)
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jLayeredPane1,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                184,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(35, 35, 35)
-                                                                .addComponent(jLabel2)
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jLayeredPane2,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                184,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addContainerGap(21, Short.MAX_VALUE)));
-        }// </editor-fold>//GEN-END:initComponents
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
+                    .addComponent(jLayeredPane2))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+    }// </editor-fold>//GEN-END:initComponents
 
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        private store.view.employee.ui.component.Card card1;
-        private store.view.employee.ui.component.Card card2;
-        private store.view.employee.ui.component.Card card3;
-        private store.view.employee.ui.component.Card card4;
-        private store.view.employee.ui.component.Card card5;
-        private store.view.employee.ui.component.Card card6;
-        private javax.swing.JLabel jLabel1;
-        private javax.swing.JLabel jLabel2;
-        private javax.swing.JLayeredPane jLayeredPane1;
-        private javax.swing.JLayeredPane jLayeredPane2;
-        // End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private store.view.employee.ui.component.Card card1;
+    private store.view.employee.ui.component.Card card2;
+    private store.view.employee.ui.component.Card card3;
+    private store.view.employee.ui.component.Card card4;
+    private store.view.employee.ui.component.Card card5;
+    private store.view.employee.ui.component.Card card6;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane2;
+    // End of variables declaration//GEN-END:variables
 }
