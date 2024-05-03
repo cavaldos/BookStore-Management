@@ -1,0 +1,920 @@
+[
+    [
+        {
+            "title": "Modern Data Mining Algorithms in C++ and CUDA C",
+            "subtitle": "Recent Developments in Feature Extraction and Selection Algorithms for Data Science",
+            "isbn13": "9781484259870",
+            "price": "$33.68",
+            "image": "https://itbook.store/img/books/9781484259870.png",
+            "url": "https://itbook.store/books/9781484259870",
+            "category": "algorithm",
+            "pages": "228"
+        },
+        {
+            "title": "Notes on Randomized Algorithms",
+            "subtitle": "",
+            "isbn13": "1001651325062",
+            "price": "$0.00",
+            "image": "https://itbook.store/img/books/1001651325062.png",
+            "url": "https://itbook.store/books/1001651325062",
+            "category": "algorithm",
+            "pages": "459"
+        },
+        {
+            "title": "Algorithms: Part II, 4th Edition",
+            "subtitle": "",
+            "isbn13": "9780133799118",
+            "price": "$39.99",
+            "image": "https://itbook.store/img/books/9780133799118.png",
+            "url": "https://itbook.store/books/9780133799118",
+            "category": "algorithm",
+            "pages": "950"
+        },
+        {
+            "title": "Algorithms, 4th Edition",
+            "subtitle": "Essential Information about Algorithms and Data Structures",
+            "isbn13": "9780321573513",
+            "price": "$55.49",
+            "image": "https://itbook.store/img/books/9780321573513.png",
+            "url": "https://itbook.store/books/9780321573513",
+            "category": "algorithm",
+            "pages": "976"
+        },
+        {
+            "title": "An Introduction to the Analysis of Algorithms, 2nd Edition",
+            "subtitle": "",
+            "isbn13": "9780321905758",
+            "price": "$62.99",
+            "image": "https://itbook.store/img/books/9780321905758.png",
+            "url": "https://itbook.store/books/9780321905758",
+            "category": "algorithm",
+            "pages": "592"
+        },
+        {
+            "title": "Annotated Algorithms in Python",
+            "subtitle": "With applications in Physics, Biology, and Finance",
+            "isbn13": "9780991160402",
+            "price": "$33.89",
+            "image": "https://itbook.store/img/books/9780991160402.png",
+            "url": "https://itbook.store/books/9780991160402",
+            "category": "algorithm",
+            "pages": "388"
+        },
+        {
+            "title": "Python Algorithms",
+            "subtitle": "Mastering Basic Algorithms in the Python Language",
+            "isbn13": "9781430232377",
+            "price": "$18.00",
+            "image": "https://itbook.store/img/books/9781430232377.png",
+            "url": "https://itbook.store/books/9781430232377",
+            "category": "algorithm",
+            "pages": "336"
+        },
+        {
+            "title": "Python Algorithms, 2nd Edition",
+            "subtitle": "Mastering Basic Algorithms in the Python Language",
+            "isbn13": "9781484200568",
+            "price": "$33.75",
+            "image": "https://itbook.store/img/books/9781484200568.png",
+            "url": "https://itbook.store/books/9781484200568",
+            "category": "algorithm",
+            "pages": "320"
+        },
+        {
+            "title": "Data Mining Algorithms in C++",
+            "subtitle": "Data Patterns and Algorithms for Modern Applications",
+            "isbn13": "9781484233146",
+            "price": "$27.44",
+            "image": "https://itbook.store/img/books/9781484233146.png",
+            "url": "https://itbook.store/books/9781484233146",
+            "category": "algorithm",
+            "pages": "286"
+        },
+        {
+            "title": "Pro Machine Learning Algorithms",
+            "subtitle": "A Hands-On Approach to Implementing Algorithms in Python and R",
+            "isbn13": "9781484235638",
+            "price": "$37.99",
+            "image": "https://itbook.store/img/books/9781484235638.png",
+            "url": "https://itbook.store/books/9781484235638",
+            "category": "algorithm",
+            "pages": "372"
+        }
+    ],
+    [
+        {
+            "title": "Linux Kernel Development, 3rd Edition",
+            "subtitle": "A thorough guide to the design and implementation of the Linux kernel",
+            "isbn13": "9780672329463",
+            "price": "$16.61",
+            "image": "https://itbook.store/img/books/9780672329463.png",
+            "url": "https://itbook.store/books/9780672329463",
+            "pages": "441",
+            "category": "books"
+        },
+        {
+            "title": "Hands-On Linux Administration on Azure",
+            "subtitle": "Explore the essential Linux administration skills you need to deploy and manage Azure-based workloads",
+            "isbn13": "9781789130966",
+            "price": "$44.99",
+            "image": "https://itbook.store/img/books/9781789130966.png",
+            "url": "https://itbook.store/books/9781789130966",
+            "pages": "410",
+            "category": "books"
+        },
+        {
+            "title": "Just Enough Linux",
+            "subtitle": "Learning about Linux one command at a time",
+            "isbn13": "1001606307884",
+            "price": "$0.00",
+            "image": "https://itbook.store/img/books/1001606307884.png",
+            "url": "https://itbook.store/books/1001606307884",
+            "pages": "264",
+            "category": "books"
+        },
+        {
+            "title": "Hacking Exposed Linux, 3rd Edition",
+            "subtitle": "Linux Security Secrets and Solutions",
+            "isbn13": "9780072262575",
+            "price": "$30.00",
+            "image": "https://itbook.store/img/books/9780072262575.png",
+            "url": "https://itbook.store/books/9780072262575",
+            "pages": "813",
+            "category": "books"
+        },
+        {
+            "title": "A Practical Guide to Linux Commands, Editors, and Shell Programming, 4th Edition",
+            "subtitle": "",
+            "isbn13": "9780134774602",
+            "price": "$28.99",
+            "image": "https://itbook.store/img/books/9780134774602.png",
+            "url": "https://itbook.store/books/9780134774602",
+            "pages": "1200",
+            "category": "books"
+        },
+        {
+            "title": "Beginning Linux Programming, 4th Edition",
+            "subtitle": "",
+            "isbn13": "9780470147627",
+            "price": "$22.00",
+            "image": "https://itbook.store/img/books/9780470147627.png",
+            "url": "https://itbook.store/books/9780470147627",
+            "pages": "816",
+            "category": "books"
+        },
+        {
+            "title": "TCP/IP Architecture, Design and Implementation in Linux",
+            "subtitle": "",
+            "isbn13": "9780470147733",
+            "price": "$75.67",
+            "image": "https://itbook.store/img/books/9780470147733.png",
+            "url": "https://itbook.store/books/9780470147733",
+            "pages": "772",
+            "category": "books"
+        },
+        {
+            "title": "Linux All-in-One For Dummies, 4th Edition",
+            "subtitle": "",
+            "isbn13": "9780470770191",
+            "price": "$6.29",
+            "image": "https://itbook.store/img/books/9780470770191.png",
+            "url": "https://itbook.store/books/9780470770191",
+            "pages": "648",
+            "category": "books"
+        },
+        {
+            "title": "Understanding Linux Network Internals",
+            "subtitle": "Guided Tour to Networking in Linux",
+            "isbn13": "9780596002558",
+            "price": "$33.49",
+            "image": "https://itbook.store/img/books/9780596002558.png",
+            "url": "https://itbook.store/books/9780596002558",
+            "pages": "1066",
+            "category": "books"
+        },
+        {
+            "title": "Linux Server Hacks",
+            "subtitle": "100 Industrial-Strength Tips and Tools",
+            "isbn13": "9780596004613",
+            "price": "$4.19",
+            "image": "https://itbook.store/img/books/9780596004613.png",
+            "url": "https://itbook.store/books/9780596004613",
+            "pages": "240",
+            "category": "books"
+        }
+    ],
+    [
+        {
+            "title": "RESTful .NET",
+            "subtitle": "Build and Consume RESTful Web Services with .NET 3.5",
+            "isbn13": "9780596519209",
+            "price": "$31.99",
+            "image": "https://itbook.store/img/books/9780596519209.png",
+            "url": "https://itbook.store/books/9780596519209",
+            "category": "dotnet",
+            "pages": "320"
+        },
+        {
+            "title": ".NET Microservices",
+            "subtitle": "Architecture for Containerized .NET Applications",
+            "isbn13": "1001590312104",
+            "price": "$0.00",
+            "image": "https://itbook.store/img/books/1001590312104.png",
+            "url": "https://itbook.store/books/1001590312104",
+            "category": "dotnet",
+            "pages": "350"
+        },
+        {
+            "title": "A Network Architect&#039;s Guide to 5G",
+            "subtitle": "",
+            "isbn13": "9780137376841",
+            "price": "$34.99",
+            "image": "https://itbook.store/img/books/9780137376841.png",
+            "url": "https://itbook.store/books/9780137376841",
+            "category": "dotnet",
+            "pages": "464"
+        },
+        {
+            "title": "Home Networking All-in-One Desk Reference For Dummies",
+            "subtitle": "",
+            "isbn13": "9780470275191",
+            "price": "$8.00",
+            "image": "https://itbook.store/img/books/9780470275191.png",
+            "url": "https://itbook.store/books/9780470275191",
+            "category": "dotnet",
+            "pages": "720"
+        },
+        {
+            "title": "Network Troubleshooting Tools",
+            "subtitle": "",
+            "isbn13": "9780596001865",
+            "price": "$13.00",
+            "image": "https://itbook.store/img/books/9780596001865.png",
+            "url": "https://itbook.store/books/9780596001865",
+            "category": "dotnet",
+            "pages": "366"
+        },
+        {
+            "title": "Understanding Linux Network Internals",
+            "subtitle": "Guided Tour to Networking in Linux",
+            "isbn13": "9780596002558",
+            "price": "$33.49",
+            "image": "https://itbook.store/img/books/9780596002558.png",
+            "url": "https://itbook.store/books/9780596002558",
+            "category": "dotnet",
+            "pages": "1066"
+        },
+        {
+            "title": "Network Security with OpenSSL",
+            "subtitle": "Cryptography for Secure Communications",
+            "isbn13": "9780596002701",
+            "price": "$5.00",
+            "image": "https://itbook.store/img/books/9780596002701.png",
+            "url": "https://itbook.store/books/9780596002701",
+            "category": "dotnet",
+            "pages": "384"
+        },
+        {
+            "title": ".NET Framework Essentials, 2nd Edition",
+            "subtitle": "Introducing the .NET Framework",
+            "isbn13": "9780596003029",
+            "price": "$3.49",
+            "image": "https://itbook.store/img/books/9780596003029.png",
+            "url": "https://itbook.store/books/9780596003029",
+            "category": "dotnet",
+            "pages": "320"
+        },
+        {
+            "title": "Linux Networking Cookbook",
+            "subtitle": "From Asterisk to Zebra with Easy-to-Use Recipes",
+            "isbn13": "9780596102487",
+            "price": "$34.71",
+            "image": "https://itbook.store/img/books/9780596102487.png",
+            "url": "https://itbook.store/books/9780596102487",
+            "category": "dotnet",
+            "pages": "640"
+        },
+        {
+            "title": "Network Security Assessment, 2nd Edition",
+            "subtitle": "Know Your Network",
+            "isbn13": "9780596510305",
+            "price": "$7.94",
+            "image": "https://itbook.store/img/books/9780596510305.png",
+            "url": "https://itbook.store/books/9780596510305",
+            "category": "dotnet",
+            "pages": "512"
+        }
+    ],
+    [
+        {
+            "title": "Effective JavaScript",
+            "subtitle": "68 Specific Ways to Harness the Power of JavaScript",
+            "isbn13": "9780321812186",
+            "price": "$21.99",
+            "image": "https://itbook.store/img/books/9780321812186.png",
+            "url": "https://itbook.store/books/9780321812186",
+            "category": "java",
+            "pages": "240"
+        },
+        {
+            "title": "Sams Teach Yourself Java in 24 Hours, 6th Edition",
+            "subtitle": "Covering Java 7 and Android",
+            "isbn13": "9780672335754",
+            "price": "$5.71",
+            "image": "https://itbook.store/img/books/9780672335754.png",
+            "url": "https://itbook.store/books/9780672335754",
+            "category": "java",
+            "pages": "432"
+        },
+        {
+            "title": "Sams Teach Yourself Java in 24 Hours, 8th Edition",
+            "subtitle": "Covering Java 9",
+            "isbn13": "9780672337949",
+            "price": "$17.79",
+            "image": "https://itbook.store/img/books/9780672337949.png",
+            "url": "https://itbook.store/books/9780672337949",
+            "category": "java",
+            "pages": "448"
+        },
+        {
+            "title": "Learn Java for Web Development",
+            "subtitle": "Modern Java Web Development",
+            "isbn13": "9781430259831",
+            "price": "$41.39",
+            "image": "https://itbook.store/img/books/9781430259831.png",
+            "url": "https://itbook.store/books/9781430259831",
+            "category": "java",
+            "pages": "472"
+        },
+        {
+            "title": "Pro JPA 2 in Java EE 8",
+            "subtitle": "An In-Depth Guide to Java Persistence APIs",
+            "isbn13": "9781484234198",
+            "price": "$34.49",
+            "image": "https://itbook.store/img/books/9781484234198.png",
+            "url": "https://itbook.store/books/9781484234198",
+            "category": "java",
+            "pages": "759"
+        },
+        {
+            "title": "Beginning EJB in Java EE 8",
+            "subtitle": "Building Applications with Enterprise JavaBeans",
+            "isbn13": "9781484235720",
+            "price": "$49.99",
+            "image": "https://itbook.store/img/books/9781484235720.png",
+            "url": "https://itbook.store/books/9781484235720",
+            "category": "java",
+            "pages": "652"
+        },
+        {
+            "title": "Beginning JavaScript, 3nd Edition",
+            "subtitle": "The Ultimate Guide to Modern JavaScript Development",
+            "isbn13": "9781484243947",
+            "price": "$19.02",
+            "image": "https://itbook.store/img/books/9781484243947.png",
+            "url": "https://itbook.store/books/9781484243947",
+            "category": "java",
+            "pages": "206"
+        },
+        {
+            "title": "Java EE to Jakarta EE 10 Recipes, 3rd Edition",
+            "subtitle": "A Problem-Solution Approach for Enterprise Java",
+            "isbn13": "9781484280782",
+            "price": "$44.57",
+            "image": "https://itbook.store/img/books/9781484280782.png",
+            "url": "https://itbook.store/books/9781484280782",
+            "category": "java",
+            "pages": "683"
+        },
+        {
+            "title": "Java-Based Real-Time Programming",
+            "subtitle": "",
+            "isbn13": "1001621505589",
+            "price": "$0.00",
+            "image": "https://itbook.store/img/books/1001621505589.png",
+            "url": "https://itbook.store/books/1001621505589",
+            "category": "java",
+            "pages": "128"
+        },
+        {
+            "title": "Java Everywhere Again with DukeScript",
+            "subtitle": "JavaOne Hands on Lab 3962",
+            "isbn13": "1001671183942",
+            "price": "$0.00",
+            "image": "https://itbook.store/img/books/1001671183942.png",
+            "url": "https://itbook.store/books/1001671183942",
+            "category": "java",
+            "pages": "38"
+        }
+    ],
+    [
+        {
+            "title": "Linux Kernel Development, 3rd Edition",
+            "subtitle": "A thorough guide to the design and implementation of the Linux kernel",
+            "isbn13": "9780672329463",
+            "price": "$16.61",
+            "image": "https://itbook.store/img/books/9780672329463.png",
+            "url": "https://itbook.store/books/9780672329463",
+            "category": "linux",
+            "pages": "441"
+        },
+        {
+            "title": "Hands-On Linux Administration on Azure",
+            "subtitle": "Explore the essential Linux administration skills you need to deploy and manage Azure-based workloads",
+            "isbn13": "9781789130966",
+            "price": "$44.99",
+            "image": "https://itbook.store/img/books/9781789130966.png",
+            "url": "https://itbook.store/books/9781789130966",
+            "category": "linux",
+            "pages": "410"
+        },
+        {
+            "title": "Just Enough Linux",
+            "subtitle": "Learning about Linux one command at a time",
+            "isbn13": "1001606307884",
+            "price": "$0.00",
+            "image": "https://itbook.store/img/books/1001606307884.png",
+            "url": "https://itbook.store/books/1001606307884",
+            "category": "linux",
+            "pages": "264"
+        },
+        {
+            "title": "Hacking Exposed Linux, 3rd Edition",
+            "subtitle": "Linux Security Secrets and Solutions",
+            "isbn13": "9780072262575",
+            "price": "$30.00",
+            "image": "https://itbook.store/img/books/9780072262575.png",
+            "url": "https://itbook.store/books/9780072262575",
+            "category": "linux",
+            "pages": "813"
+        },
+        {
+            "title": "A Practical Guide to Linux Commands, Editors, and Shell Programming, 4th Edition",
+            "subtitle": "",
+            "isbn13": "9780134774602",
+            "price": "$28.99",
+            "image": "https://itbook.store/img/books/9780134774602.png",
+            "url": "https://itbook.store/books/9780134774602",
+            "category": "linux",
+            "pages": "1200"
+        },
+        {
+            "title": "Beginning Linux Programming, 4th Edition",
+            "subtitle": "",
+            "isbn13": "9780470147627",
+            "price": "$22.00",
+            "image": "https://itbook.store/img/books/9780470147627.png",
+            "url": "https://itbook.store/books/9780470147627",
+            "category": "linux",
+            "pages": "816"
+        },
+        {
+            "title": "TCP/IP Architecture, Design and Implementation in Linux",
+            "subtitle": "",
+            "isbn13": "9780470147733",
+            "price": "$75.67",
+            "image": "https://itbook.store/img/books/9780470147733.png",
+            "url": "https://itbook.store/books/9780470147733",
+            "category": "linux",
+            "pages": "772"
+        },
+        {
+            "title": "Linux All-in-One For Dummies, 4th Edition",
+            "subtitle": "",
+            "isbn13": "9780470770191",
+            "price": "$6.29",
+            "image": "https://itbook.store/img/books/9780470770191.png",
+            "url": "https://itbook.store/books/9780470770191",
+            "category": "linux",
+            "pages": "648"
+        },
+        {
+            "title": "Understanding Linux Network Internals",
+            "subtitle": "Guided Tour to Networking in Linux",
+            "isbn13": "9780596002558",
+            "price": "$33.49",
+            "image": "https://itbook.store/img/books/9780596002558.png",
+            "url": "https://itbook.store/books/9780596002558",
+            "category": "linux",
+            "pages": "1066"
+        },
+        {
+            "title": "Linux Server Hacks",
+            "subtitle": "100 Industrial-Strength Tips and Tools",
+            "isbn13": "9780596004613",
+            "price": "$4.19",
+            "image": "https://itbook.store/img/books/9780596004613.png",
+            "url": "https://itbook.store/books/9780596004613",
+            "category": "linux",
+            "pages": "240"
+        }
+    ],
+    [
+        {
+            "title": "Machine Learning with Spark",
+            "subtitle": "Create scalable machine learning applications to power a modern data-driven business using Spark",
+            "isbn13": "9781783288519",
+            "price": "$34.99",
+            "image": "https://itbook.store/img/books/9781783288519.png",
+            "url": "https://itbook.store/books/9781783288519",
+            "category": "machine-learning",
+            "pages": "338"
+        },
+        {
+            "title": "Mastering Azure Machine Learning, 2nd Edition",
+            "subtitle": "Execute large-scale end-to-end machine learning with Azure",
+            "isbn13": "9781803232416",
+            "price": "$41.99",
+            "image": "https://itbook.store/img/books/9781803232416.png",
+            "url": "https://itbook.store/books/9781803232416",
+            "category": "machine-learning",
+            "pages": "624"
+        },
+        {
+            "title": "Introducing Machine Learning",
+            "subtitle": "",
+            "isbn13": "9780135565667",
+            "price": "$34.99",
+            "image": "https://itbook.store/img/books/9780135565667.png",
+            "url": "https://itbook.store/books/9780135565667",
+            "category": "machine-learning",
+            "pages": "400"
+        },
+        {
+            "title": "Practical Machine Learning for Computer Vision",
+            "subtitle": "End-to-End Machine Learning for Images",
+            "isbn13": "9781098102364",
+            "price": "$59.54",
+            "image": "https://itbook.store/img/books/9781098102364.png",
+            "url": "https://itbook.store/books/9781098102364",
+            "category": "machine-learning",
+            "pages": "482"
+        },
+        {
+            "title": "Machine Learning for Hackers",
+            "subtitle": "Case Studies and Algorithms to Get You Started",
+            "isbn13": "9781449303716",
+            "price": "$18.12",
+            "image": "https://itbook.store/img/books/9781449303716.png",
+            "url": "https://itbook.store/books/9781449303716",
+            "category": "machine-learning",
+            "pages": "322"
+        },
+        {
+            "title": "Predictive Analytics with Microsoft Azure Machine Learning",
+            "subtitle": "Build and Deploy Actionable Solutions in Minutes",
+            "isbn13": "9781484204467",
+            "price": "$24.59",
+            "image": "https://itbook.store/img/books/9781484204467.png",
+            "url": "https://itbook.store/books/9781484204467",
+            "category": "machine-learning",
+            "pages": "188"
+        },
+        {
+            "title": "Machine Learning in the Oil and Gas Industry",
+            "subtitle": "Including Geosciences, Reservoir Engineering, and Production Engineering with Python",
+            "isbn13": "9781484260937",
+            "price": "$29.86",
+            "image": "https://itbook.store/img/books/9781484260937.png",
+            "url": "https://itbook.store/books/9781484260937",
+            "category": "machine-learning",
+            "pages": "300"
+        },
+        {
+            "title": "Quantum Machine Learning: An Applied Approach",
+            "subtitle": "The Theory and Application of Quantum Machine Learning in Science and Industry",
+            "isbn13": "9781484270974",
+            "price": "$48.75",
+            "image": "https://itbook.store/img/books/9781484270974.png",
+            "url": "https://itbook.store/books/9781484270974",
+            "category": "machine-learning",
+            "pages": "551"
+        },
+        {
+            "title": "Adaptive Machine Learning Algorithms with Python",
+            "subtitle": "Solve Data Analytics and Machine Learning Problems on Edge Devices",
+            "isbn13": "9781484280164",
+            "price": "$26.59",
+            "image": "https://itbook.store/img/books/9781484280164.png",
+            "url": "https://itbook.store/books/9781484280164",
+            "category": "machine-learning",
+            "pages": "269"
+        },
+        {
+            "title": "Machine Learning with TensorFlow",
+            "subtitle": "",
+            "isbn13": "9781617293870",
+            "price": "$5.60",
+            "image": "https://itbook.store/img/books/9781617293870.png",
+            "url": "https://itbook.store/books/9781617293870",
+            "category": "machine-learning",
+            "pages": "272"
+        }
+    ],
+    [
+        {
+            "title": "A Network Architect&#039;s Guide to 5G",
+            "subtitle": "",
+            "isbn13": "9780137376841",
+            "price": "$34.99",
+            "image": "https://itbook.store/img/books/9780137376841.png",
+            "url": "https://itbook.store/books/9780137376841",
+            "category": "network",
+            "pages": "464"
+        },
+        {
+            "title": "Home Networking All-in-One Desk Reference For Dummies",
+            "subtitle": "",
+            "isbn13": "9780470275191",
+            "price": "$8.00",
+            "image": "https://itbook.store/img/books/9780470275191.png",
+            "url": "https://itbook.store/books/9780470275191",
+            "category": "network",
+            "pages": "720"
+        },
+        {
+            "title": "Network Troubleshooting Tools",
+            "subtitle": "",
+            "isbn13": "9780596001865",
+            "price": "$13.00",
+            "image": "https://itbook.store/img/books/9780596001865.png",
+            "url": "https://itbook.store/books/9780596001865",
+            "category": "network",
+            "pages": "366"
+        },
+        {
+            "title": "Understanding Linux Network Internals",
+            "subtitle": "Guided Tour to Networking in Linux",
+            "isbn13": "9780596002558",
+            "price": "$33.49",
+            "image": "https://itbook.store/img/books/9780596002558.png",
+            "url": "https://itbook.store/books/9780596002558",
+            "category": "network",
+            "pages": "1066"
+        },
+        {
+            "title": "Network Security with OpenSSL",
+            "subtitle": "Cryptography for Secure Communications",
+            "isbn13": "9780596002701",
+            "price": "$5.00",
+            "image": "https://itbook.store/img/books/9780596002701.png",
+            "url": "https://itbook.store/books/9780596002701",
+            "category": "network",
+            "pages": "384"
+        },
+        {
+            "title": "Linux Networking Cookbook",
+            "subtitle": "From Asterisk to Zebra with Easy-to-Use Recipes",
+            "isbn13": "9780596102487",
+            "price": "$34.71",
+            "image": "https://itbook.store/img/books/9780596102487.png",
+            "url": "https://itbook.store/books/9780596102487",
+            "category": "network",
+            "pages": "640"
+        },
+        {
+            "title": "Network Security Assessment, 2nd Edition",
+            "subtitle": "Know Your Network",
+            "isbn13": "9780596510305",
+            "price": "$7.94",
+            "image": "https://itbook.store/img/books/9780596510305.png",
+            "url": "https://itbook.store/books/9780596510305",
+            "category": "network",
+            "pages": "512"
+        },
+        {
+            "title": "A+, Network+, Security+ Exams in a Nutshell",
+            "subtitle": "A Desktop Quick Reference",
+            "isbn13": "9780596528249",
+            "price": "$5.00",
+            "image": "https://itbook.store/img/books/9780596528249.png",
+            "url": "https://itbook.store/books/9780596528249",
+            "category": "network",
+            "pages": "816"
+        },
+        {
+            "title": "Building Wireless Sensor Networks",
+            "subtitle": "with ZigBee, XBee, Arduino, and Processing",
+            "isbn13": "9780596807733",
+            "price": "$24.10",
+            "image": "https://itbook.store/img/books/9780596807733.png",
+            "url": "https://itbook.store/books/9780596807733",
+            "category": "network",
+            "pages": "320"
+        },
+        {
+            "title": "Foundations of Python Network Programming, 2nd Edition",
+            "subtitle": "The comprehensive guide to building network applications with Python",
+            "isbn13": "9781430230038",
+            "price": "$39.99",
+            "image": "https://itbook.store/img/books/9781430230038.png",
+            "url": "https://itbook.store/books/9781430230038",
+            "category": "network",
+            "pages": "368"
+        }
+    ],
+    [
+        {
+            "title": "Learn More Python 3 the Hard Way",
+            "subtitle": "The Next Step for New Python Programmers",
+            "isbn13": "9780134123486",
+            "price": "$22.33",
+            "image": "https://itbook.store/img/books/9780134123486.png",
+            "url": "https://itbook.store/books/9780134123486",
+            "category": "python",
+            "pages": "240"
+        },
+        {
+            "title": "Beginning Python",
+            "subtitle": "Using Python 2.6 and Python 3.1",
+            "isbn13": "9780470414637",
+            "price": "$7.99",
+            "image": "https://itbook.store/img/books/9780470414637.png",
+            "url": "https://itbook.store/books/9780470414637",
+            "category": "python",
+            "pages": "624"
+        },
+        {
+            "title": "C and Python Applications",
+            "subtitle": "Embedding Python Code in C Programs, SQL Methods, and Python Sockets",
+            "isbn13": "9781484277737",
+            "price": "$33.74",
+            "image": "https://itbook.store/img/books/9781484277737.png",
+            "url": "https://itbook.store/books/9781484277737",
+            "category": "python",
+            "pages": "233"
+        },
+        {
+            "title": "DevOps in Python, 2nd Edition",
+            "subtitle": "Infrastructure as Python",
+            "isbn13": "9781484279953",
+            "price": "$37.95",
+            "image": "https://itbook.store/img/books/9781484279953.png",
+            "url": "https://itbook.store/books/9781484279953",
+            "category": "python",
+            "pages": "234"
+        },
+        {
+            "title": "Coffee Break Python Slicing",
+            "subtitle": "24 Workouts to Master Slicing in Python, Once and for All",
+            "isbn13": "1001605784161",
+            "price": "$0.00",
+            "image": "https://itbook.store/img/books/1001605784161.png",
+            "url": "https://itbook.store/books/1001605784161",
+            "category": "python",
+            "pages": "89"
+        },
+        {
+            "title": "First Semester in Numerical Analysis with Python",
+            "subtitle": "",
+            "isbn13": "1001635859634",
+            "price": "$0.00",
+            "image": "https://itbook.store/img/books/1001635859634.png",
+            "url": "https://itbook.store/books/1001635859634",
+            "category": "python",
+            "pages": "191"
+        },
+        {
+            "title": "Introduction to Python for Computational Science and Engineering",
+            "subtitle": "A beginner&#039;s guide",
+            "isbn13": "1001655478790",
+            "price": "$0.00",
+            "image": "https://itbook.store/img/books/1001655478790.png",
+            "url": "https://itbook.store/books/1001655478790",
+            "category": "python",
+            "pages": "167"
+        },
+        {
+            "title": "Programming in Python 3, 2nd Edition",
+            "subtitle": "A Complete Introduction to the Python Language",
+            "isbn13": "9780321680563",
+            "price": "$33.54",
+            "image": "https://itbook.store/img/books/9780321680563.png",
+            "url": "https://itbook.store/books/9780321680563",
+            "category": "python",
+            "pages": "648"
+        },
+        {
+            "title": "Learn Python the Hard Way, 3rd Edition",
+            "subtitle": "A Very Simple Introduction to the Terrifyingly Beautiful World of Computers and Code",
+            "isbn13": "9780321884916",
+            "price": "$29.95",
+            "image": "https://itbook.store/img/books/9780321884916.png",
+            "url": "https://itbook.store/books/9780321884916",
+            "category": "python",
+            "pages": "320"
+        },
+        {
+            "title": "Python in Practice",
+            "subtitle": "Create Better Programs Using Concurrency, Libraries, and Patterns",
+            "isbn13": "9780321905635",
+            "price": "$22.50",
+            "image": "https://itbook.store/img/books/9780321905635.png",
+            "url": "https://itbook.store/books/9780321905635",
+            "category": "python",
+            "pages": "336"
+        }
+    ],
+    [
+        {
+            "title": "SQL Queries for Mere Mortals, 4th Edition",
+            "subtitle": "A Hands-On Guide to Data Manipulation in SQL",
+            "isbn13": "9780134858333",
+            "price": "$18.13",
+            "image": "https://itbook.store/img/books/9780134858333.png",
+            "url": "https://itbook.store/books/9780134858333",
+            "category": "sql",
+            "pages": "960"
+        },
+        {
+            "title": "SQL Server 2019 Administration Inside Out",
+            "subtitle": "",
+            "isbn13": "9780135561089",
+            "price": "$48.15",
+            "image": "https://itbook.store/img/books/9780135561089.png",
+            "url": "https://itbook.store/books/9780135561089",
+            "category": "sql",
+            "pages": "992"
+        },
+        {
+            "title": "A Developer's Guide to Data Modeling for SQL Server",
+            "subtitle": "Covering SQL Server 2005 and 2008",
+            "isbn13": "9780321497642",
+            "price": "$6.15",
+            "image": "https://itbook.store/img/books/9780321497642.png",
+            "url": "https://itbook.store/books/9780321497642",
+            "category": "sql",
+            "pages": "304"
+        },
+        {
+            "title": "Beginning Microsoft SQL Server 2008 Administration",
+            "subtitle": "",
+            "isbn13": "9780470440919",
+            "price": "$5.17",
+            "image": "https://itbook.store/img/books/9780470440919.png",
+            "url": "https://itbook.store/books/9780470440919",
+            "category": "sql",
+            "pages": "816"
+        },
+        {
+            "title": "Professional SQL Server 2008 Internals and Troubleshooting",
+            "subtitle": "",
+            "isbn13": "9780470484289",
+            "price": "$5.49",
+            "image": "https://itbook.store/img/books/9780470484289.png",
+            "url": "https://itbook.store/books/9780470484289",
+            "category": "sql",
+            "pages": "624"
+        },
+        {
+            "title": "SQL All-in-One For Dummies, 2nd Edition",
+            "subtitle": "",
+            "isbn13": "9780470929964",
+            "price": "$7.49",
+            "image": "https://itbook.store/img/books/9780470929964.png",
+            "url": "https://itbook.store/books/9780470929964",
+            "category": "sql",
+            "pages": "744"
+        },
+        {
+            "title": "Oracle SQL Tuning Pocket Reference",
+            "subtitle": "",
+            "isbn13": "9780596002688",
+            "price": "$6.76",
+            "image": "https://itbook.store/img/books/9780596002688.png",
+            "url": "https://itbook.store/books/9780596002688",
+            "category": "sql",
+            "pages": "112"
+        },
+        {
+            "title": "Oracle PL/SQL Language Pocket Reference, 4th Edition",
+            "subtitle": "A Guide to Oracle's PL/SQL Language Fundamentals",
+            "isbn13": "9780596514044",
+            "price": "$5.98",
+            "image": "https://itbook.store/img/books/9780596514044.png",
+            "url": "https://itbook.store/books/9780596514044",
+            "category": "sql",
+            "pages": "180"
+        },
+        {
+            "title": "Learning SQL, 2nd Edition",
+            "subtitle": "Master SQL Fundamentals",
+            "isbn13": "9780596520830",
+            "price": "$14.50",
+            "image": "https://itbook.store/img/books/9780596520830.png",
+            "url": "https://itbook.store/books/9780596520830",
+            "category": "sql",
+            "pages": "336"
+        },
+        {
+            "title": "Using SQLite",
+            "subtitle": "Small. Fast. Reliable. Choose Any Three.",
+            "isbn13": "9780596521189",
+            "price": "$28.61",
+            "image": "https://itbook.store/img/books/9780596521189.png",
+            "url": "https://itbook.store/books/9780596521189",
+            "category": "sql",
+            "pages": "528"
+        }
+    ]
+]
