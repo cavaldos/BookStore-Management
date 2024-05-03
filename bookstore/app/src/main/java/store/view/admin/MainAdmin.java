@@ -10,48 +10,49 @@ import javax.swing.JOptionPane;
 import store.utils.UserSession;
 
 public class MainAdmin extends javax.swing.JFrame {
-          private Profile Profile;
-        private RevenuePanel Revenue;
-        private ManagerUser managerUser;
-        private Run run;
-        private UserSession userSession;
+    private Profile Profile;
+    private RevenuePanel Revenue;
+    private ManagerUser managerUser;
+    private Run run;
+    private UserSession userSession;
 
-        public MainAdmin() {
-                initComponents();
-                this.setLocationRelativeTo(null);
-                this.run = Run.getInstance();
-                this.userSession = UserSession.getInstance();
+    public MainAdmin() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.run = Run.getInstance();
+        this.userSession = UserSession.getInstance();
 
-                setTitleUser();
+        setTitleUser();
 
-                Profile = new Profile();
-                this.add(Profile);
-                Profile.setBounds(260, 80, 1250, 650);
+        Profile = new Profile();
+        this.add(Profile);
+        Profile.setBounds(260, 80, 1250, 650);
 
-                Revenue = new RevenuePanel();
-                this.add(Revenue);
-                Revenue.setBounds(260, 80, 1250, 650);
+        Revenue = new RevenuePanel();
+        this.add(Revenue);
+        Revenue.setBounds(260, 80, 1250, 650);
 
-                managerUser = new ManagerUser();
-                this.add(managerUser);
-                managerUser.setBounds(260, 80, 1250, 650);
+        managerUser = new ManagerUser();
+        this.add(managerUser);
+        managerUser.setBounds(260, 80, 1250, 650);
 
-                Profile.setVisible(true);
-                Revenue.setVisible(false);
-                managerUser.setVisible(false);
+        Profile.setVisible(true);
+        Revenue.setVisible(false);
+        managerUser.setVisible(false);
 
-        }
+    }
 
-        public void setTitleUser() {
-                TitleUser.setText("Hello, " + userSession.getUsername());
-        }
+    public void setTitleUser() {
+        TitleUser.setText("Hello, " + userSession.getUsername());
+    }
 
-        @SuppressWarnings("unchecked")
-        // <editor-fold defaultstate="collapsed" desc="Generated
-        // <editor-fold defaultstate="collapsed" desc="Generated
-        // <editor-fold defaultstate="collapsed" desc="Generated
-        // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Navbar = new javax.swing.JPanel();
@@ -101,40 +102,47 @@ public class MainAdmin extends javax.swing.JFrame {
         javax.swing.GroupLayout gradientX1Layout = new javax.swing.GroupLayout(gradientX1);
         gradientX1.setLayout(gradientX1Layout);
         gradientX1Layout.setHorizontalGroup(
-            gradientX1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(gradientX1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(gradientX1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(UpdateInfoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                    .addComponent(UserButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(RevenueButton, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                    .addComponent(SignOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE))
-                .addContainerGap())
-        );
+                gradientX1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(gradientX1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(
+                                        gradientX1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(UpdateInfoButton, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        225, Short.MAX_VALUE)
+                                                .addComponent(UserButton, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(RevenueButton, javax.swing.GroupLayout.DEFAULT_SIZE, 225,
+                                                        Short.MAX_VALUE)
+                                                .addComponent(SignOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, 225,
+                                                        Short.MAX_VALUE))
+                                .addContainerGap()));
         gradientX1Layout.setVerticalGroup(
-            gradientX1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(gradientX1Layout.createSequentialGroup()
-                .addGap(258, 258, 258)
-                .addComponent(UpdateInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(UserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(RevenueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(SignOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                gradientX1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(gradientX1Layout.createSequentialGroup()
+                                .addGap(258, 258, 258)
+                                .addComponent(UpdateInfoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(UserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(RevenueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(SignOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 
         javax.swing.GroupLayout NavbarLayout = new javax.swing.GroupLayout(Navbar);
         Navbar.setLayout(NavbarLayout);
         NavbarLayout.setHorizontalGroup(
-            NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gradientX1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(gradientX1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
         NavbarLayout.setVerticalGroup(
-            NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gradientX1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+                NavbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(gradientX1, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
 
         HeaderPanel.setBackground(new java.awt.Color(42, 42, 52));
         HeaderPanel.setToolTipText("Header");
@@ -145,98 +153,99 @@ public class MainAdmin extends javax.swing.JFrame {
         javax.swing.GroupLayout HeaderPanelLayout = new javax.swing.GroupLayout(HeaderPanel);
         HeaderPanel.setLayout(HeaderPanelLayout);
         HeaderPanelLayout.setHorizontalGroup(
-            HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderPanelLayout.createSequentialGroup()
-                .addContainerGap(715, Short.MAX_VALUE)
-                .addComponent(TitleUser, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(364, 364, 364))
-        );
+                HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderPanelLayout.createSequentialGroup()
+                                .addContainerGap(715, Short.MAX_VALUE)
+                                .addComponent(TitleUser, javax.swing.GroupLayout.PREFERRED_SIZE, 166,
+                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(364, 364, 364)));
         HeaderPanelLayout.setVerticalGroup(
-            HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(TitleUser, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+                HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HeaderPanelLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(TitleUser, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                                .addContainerGap()));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Navbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(Navbar, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(HeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap()));
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Navbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(HeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(498, 629, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(Navbar, javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(HeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(498, 629, Short.MAX_VALUE)))
+                                .addContainerGap()));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-       
-        private void hideAllPanels() {
-                managerUser.setVisible(false);
-                Revenue.setVisible(false);
-                Profile.setVisible(false);
+    private void hideAllPanels() {
+        managerUser.setVisible(false);
+        Revenue.setVisible(false);
+        Profile.setVisible(false);
+    }
+
+    private void switchPanel(String panelName) {
+        hideAllPanels();
+        switch (panelName) {
+            case "managerUser":
+                managerUser.setVisible(true);
+                break;
+            case "Revenue":
+                Revenue.setVisible(true);
+                break;
+            case "Profile":
+                Profile.setVisible(true);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void UpdateInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        switchPanel("Profile");
+    }
+
+    private void UserButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        switchPanel("managerUser");
+    }
+
+    private void RevenueButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        switchPanel("Revenue");
+    }
+
+    private void SignOutButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        // Hiển thị hộp thoại xác nhận đăng xuất
+        int confirmed = JOptionPane.showConfirmDialog(this,
+                "Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận đăng xuất",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        // Kiểm tra xem người dùng có chọn "Yes" không
+        if (confirmed == JOptionPane.YES_OPTION) {
+            this.run.getInstance().logout(); // Thực hiện đăng xuất nếu người dùng xác nhận
         }
 
-        private void switchPanel(String panelName) {
-                hideAllPanels();
-                switch (panelName) {
-                        case "managerUser":
-                                managerUser.setVisible(true);
-                                break;
-                        case "Revenue":
-                                Revenue.setVisible(true);
-                                break;
-                        case "Profile":
-                                Profile.setVisible(true);
-                                break;
-                        default:
-                                break;
-                }
-        }
+    }
 
-        private void UpdateInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {
-                switchPanel("Profile");
-        }
-
-        private void UserButtonActionPerformed(java.awt.event.ActionEvent evt) {
-                switchPanel("managerUser");
-        }
-
-        private void RevenueButtonActionPerformed(java.awt.event.ActionEvent evt) {
-                switchPanel("Revenue");
-        }
-
-        private void SignOutButtonActionPerformed(java.awt.event.ActionEvent evt) {
-                // Hiển thị hộp thoại xác nhận đăng xuất
-                int confirmed = JOptionPane.showConfirmDialog(this,
-                                "Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận đăng xuất",
-                                JOptionPane.YES_NO_OPTION,
-                                JOptionPane.QUESTION_MESSAGE);
-
-                // Kiểm tra xem người dùng có chọn "Yes" không
-                if (confirmed == JOptionPane.YES_OPTION) {
-                        this.run.getInstance().logout(); // Thực hiện đăng xuất nếu người dùng xác nhận
-                }
-
-        }
-
-        /**
-         * @param args the command line arguments
-         */
+    /**
+     * @param args the command line arguments
+     */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel HeaderPanel;

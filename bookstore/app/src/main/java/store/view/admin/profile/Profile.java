@@ -12,6 +12,7 @@ import store.Model.User;
 import store.Service.UserService;
 import store.utils.UserSession;
 
+
 public class Profile extends javax.swing.JPanel {
 
         private UserService userService;

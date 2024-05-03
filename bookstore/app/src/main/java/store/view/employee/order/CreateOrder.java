@@ -525,7 +525,7 @@ public class CreateOrder extends javax.swing.JPanel {
 
                 FirstNameField.setText("");
                 LastNameField.setText("");
-                newOrder.setDiscount(0.0);
+        
                 newOrder.setTotalCost(calculateTotal());
                 TotalField.setText(String.valueOf(calculateTotal()));
 
@@ -533,7 +533,6 @@ public class CreateOrder extends javax.swing.JPanel {
                 FirstNameField.setText(customer.getFirstName());
                 LastNameField.setText(customer.getLastName());
                 System.out.print(calculateTotal());
-                newOrder.setDiscount(0.1);
                 Double temp = calculateTotal() * 0.9;
                 newOrder.setTotalCost(temp);
                 TotalField.setText(String.valueOf(temp));
@@ -554,7 +553,9 @@ public class CreateOrder extends javax.swing.JPanel {
             if (customer == null) {
                 newOrder.setCustomerID(0); // Correctly setting null now
             } else {
-                newOrder.setCustomerID(customer.getCustomerID());
+                    newOrder.setCustomerID(customer.getCustomerID());
+                         newOrder.setDiscount(10.0);
+
             }
             newOrder.setEmployeeID(userSession.getUserID());
             newOrder.setStatus(true);

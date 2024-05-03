@@ -106,6 +106,8 @@ public class Header extends javax.swing.JPanel {
         private void ViewProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_ViewProfileButtonActionPerformed
                 Profile profile = new Profile();
                 JFrame frame = new JFrame("User Profile");
+
+
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.getContentPane().add(profile);
                 frame.pack();
