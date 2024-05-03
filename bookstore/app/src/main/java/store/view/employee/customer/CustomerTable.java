@@ -103,7 +103,11 @@ public class CustomerTable extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+<<<<<<< HEAD:bookstore/app/src/main/java/store/view/employee/customer/CustomerTable.java
         spTable.setViewportView(CustomerTable);
+=======
+        jScrollPane1.setViewportView(CustomerTable);
+>>>>>>> origin/lucdao:bookstorre/app/src/main/java/store/view/employee/customer/CustomerTable.java
 
         EditButton.setText("Edit");
         EditButton.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +151,11 @@ public class CustomerTable extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+<<<<<<< HEAD:bookstore/app/src/main/java/store/view/employee/customer/CustomerTable.java
                     .addComponent(spTable, javax.swing.GroupLayout.PREFERRED_SIZE, 918, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 918, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> origin/lucdao:bookstorre/app/src/main/java/store/view/employee/customer/CustomerTable.java
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -178,7 +186,11 @@ public class CustomerTable extends javax.swing.JPanel {
                     .addComponent(SearchButton)
                     .addComponent(Input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
+<<<<<<< HEAD:bookstore/app/src/main/java/store/view/employee/customer/CustomerTable.java
                 .addComponent(spTable, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+=======
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> origin/lucdao:bookstorre/app/src/main/java/store/view/employee/customer/CustomerTable.java
                 .addGap(10, 10, 10))
         );
     }// </editor-fold>//GEN-END:initComponents

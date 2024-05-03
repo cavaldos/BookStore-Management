@@ -11,7 +11,10 @@ import javax.swing.JOptionPane;
 import store.Model.User;
 import store.Service.UserService;
 import store.utils.UserSession;
+<<<<<<< HEAD:bookstore/app/src/main/java/store/view/admin/profile/Profile.java
 
+=======
+>>>>>>> origin/lucdao:bookstorre/app/src/main/java/store/view/admin/profile/Profile.java
 
 public class Profile extends javax.swing.JPanel {
 

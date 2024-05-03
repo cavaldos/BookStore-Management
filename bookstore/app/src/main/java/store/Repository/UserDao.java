@@ -173,4 +173,30 @@ public class UserDao {
         return user;
     }
 
+    // get user by username
+    public User selectUserbyname(String username) throws SQLException {
+        String query = "SELECT * FROM account WHERE username = ?";
+        User user = null;
+        new DatabaseUtils();
+        try {
+            Connection connection = DatabaseUtils.connect();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                user = new User();
+                user.setUserID(resultSet.getInt("userID"));
+                user.setUserName(resultSet.getString("username"));
+                user.setPassword(resultSet.getString("password"));
+                user.setStatus(resultSet.getBoolean("status"));
+                user.setFirstName(resultSet.getString("firstname"));
+                user.setLastName(resultSet.getString("lastname"));
+                user.setRole(resultSet.getString("role"));
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
 }
