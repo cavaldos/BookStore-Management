@@ -79,32 +79,6 @@ public class RevenuePanel extends javax.swing.JPanel {
                     fetchDateCategoryData();
                     fetchDateCustomerData();
                     fetchDateEmployeeData();
-<<<<<<< HEAD
-
-// Lấy kích thước nhỏ nhất giữa các danh sách
-                    int loopSize1 = Math.min(Math.min(dateTimeList.size(), ListCateDate.size()),
-                            Math.min(dateBookList.size(), Math.min(dateCustomerList.size(), dateEmployeeList.size())));
-
-                    for (int i = loopSize1 - 1; i >= 0; i--) {
-                        String NameCate = (String) CateBox.getSelectedItem();
-
-                        // Lấy dữ liệu từ từng danh sách
-                        String dateTime = i < dateTimeList.size() ? dateTimeList.get(i) : "";
-                        double dateBook = i < dateBookList.size() ? dateBookList.get(i) : 0.0;
-                        double dateCustomer = i < dateCustomerList.size() ? dateCustomerList.get(i) : 0.0;
-                        double dateEmployee = i < dateEmployeeList.size() ? dateEmployeeList.get(i) : 0.0;
-                        ModelCategoryData categoryData = i < ListCateDate.size() ? ListCateDate.get(i) : null;
-
-                        // Kiểm tra điều kiện phù hợp và thêm dữ liệu vào biểu đồ
-                        if (categoryData != null && categoryData.getNameCate().equals(NameCate)) {
-                            chart.clear();
-                            chart.addData(new ModelChart("test", new double[]{200, 100, 50, 234}));
-                            chart.addData(new ModelChart(dateTime, new double[]{dateBook, categoryData.getRevenueCate(), dateCustomer, dateEmployee}));
-                            chart.start();
-                        }
-                    }
-
-=======
                     for (int i = dateTimeList.size() - 1; i >= 0; i--) {
                         String NameCate = (String) CateBox.getSelectedItem();
                         ModelCategoryData categoryData = ListCateDate.get(i);
@@ -116,38 +90,12 @@ public class RevenuePanel extends javax.swing.JPanel {
                             chart.start();
                         }
                     }
->>>>>>> 003723d4e5dcfdb5fe939d71bf6b3169a38c915c
                     break;
                 case "Week":
                     fetchWeekBookData();
                     fetchWeekCategoryData();
                     fetchWeekCustomerData();
                     fetchWeekEmployeeData();
-<<<<<<< HEAD
-                    // Lấy kích thước nhỏ nhất giữa các danh sách
-                    int loopSize2 = Math.min(Math.min(weekTimeList.size(), ListCateWeek.size()),
-                            Math.min(weekBookList.size(), Math.min(weekCustomerList.size(), weekEmployeeList.size())));
-
-                    for (int i = loopSize2 - 1; i >= 0; i--) {
-                        String NameCate = (String) CateBox.getSelectedItem();
-
-                        // Lấy dữ liệu từ từng danh sách
-                        String weekTime = i < weekTimeList.size() ? weekTimeList.get(i) : "";
-                        double weekBook = i < weekBookList.size() ? weekBookList.get(i) : 0.0;
-                        double weekCustomer = i < weekCustomerList.size() ? weekCustomerList.get(i) : 0.0;
-                        double weekEmployee = i < weekEmployeeList.size() ? weekEmployeeList.get(i) : 0.0;
-                        ModelCategoryData categoryData = i < ListCateWeek.size() ? ListCateWeek.get(i) : null;
-
-                        // Kiểm tra điều kiện phù hợp và thêm dữ liệu vào biểu đồ
-                        if (categoryData != null && categoryData.getNameCate().equals(NameCate)) {
-                            chart.clear();
-                            chart.addData(new ModelChart("test", new double[]{200, 100, 50, 234}));
-                            chart.addData(new ModelChart(weekTime, new double[]{weekBook, categoryData.getRevenueCate(), weekCustomer, weekEmployee}));
-                            chart.start();
-                        }
-                    }
-
-=======
                     for (int i = dateTimeList.size() - 1; i >= 0; i--) {
                         String NameCate = (String) CateBox.getSelectedItem();
                         ModelCategoryData categoryData = ListCateWeek.get(i);
@@ -159,39 +107,12 @@ public class RevenuePanel extends javax.swing.JPanel {
                             chart.start();
                         }
                     }
->>>>>>> 003723d4e5dcfdb5fe939d71bf6b3169a38c915c
                     break;
                 case "Month":
                     fetchMonthBookData();
                     fetchMonthCategoryData();
                     fetchMonthCustomerData();
                     fetchMonthEmployeeData();
-<<<<<<< HEAD
-                    // Lấy kích thước nhỏ nhất giữa các danh sách
-                    int loopSize3 = Math.min(Math.min(monthTimeList.size(), ListCateMonth.size()),
-                            Math.min(monthBookList.size(), Math.min(monthCustomerList.size(), monthEmployeeList.size())));
-
-                    for (int i = loopSize3 - 1; i >= 0; i--) {
-                        String NameCate = (String) CateBox.getSelectedItem();
-
-                        // Lấy dữ liệu từ từng danh sách
-                        String monthTime = i < monthTimeList.size() ? monthTimeList.get(i) : "";
-                        double monthBook = i < monthBookList.size() ? monthBookList.get(i) : 0.0;
-                        double monthCustomer = i < monthCustomerList.size() ? monthCustomerList.get(i) : 0.0;
-                        double monthEmployee = i < monthEmployeeList.size() ? monthEmployeeList.get(i) : 0.0;
-                        ModelCategoryData categoryData = i < ListCateMonth.size() ? ListCateMonth.get(i) : null;
-
-                        // Kiểm tra điều kiện phù hợp và thêm dữ liệu vào biểu đồ
-                        if (categoryData != null && categoryData.getNameCate().equals(NameCate)) {
-                            chart.clear();
-                            chart.addData(new ModelChart("test", new double[]{200, 100, 50, 234}));
-                            chart.addData(new ModelChart(monthTime,
-                                    new double[]{monthBook, categoryData.getRevenueCate(), monthCustomer, monthEmployee}));
-                            chart.start();
-                        }
-                    }
-
-=======
                     for (int i = dateTimeList.size() - 1; i >= 0; i--) {
                         String NameCate = (String) CateBox.getSelectedItem();
                         ModelCategoryData categoryData = ListCateMonth.get(i);
@@ -204,7 +125,6 @@ public class RevenuePanel extends javax.swing.JPanel {
                             chart.start();
                         }
                     }
->>>>>>> 003723d4e5dcfdb5fe939d71bf6b3169a38c915c
                     break;
                 default:
                     throw new IllegalArgumentException("Invalid time period specified");
