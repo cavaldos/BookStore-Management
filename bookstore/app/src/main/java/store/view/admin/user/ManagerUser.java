@@ -34,7 +34,7 @@ public class ManagerUser extends javax.swing.JPanel {
             model.setRowCount(0);
             for (User user : users) {
                 model.addRow(new Object[] { user.getUserID(), user.getUserName(), user.getFirstName(),
-                        user.getLastName(), user.getPassword(), user.getStatus() ? "Active" : "Inactive",
+                        user.getLastName(), "******", user.getStatus() ? "Active" : "Inactive",
                         user.getRole() });
             }
         } catch (Exception e) {

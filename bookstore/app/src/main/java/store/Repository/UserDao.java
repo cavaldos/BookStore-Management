@@ -58,6 +58,28 @@ public class UserDao {
         }
     }
 
+    public boolean updatePassword(User user) throws SQLException {
+        String query = "UPDATE account SET username = ?, password = ?, status = ?, firstname = ?, lastname = ?, role = ? WHERE userID = ?";
+        new DatabaseUtils();
+        try {
+            Connection connection = DatabaseUtils.connect();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user.getUserName());
+            String hashedPassword = PasswordHasher.hashPassword(user.getPassword());
+            preparedStatement.setString(2, hashedPassword);
+            preparedStatement.setBoolean(3, user.getStatus());
+            preparedStatement.setString(4, user.getFirstName());
+            preparedStatement.setString(5, user.getLastName());
+            preparedStatement.setString(6, user.getRole());
+            preparedStatement.setInt(7, user.getUserID());
+            int rowsAffected = preparedStatement.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     // get all users
     public List<User> getAllUsers() throws ClassNotFoundException, SQLException {
         String query = "SELECT * FROM account";

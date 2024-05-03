@@ -30,7 +30,7 @@ public class UpdateProfile extends javax.swing.JFrame {
                 FirstNameField.setText(user.getFirstName());
                 LastNameField.setText(user.getLastName());
                 UserNameField.setText(user.getUserName());
-                PasswordField.setText(user.getPassword());
+                PasswordField.setText(""); // user.getPassword()
                 RoleField.setText(user.getRole());
                 if (user.getStatus()) {
                     Active.setSelected(true);

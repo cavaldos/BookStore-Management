@@ -39,7 +39,9 @@ public class Profile extends javax.swing.JPanel {
                         FirstNameField.setText(currentUser.getFirstName());
                         LastNameField.setText(currentUser.getLastName());
                         UserNameField.setText(currentUser.getUserName());
-                        PasswordField.setText(currentUser.getPassword());
+                        // PasswordField.setText(currentUser.getPassword());
+                        PasswordField.setText("************"); // "************
+
                         StatusField.setText(currentUser.getStatus() ? "Active" : "Inactive");
                         RoleField.setText(currentUser.getRole());
                 } catch (Exception e) {
