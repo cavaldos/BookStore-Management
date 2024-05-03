@@ -96,6 +96,8 @@ public class UpdateProfile extends javax.swing.JFrame {
         Role.setText("Role");
         Role.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        RoleField.setEditable(false);
+
         ID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         ID.setText("ID");
         ID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

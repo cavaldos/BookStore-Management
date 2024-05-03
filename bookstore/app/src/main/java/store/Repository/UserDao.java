@@ -7,7 +7,13 @@ import java.util.List;
 import store.utils.DatabaseUtils;
 import store.Model.User;
 
+// import  PasswordHasher
+import store.utils.PasswordHasher;
+
 public class UserDao {
+
+    //
+
     // add user
     public void addUser(User user) throws SQLException {
         String query = "INSERT INTO account ( username, password, status, firstname, lastname, role) VALUES (?,?,?,?,?,?)";
@@ -17,7 +23,8 @@ public class UserDao {
             Connection connection = DatabaseUtils.connect();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, user.getUserName());
-            preparedStatement.setString(2, user.getPassword());
+            String hashedPassword = PasswordHasher.hashPassword(user.getPassword());
+            preparedStatement.setString(2, hashedPassword);
             preparedStatement.setBoolean(3, true);
             preparedStatement.setString(4, user.getFirstName());
             preparedStatement.setString(5, user.getLastName());
@@ -25,6 +32,29 @@ public class UserDao {
             preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
+        }
+    }
+
+    // update user
+    public boolean updateUser(User user) throws SQLException {
+        String query = "UPDATE account SET username = ?, password = ?, status = ?, firstname = ?, lastname = ?, role = ? WHERE userID = ?";
+        new DatabaseUtils();
+        try {
+            Connection connection = DatabaseUtils.connect();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, user.getUserName());
+            String hashedPassword = PasswordHasher.hashPassword(user.getPassword());
+            preparedStatement.setString(2, hashedPassword);
+            preparedStatement.setBoolean(3, user.getStatus());
+            preparedStatement.setString(4, user.getFirstName());
+            preparedStatement.setString(5, user.getLastName());
+            preparedStatement.setString(6, user.getRole());
+            preparedStatement.setInt(7, user.getUserID());
+            int rowsAffected = preparedStatement.executeUpdate();
+            return rowsAffected > 0;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return false;
         }
     }
 
@@ -63,28 +93,6 @@ public class UserDao {
             Connection connection = DatabaseUtils.connect();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, userID);
-            int rowsAffected = preparedStatement.executeUpdate();
-            return rowsAffected > 0;
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    // update user
-    public boolean updateUser(User user) throws SQLException {
-        String query = "UPDATE account SET username = ?, password = ?, status = ?, firstname = ?, lastname = ?, role = ? WHERE userID = ?";
-        new DatabaseUtils();
-        try {
-            Connection connection = DatabaseUtils.connect();
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, user.getUserName());
-            preparedStatement.setString(2, user.getPassword());
-            preparedStatement.setBoolean(3, user.getStatus());
-            preparedStatement.setString(4, user.getFirstName());
-            preparedStatement.setString(5, user.getLastName());
-            preparedStatement.setString(6, user.getRole());
-            preparedStatement.setInt(7, user.getUserID());
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;
         } catch (SQLException | ClassNotFoundException e) {

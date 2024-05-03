@@ -1,3 +1,6 @@
+
+package store.utils;
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -28,16 +31,16 @@ public class PasswordHasher {
         String newHash = hashPassword(password);
         return newHash.equals(hashedPassword);
     }
-
-    public static void main(String[] args) {
-        String password = "mypassword";
-        String hashedPassword = hashPassword(password);
-        System.out.println("Hashed Password: " + hashedPassword);
-
-        boolean verified = verifyPassword("mypassword", hashedPassword);
-        System.out.println("Password verified: " + verified);
-
-        verified = verifyPassword("wrongpassword", hashedPassword);
-        System.out.println("Password verified: " + verified);
-    }
 }
+
+    // public static void main(String[] args) {
+    // String password = "mypassword";
+    // String hashedPassword = hashPassword(password);
+    // System.out.println("Hashed Password: " + hashedPassword);
+
+    // boolean verified = verifyPassword("mypassword", hashedPassword);
+    // System.out.println("Password verified: " + verified);
+
+    // verified = verifyPassword("wrongpassword", hashedPassword);
+    // System.out.println("Password verified: " + verified);
+    // }
