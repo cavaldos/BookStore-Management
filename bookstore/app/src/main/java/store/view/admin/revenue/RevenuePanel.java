@@ -79,6 +79,7 @@ public class RevenuePanel extends javax.swing.JPanel {
                     fetchDateCategoryData();
                     fetchDateCustomerData();
                     fetchDateEmployeeData();
+<<<<<<< HEAD
 
 // Lấy kích thước nhỏ nhất giữa các danh sách
                     int loopSize1 = Math.min(Math.min(dateTimeList.size(), ListCateDate.size()),
@@ -103,12 +104,26 @@ public class RevenuePanel extends javax.swing.JPanel {
                         }
                     }
 
+=======
+                    for (int i = dateTimeList.size() - 1; i >= 0; i--) {
+                        String NameCate = (String) CateBox.getSelectedItem();
+                        ModelCategoryData categoryData = ListCateDate.get(i);
+                        if (categoryData.getNameCate().equals(NameCate)) {
+                            chart.clear();
+                            chart.addData(new ModelChart("test", new double[] { 200, 100, 50, 234 }));
+                            chart.addData(new ModelChart(dateTimeList.get(i), new double[] { dateBookList.get(i),
+                                    categoryData.getRevenueCate(), dateCustomerList.get(i), dateEmployeeList.get(i) }));
+                            chart.start();
+                        }
+                    }
+>>>>>>> 003723d4e5dcfdb5fe939d71bf6b3169a38c915c
                     break;
                 case "Week":
                     fetchWeekBookData();
                     fetchWeekCategoryData();
                     fetchWeekCustomerData();
                     fetchWeekEmployeeData();
+<<<<<<< HEAD
                     // Lấy kích thước nhỏ nhất giữa các danh sách
                     int loopSize2 = Math.min(Math.min(weekTimeList.size(), ListCateWeek.size()),
                             Math.min(weekBookList.size(), Math.min(weekCustomerList.size(), weekEmployeeList.size())));
@@ -132,12 +147,26 @@ public class RevenuePanel extends javax.swing.JPanel {
                         }
                     }
 
+=======
+                    for (int i = dateTimeList.size() - 1; i >= 0; i--) {
+                        String NameCate = (String) CateBox.getSelectedItem();
+                        ModelCategoryData categoryData = ListCateWeek.get(i);
+                        if (categoryData.getNameCate().equals(NameCate)) {
+                            chart.clear();
+                            chart.addData(new ModelChart("test", new double[] { 200, 100, 50, 234 }));
+                            chart.addData(new ModelChart(weekTimeList.get(i), new double[] { weekBookList.get(i),
+                                    categoryData.getRevenueCate(), weekCustomerList.get(i), weekEmployeeList.get(i) }));
+                            chart.start();
+                        }
+                    }
+>>>>>>> 003723d4e5dcfdb5fe939d71bf6b3169a38c915c
                     break;
                 case "Month":
                     fetchMonthBookData();
                     fetchMonthCategoryData();
                     fetchMonthCustomerData();
                     fetchMonthEmployeeData();
+<<<<<<< HEAD
                     // Lấy kích thước nhỏ nhất giữa các danh sách
                     int loopSize3 = Math.min(Math.min(monthTimeList.size(), ListCateMonth.size()),
                             Math.min(monthBookList.size(), Math.min(monthCustomerList.size(), monthEmployeeList.size())));
@@ -162,6 +191,20 @@ public class RevenuePanel extends javax.swing.JPanel {
                         }
                     }
 
+=======
+                    for (int i = dateTimeList.size() - 1; i >= 0; i--) {
+                        String NameCate = (String) CateBox.getSelectedItem();
+                        ModelCategoryData categoryData = ListCateMonth.get(i);
+                        if (categoryData.getNameCate().equals(NameCate)) {
+                            chart.clear();
+                            chart.addData(new ModelChart("test", new double[] { 200, 100, 50, 234 }));
+                            chart.addData(new ModelChart(monthTimeList.get(i),
+                                    new double[] { monthBookList.get(i), categoryData.getRevenueCate(),
+                                            monthCustomerList.get(i), monthEmployeeList.get(i) }));
+                            chart.start();
+                        }
+                    }
+>>>>>>> 003723d4e5dcfdb5fe939d71bf6b3169a38c915c
                     break;
                 default:
                     throw new IllegalArgumentException("Invalid time period specified");

@@ -13,9 +13,15 @@ public class DatabaseUtils {
     private static String password;
 
     public DatabaseUtils() {
+<<<<<<< HEAD
         this.url = "jdbc:mysql://localhost:8000/bookstore";
         this.user = "root";
         this.password = "Ph0925789781";
+=======
+        this.url = "jdbc:mysql://localhost:3306/book_store";
+        this.user = "root";
+        this.password = "ThanhLuc2911?";
+>>>>>>> 003723d4e5dcfdb5fe939d71bf6b3169a38c915c
     }
 
     public DatabaseUtils(String url, String user, String password) {
@@ -33,7 +39,11 @@ public class DatabaseUtils {
 
         // Chọn cơ sở dữ liệu
         try (Statement statement = connection.createStatement()) {
+<<<<<<< HEAD
             statement.execute("USE bookstore;");
+=======
+            statement.execute("USE book_store;");
+>>>>>>> 003723d4e5dcfdb5fe939d71bf6b3169a38c915c
         }
 
         return connection;
