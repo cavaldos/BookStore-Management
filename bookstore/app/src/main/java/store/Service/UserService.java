@@ -29,7 +29,13 @@ public class UserService {
     }
 
     public void updateUser(User user) throws SQLException {
-        userDao.updateUser(user);
+        if (user.getPassword() == null || user.getPassword().isEmpty()) {
+            // khong nhap gi ca
+            userDao.updateUser(user);
+        } else {
+            // co nhap
+            userDao.updatePassword(user);
+        }
     }
 
     public User getUser(String username) throws SQLException {

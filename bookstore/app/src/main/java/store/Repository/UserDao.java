@@ -37,19 +37,17 @@ public class UserDao {
 
     // update user
     public boolean updateUser(User user) throws SQLException {
-        String query = "UPDATE account SET username = ?, password = ?, status = ?, firstname = ?, lastname = ?, role = ? WHERE userID = ?";
+        String query = "UPDATE account SET username = ?, status = ?, firstname = ?, lastname = ?, role = ? WHERE userID = ?";
         new DatabaseUtils();
         try {
             Connection connection = DatabaseUtils.connect();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, user.getUserName());
-            String hashedPassword = PasswordHasher.hashPassword(user.getPassword());
-            preparedStatement.setString(2, hashedPassword);
-            preparedStatement.setBoolean(3, user.getStatus());
-            preparedStatement.setString(4, user.getFirstName());
-            preparedStatement.setString(5, user.getLastName());
-            preparedStatement.setString(6, user.getRole());
-            preparedStatement.setInt(7, user.getUserID());
+            preparedStatement.setBoolean(2, user.getStatus());
+            preparedStatement.setString(3, user.getFirstName());
+            preparedStatement.setString(4, user.getLastName());
+            preparedStatement.setString(5, user.getRole());
+            preparedStatement.setInt(6, user.getUserID());
             int rowsAffected = preparedStatement.executeUpdate();
             return rowsAffected > 0;
         } catch (SQLException | ClassNotFoundException e) {
