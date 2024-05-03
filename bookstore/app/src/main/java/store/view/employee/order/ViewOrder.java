@@ -131,7 +131,7 @@ public class ViewOrder extends javax.swing.JPanel {
                         { null, null, null, null, null, null, null }
                 },
                 new String[] {
-                        "ID Order", "Date", "Phone Number", "Employee", "Total", "Discount", "Status"
+                        "ID Order", "Date", "Username", "Employee", "Total", "Discount", "Status"
                 }) {
             Class[] types = new Class[] {
                     java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class,
