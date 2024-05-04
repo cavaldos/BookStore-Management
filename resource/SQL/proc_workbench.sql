@@ -1,3 +1,4 @@
+DELIMITER $$
 
 CREATE PROCEDURE AddBook(
     IN bookTitle VARCHAR(255), 
@@ -52,11 +53,12 @@ BEGIN
         SELECT 'Book title already exists' AS ErrorMessage;
 
     END IF;
-END;
-
+END$$
+DELIMITER ;
 
 ---
 
+DELIMITER $$
 CREATE PROCEDURE UpdateBook(
     IN p_bookID BIGINT,
     IN p_bookTitle VARCHAR(255), 
@@ -105,9 +107,10 @@ BEGIN
     WHERE bookID = p_bookID;
 
     -- Optionally, you could add logic here to return a success message or handle any errors.
-END;
+END$$
+DELIMITER ;
 
-
+DELIMITER $$
 CREATE PROCEDURE `create_order`(
     IN _customerID BIGINT,
     IN _employeeID BIGINT,
@@ -145,10 +148,11 @@ BEGIN
     END IF;
 
     DELETE FROM order_detail_catche;
-END;
+END$$
+DELIMITER ;
 
 
-
+DELIMITER $$
 CREATE PROCEDURE CreateSheet(
     IN employeeID_value BIGINT
 )
@@ -173,10 +177,12 @@ BEGIN
     UPDATE imported_books
     SET sheetID = newSheetID
     WHERE sheetID IS NULL;
-END;
+END$$
+DELIMITER ;
 
 
 
+DELIMITER $$
 CREATE PROCEDURE AddBookSheet(
     IN bookTitle VARCHAR(255), 
     IN bookPrice DOUBLE, 
@@ -238,8 +244,8 @@ BEGIN
 
     -- Chèn dữ liệu vào imported_books
     INSERT INTO imported_books (bookID, quantity, sheetID) VALUES (existingBookID, bookVolume, NULL);
-    
-END;
+END$$
+DELIMITER ;
 
 
 

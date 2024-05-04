@@ -14,6 +14,7 @@ import javax.swing.SwingUtilities;
 
 public class ListMenu<E extends Object> extends JList<E> {
 
+    @SuppressWarnings("rawtypes")
     private final DefaultListModel model;
     private int selectedIndex = -1;
     private int overIndex = -1;
