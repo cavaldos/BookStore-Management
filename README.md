@@ -1,1 +1,1 @@
-# bookstore
+# bookstores
