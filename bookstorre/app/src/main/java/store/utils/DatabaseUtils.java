@@ -15,7 +15,7 @@ public class DatabaseUtils {
     public DatabaseUtils() {
         this.url = "jdbc:mysql://localhost:3306/book_store";
         this.user = "root";
-        this.password = "ThanhLuc2911?";
+        this.password = "123456";
     }
 
     public DatabaseUtils(String url, String user, String password) {
