@@ -36,10 +36,34 @@ public class Card extends javax.swing.JPanel {
         color2 = Color.decode("#D5F9EC");
     }
 
+    // public void setData(Book data) {
+    //     lbBookName.setText(data.getTitle());
+    //     lbAuthor.setText(data.getAuthor());
+    //     lbPrice.setText(String.valueOf(data.getPrice()));
+    // }
+
     public void setData(Book data) {
-        lbBookName.setText(data.getTitle());
-        lbAuthor.setText(data.getAuthor());
-        lbPrice.setText(String.valueOf(data.getPrice()));
+        if (data != null) {
+            if (data.getTitle() != null) {
+                lbBookName.setText(data.getTitle());
+            } else {
+                lbBookName.setText("Title not available");
+            }
+
+            if (data.getAuthor() != null) {
+                lbAuthor.setText(data.getAuthor());
+            } else {
+                lbAuthor.setText("Author not available");
+            }
+
+            // Assuming getPrice() returns a primitive double, it can't be null,
+            // but data being null would prevent us from reaching this point safely.
+            lbPrice.setText(String.format("%.2f", data.getPrice()));
+        } else {
+            lbBookName.setText("No data available");
+            lbAuthor.setText("No data available");
+            lbPrice.setText("N/A");
+        }
     }
 
     @SuppressWarnings("unchecked")
