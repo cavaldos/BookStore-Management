@@ -21,18 +21,18 @@ public class ViewOrder extends javax.swing.JPanel {
     private JDateChooser dateChooser;
 
     public ViewOrder() {
-        this.orderService = new OrderService();
-        initComponents();
-        spTable.setVerticalScrollBar(new ScrollBar());
-        spTable.getVerticalScrollBar().setBackground(Color.WHITE);
-        spTable.getViewport().setBackground(Color.WHITE);
-        JPanel p = new JPanel();
-        p.setBackground(Color.WHITE);
-        spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
-        showTable();
-        this.dateChooser = new JDateChooser();
-        this.dateChooser.setBounds(700, 40, 200, 30);
-        add(this.dateChooser);
+            this.orderService = new OrderService();
+            initComponents();
+            spTable.setVerticalScrollBar(new ScrollBar());
+            spTable.getVerticalScrollBar().setBackground(Color.WHITE);
+            spTable.getViewport().setBackground(Color.WHITE);
+            JPanel p = new JPanel();
+            p.setBackground(Color.WHITE);
+            spTable.setCorner(JScrollPane.UPPER_RIGHT_CORNER, p);
+            showTable();
+            this.dateChooser = new JDateChooser();
+            this.dateChooser.setBounds(700, 40, 200, 30);
+            add(this.dateChooser);
     }
 
     public void searchOrderByDate(Date date) {
@@ -40,22 +40,22 @@ public class ViewOrder extends javax.swing.JPanel {
         String formattedDate = dateFormat.format(date); // Format ngày đã chọn
 
         try {
-            DefaultTableModel model = (DefaultTableModel) TableOrder.getModel();
-            model.setRowCount(0);
-            for (Order order : orderService.getAllOrders()) {
-                String orderDate = dateFormat.format(order.getDate());
-                if (orderDate.equals(formattedDate)) {
-                    model.addRow(new Object[] {
-                            order.getOrderID(),
-                            order.getDate(),
-                            order.getCustomer(),
-                            order.getEmployee(),
-                            order.getTotalCost(),
-                            order.getDiscount(),
-                            order.getStatus() ? "Active" : "Inactive"
-                    });
+                DefaultTableModel model = (DefaultTableModel) TableOrder.getModel();
+                model.setRowCount(0);
+                for (Order order : orderService.getAllOrders()) {
+                    String orderDate = dateFormat.format(order.getDate());
+                    if (orderDate.equals(formattedDate)) {
+                        model.addRow(new Object[] {
+                                order.getOrderID(),
+                                order.getDate(),
+                                order.getCustomer(),
+                                order.getEmployee(),
+                                order.getTotalCost(),
+                                order.getDiscount(),
+                                order.getStatus() ? "Active" : "Inactive"
+                        });
+                    }
                 }
-            }
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error in searching orders by date.", "Error",
