@@ -31,13 +31,22 @@
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Password" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                  <Component id="LastName" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                  <Component id="UserName" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                  <Component id="Role" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
-                  <Component id="FirstName" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="LastName" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Component id="FirstName" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Component id="UserName" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Role" alignment="0" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Component id="Password" min="-2" pref="95" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -98,7 +107,7 @@
     <Component class="javax.swing.JLabel" name="LastName">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value="LastName"/>
+        <Property name="text" type="java.lang.String" value="Last Name"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
             <LineBorder/>
